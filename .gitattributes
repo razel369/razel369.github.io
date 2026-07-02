@@ -1,0 +1,2 @@
+# Force LF line endings everywhere (no CRLF) - prevents Windows CRLF slowdown on Pages build
+* text=auto eol=lf
