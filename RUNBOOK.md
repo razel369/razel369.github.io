@@ -21,53 +21,45 @@ Right now, every affiliate link in articles has `href="#"` (purple buttons, neve
 
 ---
 
-## One-time setup for the user (5 minutes)
+## One-time setup for the user (3 signups, ~20 minutes — replaces 10+ individual program approvals)
 
-### 1. Sign up for affiliate programs
+The site's monetization is routed through affiliate **networks**, not individual programs. One signup per network covers dozens of programs. The full step-by-step is at **https://razel369.github.io/setup.html**.
 
-Recommended order (fastest approval to longest, all from `/disclosure.html`):
+### Required: 3 signups
 
-| Program | Approve time | Commission | Link |
+| # | Network / program | Approve time | Commissions unlocked |
 |---|---|---|---|
-| Systeme.io | Hours | 40-60% lifetime | https://systeme.io/affiliate |
-| Writesonic | 1-3 days | 20-30% recurring | https://writesonic.com/affiliate |
-| Notion | 1-3 days | 50% Y1 | https://www.notion.com/affiliates |
-| beehiiv | 1-7 days | 50% recurring | https://www.beehiiv.com/affiliates |
-| Jasper | 1-7 days | 25-30% recurring | https://jasper.ai/affiliates |
-| ConvertKit | 1-7 days | 30% recurring 24mo | https://kit.com/affiliates |
-| GoHighLevel | 3-14 days | 40% lifetime | https://www.gohighlevel.com/affiliates |
-| Canva | 3-14 days | varies | https://www.canva.com/affiliates |
-| Zapier | 3-14 days | 25%/6% | https://zapier.com/affiliates |
+| 1 | **PartnerStack** (partnerstack.com/onboarding) | 1-3 days for network + per program | Notion (50% Y1), beehiiv (50% recurring), Jasper (25-30%), Webflow (50%), Pipedrive (33%) |
+| 2 | **Skimlinks** (signup.skimlinks.com, no KYC until payout) | Self-serve, ~5 min | Auto-monetizes links to 60+ SaaS tools incl Canva, ConvertKit, HubSpot, Zapier |
+| 3 | **Systeme.io** (systeme.io/affiliate) | Instant | 40-60% lifetime recurring (highest-paying program on the site) |
 
-### 2. Paste your affiliate links into `affiliates.json`
+### Optional: 2 more signups for higher revenue
 
-```json
-{
-  "notion": { "href": "https://notion.so/affiliate/your-id", ... }
-}
-```
+| # | Network | Approve time | Unlocks |
+|---|---|---|---|
+| 4 | **Impact** (impact.com/partners) | 2-7 days | Canva, ConvertKit (more reliably), HubSpot, Semrush, ActiveCampaign — useful if Skimlinks coverage ever changes |
+| 5 | **GoHighLevel** direct | 3-14 days | 40% lifetime on $97-$497/mo plans |
 
-Replace `#` with your real link. **Commit and push.** Every article updates itself on next page load (script auto-runs in browser).
+### After signing up
 
-```bash
-cd "C:\Users\rmalk\projects\razel369.github.io"
-# edit affiliates.json, then:
-git add affiliates.json
-git -c user.email="agent@smbaistack.local" -c user.name="SMB AI Stack Agent" commit -m "affiliate links configured"
-git push
-```
+Open `C:\Users\rmalk\projects\razel369.github.io\affiliates.json` and fill in either:
 
-GitHub Pages will rebuild in 30-90 seconds.
+- `networks.partnerstack.<program>.href` — for each program in PartnerStack you get approved to
+- `networks.skimlinks.publisher_id` — your Skimlinks Publisher ID
+- `networks.impact.<program>.href` — for each program in Impact
+- `direct_programs.<program>.href` — for direct programs
 
-### 3. (Optional, 30 sec) Set up Dev.to cross-posting
+Commit + push. GitHub Pages rebuilds in 30-90s. Every article on the site lights up automatically.
+
+### Optional: Dev.to cross-posting (1-time setup, fully automated after)
 
 1. Get a free API key from https://dev.to/settings/extensions
-2. (PowerShell) `$env:DEVTO_API_KEY="your-key"`
-3. Run `python publish_devto.py` — all 10 articles are cross-posted with canonical URLs back to your GitHub Pages (no duplicate SEO penalty).
+2. (PowerShell) `$env:DEVTO_API_KEY="your-key"` — or `setx DEVTO_API_KEY "your-key"` to persist
+3. `python publish_devto.py` — cross-posts all articles with canonical URL pointing back to razel369.github.io
 
-### 4. (Optional, 15 minutes) Manually post the V2EX drafts
+### Optional: V2EX distribution (5 min/week)
 
-V2EX has no public write API. Run `python v2ex_bodies.py` to generate 10 ready-to-paste Chinese-language posts in `./v2ex_output/*.txt`. Open v2ex.com, paste title + body into a new thread, submit.
+V2EX has no public write API. Run `python v2ex_bodies.py` to generate 10 ready-to-paste Chinese-language posts in `./v2ex_output/*.txt`. Open v2ex.com, paste title + body into a new thread, submit. One draft per week is the steady rhythm that doesn't trip spam filters.
 
 ---
 

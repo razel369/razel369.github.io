@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="One-page setup checklist to monetize the SMB AI Stack site with 3 signups (instead of 10).">
+<meta name="robots" content="noindex, follow">
+<title>Setup checklist — SMB AI Stack</title>
+<link rel="canonical" href="https://razel369.github.io/setup.html">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a class="site-brand" href="/">SMB AI Stack</a>
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+<h1>Monetize the site in 20 minutes (3 signups)</h1>
+<p class="article-meta">Last updated: July 2, 2026</p>
+
+<p>SMB AI Stack runs automated content + distribution + SEO. The only human work is signing up to affiliate networks (KYC + tax forms are legally required; cannot be automated). But with this 3-step checklist, you sign up once to each network instead of once to each of 10+ programs.</p>
+
+<div class="cta-box">
+<h3>How this works</h3>
+<p>Affiliate <strong>networks</strong> (PartnerStack, Impact, Skimlinks) hold pre-negotiated relationships with hundreds of SaaS tools. When you sign up to a network, your approval covers every program in that network's catalog. We structured the site so your network signups instantly monetize ~10 specific programs plus any link to a known retailer. <strong>Signups 10 → 3.</strong></p>
+</div>
+
+<h2>Step 1 — Sign up to PartnerStack (5–10 minutes)</h2>
+<p>PartnerStack covers <strong>Notion (50% Y1), beehiiv (50% recurring), Jasper (25-30% recurring), Webflow (50% recurring), Pipedrive (33% recurring)</strong>. One approval, five programs unlocked.</p>
+<ol>
+<li>Open <a href="https://www.partnerstack.com/onboarding" class="btn">https://www.partnerstack.com/onboarding</a></li>
+<li>Create your partner account (email + password).</li>
+<li>Click "Apply to the Network" and fill the short profile (niche = AI tools / small business, audience = early-stage SMB owners).</li>
+<li>Once approved, browse the Marketplace and join each program: Notion, beehiiv, Jasper, Webflow, Pipedrive.</li>
+<li>For each joined program, copy the unique referral link into <code>affiliates.json</code> under <code>network_programs</code>.</li>
+</ol>
+
+<h2>Step 2 — Sign up to Skimlinks (5 minutes)</h2>
+<p>Skimlinks is a self-serve link auto-monetizer. After you drop their JavaScript once, every link on the site to a known SaaS company becomes an affiliate link automatically — no per-program signup needed.</p>
+<ol>
+<li>Open <a href="https://signup.skimlinks.com" class="btn">https://signup.skimlinks.com</a></li>
+<li>Sign up as a publisher. After approval, open <strong>Publisher Hub → Install</strong>.</li>
+<li>Copy your unique <strong>Publisher ID</strong>.</li>
+<li>Open <code>affiliates.json</code> on this site and paste it into <code>networks.skimlinks.publisher_id</code>.</li>
+<li>The script auto-loads on next page view. Any link to a SaaS tool in Skimlinks' catalog (Canva, ConvertKit, HubSpot, Semrush, Zapier, 60+ more) becomes monetized at click-time.</li>
+</ol>
+<p><strong>Why this is the closest thing to "fully automated":</strong> the agents writes articles that mention tools by name. The articles don't need a unique per-tool affiliate link baked in. Skimlinks catches every outbound link at runtime, even if the agent just writes <code>&lt;a href="https://notion.so"&gt;</code>. This decouples content production from affiliate config.</p>
+
+<h2>Step 3 — Sign up to Systeme.io (2 minutes)</h2>
+<p>Systeme.io pays the highest commissions on the site (40-60% lifetime). It is not in either network. Sign up directly — approval is instant.</p>
+<ol>
+<li>Open <a href="https://systeme.io/affiliate" class="btn">https://systeme.io/affiliate</a></li>
+<li>Sign up with email. Affiliate dashboard opens immediately.</li>
+<li>Copy your referral link into <code>affiliates.json</code> under <code>direct_programs.systeme.href</code>.</li>
+</ol>
+
+<h2>That's it — total 20 minutes one-time</h2>
+<p>Once the three values above are set, every article on the site is monetized. New articles I publish automatically inherit the same wiring. You never need to touch code or sign up for individual programs again.</p>
+
+<div class="cta-box">
+<h3>Optional — adds 1–2 more signups but higher revenue</h3>
+<ul>
+<li><strong>Impact</strong> (~10 min): covers Canva, ConvertKit, HubSpot, Semrush formally. Useful if Skimlinks coverage ever changes.</li>
+<li><strong>GoHighLevel</strong> (5 min approval): 40% lifetime on $97-497/mo plans. Approval usually &lt; 14 days.</li>
+<li><strong>Writesonic</strong> (instant): direct signup if you want to bypass PartnerStack's per-program approval.</li>
+<li><strong>Hostinger</strong> (instant, 60% per sale): for the "best hosting for" articles we will add later in the year.</li>
+</ul>
+</div>
+
+<h2>How the site stays 100% automated after this</h2>
+<ul>
+<li>Agent writes new articles every few days targeting fresh buyer-intent keywords.</li>
+<li>Articles render to <code>/articles/&lt;slug&gt;.html</code> via <code>add_content.ps1</code>.</li>
+<li>Every <code>data-aff="slug"</code> button auto-resolves at page-load time via <code>affiliates.js</code>.</li>
+<li>Any link the agent writes to a SaaS company not yet wired manually gets auto-monetized by Skimlinks.</li>
+<li>Dev.to cross-posting runs on demand (<code>python publish_devto.py</code>).</li>
+<li>V2EX drafts queue in <code>v2ex_output/</code> — user pastes when prompted (5 min/week).</li>
+</ul>
+
+<p>For the full plan, see <a href="RUNBOOK.md">RUNBOOK.md</a> in the repo or <a href="/about.html">/about.html</a>.</p>
+
+</main>
+
+<footer class="footer">
+  <div class="container">SMB AI Stack · <a href="/disclosure.html">Affiliate disclosure</a> · <a href="/about.html">About</a></div>
+</footer>
+
+<script src="affiliates.js"></script>
+</body>
+</html>
