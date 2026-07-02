@@ -1,0 +1,82 @@
+{
+  "_instructions": "Replace each 'href' value below with your own affiliate link. After you save, every article on this site automatically uses your links.",
+  "_how_to_get_links": "Sign up at the 'signup' URL, then find your unique affiliate link in the partner dashboard. Paste it over the 'href' value.",
+  "notion": {
+    "name": "Notion",
+    "href": "#",
+    "signup": "https://www.notion.com/affiliates",
+    "commission": "50% on year one"
+  },
+  "beehiiv": {
+    "name": "beehiiv",
+    "href": "#",
+    "signup": "https://www.beehiiv.com/affiliates",
+    "commission": "50% recurring"
+  },
+  "jasper": {
+    "name": "Jasper",
+    "href": "#",
+    "signup": "https://jasper.ai/affiliates",
+    "commission": "25-30% recurring"
+  },
+  "writesonic": {
+    "name": "Writesonic",
+    "href": "#",
+    "signup": "https://writesonic.com/affiliate",
+    "commission": "20-30% recurring"
+  },
+  "systeme": {
+    "name": "Systeme.io",
+    "href": "#",
+    "signup": "https://systeme.io/affiliate",
+    "commission": "40-60% lifetime"
+  },
+  "convertkit": {
+    "name": "ConvertKit (Kit)",
+    "href": "#",
+    "signup": "https://kit.com/affiliates",
+    "commission": "30% recurring 24mo"
+  },
+  "gohighlevel": {
+    "name": "GoHighLevel",
+    "href": "#",
+    "signup": "https://www.gohighlevel.com/affiliates",
+    "commission": "40% lifetime"
+  },
+  "webflow": {
+    "name": "Webflow",
+    "href": "#",
+    "signup": "https://webflow.com/affiliates",
+    "commission": "50% recurring"
+  },
+  "semrush": {
+    "name": "Semrush",
+    "href": "#",
+    "signup": "https://www.semrush.com/affiliates/",
+    "commission": "$200/sale + bonuses"
+  },
+  "hubspot": {
+    "name": "HubSpot",
+    "href": "#",
+    "signup": "https://www.hubspot.com/affiliates",
+    "commission": "30% recurring"
+  },
+  "zapier": {
+    "name": "Zapier",
+    "href": "#",
+    "signup": "https://zapier.com/affiliates",
+    "commission": "25% first month, then 6% recurring"
+  },
+  "canva": {
+    "name": "Canva",
+    "href": "#",
+    "signup": "https://www.canva.com/affiliates",
+    "commission": "varies"
+  },
+  "hostinger": {
+    "name": "Hostinger",
+    "href": "#",
+    "signup": "https://www.hostinger.com/affiliates",
+    "commission": "60% per sale"
+  }
+}

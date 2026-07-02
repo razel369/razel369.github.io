@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="How to automate your small business with AI agents and Zapier in 2026. 5 production-grade automations you can build in an afternoon with exact prompts.">
+<meta name="keywords" content="automate small business with AI, Zapier AI agents, small business automation 2026, no-code AI automation">
+<meta name="robots" content="index, follow">
+<title>How to Automate Your Small Business With AI (Zapier + AI Agents, 2026)</title>
+<link rel="canonical" href="https://razel369.github.io/articles/how-to-automate-small-business-with-ai-zapier.html">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232563eb'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='32' font-weight='bold' fill='white' text-anchor='middle'%3EAi%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="site-header"><div class="container"><a class="site-brand" href="/">SMB AI Stack</a><nav class="site-nav"><a href="/">Home</a><a href="/about.html">About</a><a href="/disclosure.html">Disclosure</a></nav></div></header>
+<main class="container">
+<div class="disclosure-banner"><strong>Disclosure:</strong> This article contains affiliate links. <a href="/disclosure.html">Read full disclosure →</a></div>
+
+<h1>How to Automate Your Small Business With AI (Zapier + AI Agents, 2026)</h1>
+<p class="article-meta">Last updated: July 2, 2026</p>
+
+<p>AI agents changed what "automate" means. The 2024 version: "send this email when this form is filled." The 2026 version: "research this lead, draft a personalized email, schedule a meeting, then notify me on Slack." Same Zapier; new AI block. Here are 5 automations a 1-5 person team can build today, with the exact prompts we use.</p>
+
+<h2>What you need</h2>
+<p>Zapier Starter ($19.99/mo, 750 tasks/mo) + a Claude or OpenAI API key. Skip this if you have less than 5 distinct repetitive tasks per week. If you do, this is your fastest ROI AI deployment.</p>
+
+<div class="cta-box">
+  <p><a data-aff="zapier" href="#" class="btn-affiliate btn">Start a Zapier free trial →</a></p>
+</div>
+
+<h2>Automation 1: Lead triage from a contact form</h2>
+<p><strong>Trigger:</strong> New submission in Typeform / Webflow / Notion contact form. <strong>Steps:</strong> AI agent reads the submission, classifies it (lead / support / spam), assigns a priority (high / medium / low), drafts a reply, and posts the package to a designated Slack channel. <strong>Time saved:</strong> 10-15 minutes per lead, 20+ leads/week = 5 hours/week.</p>
+
+<p><strong>Exact prompt (system role):</strong></p>
+<pre><code>You are a lead-triage agent for a 1-person B2B SaaS agency. Read each contact form submission. Output a JSON object with: { "classification": "lead" | "support" | "spam", "priority": "high" | "medium" | "low", "reply": "&lt;150 word draft reply, friendly and specific&gt;", "summary": "&lt;one sentence&gt;" }.</code></pre>
+
+<h2>Automation 2: Personalized cold email from a lead list</h2>
+<p><strong>Trigger:</strong> Row added to a Google Sheet (your lead list). <strong>Steps:</strong> AI agent reads row, looks up the lead's company website + LinkedIn, drafts a 90-word personalized email referencing 1-2 specific facts about the lead, pushes draft to a Gmail "Drafts" folder (not Sent — human in the loop). <strong>Time saved:</strong> 8-12 minutes per lead. 50 leads/week = 6+ hours/week.</p>
+
+<h2>Automation 3: Lead → CRM enrichment → sequence</h2>
+<p><strong>Trigger:</strong> High-priority lead (from Automation 1). <strong>Steps:</strong> AI agent researches the lead's company size, industry, and recent news; enriches the contact in HubSpot / Pipedrive / Notion; tags the lead; enrolls them in a ConvertKit / beehiiv sequence. <strong>Time saved:</strong> 15-20 minutes per lead, fully hands-off.</p>
+
+<h2>Automation 4: Customer support inbox triage</h2>
+<p><strong>Trigger:</strong> New email matching "[email protected]". <strong>Steps:</strong> AI agent reads email, classifies (question / bug / refund / account / other), drafts a reply referencing the product docs in Notion (you can connect Notion as a knowledge source), and posts a summary to Slack. Replies go to DRAFTS, not Sent. Human reviews before sending. <strong>Time saved:</strong> 15-30 minutes/day.</p>
+
+<p><strong>Key safety:</strong> always send to a Drafts folder, never to Sent. AI support replies that go out without review will eventually cause a complaint. Reviews take 10 seconds per email; that's the right tax.</p>
+
+<h2>Automation 5: Content repurposing pipeline</h2>
+<p><strong>Trigger:</strong> New blog post published (RSS / WordPress / Notion webhook). <strong>Steps:</strong> AI agent reads post, generates (a) 5 LinkedIn post variants, (b) 5 X thread variations, (c) 3 Instagram caption variants, (d) an email newsletter version. Posts drafts to a "social queue" Notion database. You review and post manually. <strong>Time saved:</strong> 2-3 hours/week.</p>
+
+<h2>Common failure modes</h2>
+<ul>
+<li><strong>Hallucinated facts in personalized emails.</strong> Always verify the AI's claims about the lead before sending. The automation is fast; it's also forgetful.</li>
+<li><strong>Task usage spiking.</strong> Each agent run uses more tasks than a standard Zap. We started on the Starter tier and hit the cap by week 2. Plan for $49/mo or higher if you build 5 automations.</li>
+<li><strong>API key leakage.</strong> Use Zapier's built-in AI Actions for OpenAI/Claude rather than storing the API key in plain code. Cleaner audit trail.</li>
+</ul>
+
+<h2>How to start (today, 30 minutes)</h2>
+<ol>
+<li>Identify the one task that takes 5+ hours/week and is repetitive. That's your first automation.</li>
+<li>Open Zapier. Start with the AI Actions block.</li>
+<li>Wire 1 trigger + 1 AI step + 1 notification step. Skip the rest until step 3 works.</li>
+<li>Once it works, expand to a feedback loop: get the output, refine the prompt, re-test.</li>
+</ol>
+
+<p>This is the highest-leverage AI deployment for a small business in 2026 — bigger ROI than any writing or social tool. <a data-aff="zapier" href="#">Try Zapier free</a>.</p>
+
+<p>For the broader stack: <a href="best-ai-tools-for-small-business-2026.html">Best AI Tools for Small Business 2026</a>.</p>
+
+</main>
+<footer class="footer"><div class="container">SMB AI Stack · <a href="/disclosure.html">Affiliate disclosure</a> · <a href="/about.html">About</a></div></footer>
+<script src="../affiliates.js"></script>
+</body>
+</html>
