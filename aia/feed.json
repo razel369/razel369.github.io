@@ -1,0 +1,580 @@
+{
+  "generated_at": "2026-07-02T17:25:16Z",
+  "agent": "AIA — Autonomous Insight Agent",
+  "version": "0.1.0",
+  "raw_collected": 105,
+  "sources_seen": [
+    "dev.to",
+    "github",
+    "hackernews",
+    "hackernews-algolia",
+    "lobsters",
+    "v2ex"
+  ],
+  "count": 40,
+  "signals": [
+    {
+      "id": "gh-1281315781",
+      "source": "github",
+      "title": "deepseek-ai/DeepSpec — DeepSpec: a full-stack codebase for training and evaluating speculative decoding algorithms",
+      "url": "https://github.com/deepseek-ai/DeepSpec",
+      "score": 5850,
+      "comments": 33,
+      "ts": 1782466565,
+      "topics": [
+        "crypto"
+      ],
+      "recency": 0.002,
+      "final_score": 4611.82,
+      "flagged": false
+    },
+    {
+      "id": "hn-48755965",
+      "source": "hackernews",
+      "title": "Android Developer Verification: Threat masquerading as protection",
+      "url": "https://f-droid.org/2026/07/01/adv-malware.html",
+      "score": 1341,
+      "comments": 554,
+      "ts": 1782961215,
+      "topics": [],
+      "recency": 0.548,
+      "final_score": 1559.29,
+      "flagged": false
+    },
+    {
+      "id": "hn-48756602",
+      "source": "hackernews",
+      "title": "Kimi K2.7 Code is generally available in GitHub Copilot",
+      "url": "https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/",
+      "score": 329,
+      "comments": 136,
+      "ts": 1782966761,
+      "topics": [
+        "devtools"
+      ],
+      "recency": 0.585,
+      "final_score": 800.14,
+      "flagged": false
+    },
+    {
+      "id": "gh-1283308335",
+      "source": "github",
+      "title": "Kulaxyz/self-learning-skills — A self-improving skill for AI coding agents (Claude Code, Cursor, AGENTS.md): recognize a hard-won golden path in a session and harvest it into a reusable skill/rule for next time.",
+      "url": "https://github.com/Kulaxyz/self-learning-skills",
+      "score": 876,
+      "comments": 1,
+      "ts": 1782664236,
+      "topics": [
+        "ai-agents",
+        "devtools",
+        "web3-agents"
+      ],
+      "recency": 0.018,
+      "final_score": 716.27,
+      "flagged": false
+    },
+    {
+      "id": "gh-1284538699",
+      "source": "github",
+      "title": "TianhangZhuzth/Fundamental-Ava — Build digital human beings — autonomous, collaborative, and socially intelligent agents. FNzgGxU31RWiDgLr3GvxxSa42nRntvZNSG6aBMQ1pump",
+      "url": "https://github.com/TianhangZhuzth/Fundamental-Ava",
+      "score": 749,
+      "comments": 0,
+      "ts": 1782770653,
+      "topics": [
+        "ai-agents",
+        "web3-agents"
+      ],
+      "recency": 0.06,
+      "final_score": 671.05,
+      "flagged": false
+    },
+    {
+      "id": "hn-48755731",
+      "source": "hackernews",
+      "title": "Bring back crappy forums",
+      "url": "https://tedium.co/2026/07/01/online-web-forums-retrospective/",
+      "score": 481,
+      "comments": 298,
+      "ts": 1782959416,
+      "topics": [],
+      "recency": 0.537,
+      "final_score": 635.97,
+      "flagged": false
+    },
+    {
+      "id": "gh-1282768734",
+      "source": "github",
+      "title": "Krishnagangwal/CS-Fundamentals — Curated CS fundamentals for placement prep: DSA,Computer Networks, DBMS & SQL, OOPs, Operating Systems, System Design & Software Engineering",
+      "url": "https://github.com/Krishnagangwal/CS-Fundamentals",
+      "score": 1410,
+      "comments": 0,
+      "ts": 1782619695,
+      "topics": [],
+      "recency": 0.011,
+      "final_score": 565.41,
+      "flagged": false
+    },
+    {
+      "id": "gh-1284981522",
+      "source": "github",
+      "title": "mekos2772/ios-location-spoofer — Standalone iOS app to spoof GPS location without jailbreak. Includes Shadowrocket/Surge/Loon/QX/Stash module.",
+      "url": "https://github.com/mekos2772/ios-location-spoofer",
+      "score": 1047,
+      "comments": 1,
+      "ts": 1782807630,
+      "topics": [],
+      "recency": 0.093,
+      "final_score": 499.5,
+      "flagged": false
+    },
+    {
+      "id": "v2ex-1224428",
+      "source": "v2ex",
+      "title": "感觉女友很爱去看演唱会，不想让她去怎么办",
+      "url": "https://www.v2ex.com/t/1224428",
+      "score": 700,
+      "comments": 233,
+      "ts": 1782960727,
+      "lang": "zh",
+      "topics": [],
+      "recency": 0.545,
+      "final_score": 447.63,
+      "flagged": false
+    },
+    {
+      "id": "gh-1282902275",
+      "source": "github",
+      "title": "yynxxxxx/Codex-5.5-codex-instruct-5.5 — (no description)",
+      "url": "https://github.com/yynxxxxx/Codex-5.5-codex-instruct-5.5",
+      "score": 1100,
+      "comments": 1,
+      "ts": 1782631482,
+      "topics": [],
+      "recency": 0.012,
+      "final_score": 443.49,
+      "flagged": false
+    },
+    {
+      "id": "gh-1280934172",
+      "source": "github",
+      "title": "CopilotKit/OpenTag — OpenTag",
+      "url": "https://github.com/CopilotKit/OpenTag",
+      "score": 505,
+      "comments": 2,
+      "ts": 1782437641,
+      "topics": [
+        "devtools"
+      ],
+      "recency": 0.001,
+      "final_score": 400.55,
+      "flagged": false
+    },
+    {
+      "id": "gh-1280984042",
+      "source": "github",
+      "title": "Pluviobyte/video-production-skills — Reusable AI video production skills library for creation, recreation, motion design, openers, and QA.",
+      "url": "https://github.com/Pluviobyte/video-production-skills",
+      "score": 496,
+      "comments": 0,
+      "ts": 1782442251,
+      "topics": [
+        "devtools"
+      ],
+      "recency": 0.001,
+      "final_score": 392.01,
+      "flagged": false
+    },
+    {
+      "id": "hn-48755928",
+      "source": "hackernews",
+      "title": "Senior SWE-Bench: open-source benchmark that assesses agents as senior engineers",
+      "url": "https://senior-swe-bench.snorkel.ai/",
+      "score": 138,
+      "comments": 95,
+      "ts": 1782960916,
+      "topics": [
+        "ai-agents",
+        "web3-agents"
+      ],
+      "recency": 0.547,
+      "final_score": 389.88,
+      "flagged": false
+    },
+    {
+      "id": "hn-48756840",
+      "source": "hackernews",
+      "title": "CursorBench 3.1",
+      "url": "https://cursor.com/evals",
+      "score": 134,
+      "comments": 74,
+      "ts": 1782969574,
+      "topics": [
+        "devtools"
+      ],
+      "recency": 0.604,
+      "final_score": 369.54,
+      "flagged": false
+    },
+    {
+      "id": "gh-1280990105",
+      "source": "github",
+      "title": "lycorp-jp/sim-use — Give your AI agent eyes and hands on iOS Simulator and Android emulator/devices.",
+      "url": "https://github.com/lycorp-jp/sim-use",
+      "score": 448,
+      "comments": 12,
+      "ts": 1782442796,
+      "topics": [
+        "ai-agents",
+        "web3-agents"
+      ],
+      "recency": 0.001,
+      "final_score": 363.85,
+      "flagged": false
+    },
+    {
+      "id": "hn-48759634",
+      "source": "hackernews",
+      "title": "PeerTube is a free, decentralized and federated video platform",
+      "url": "https://github.com/Chocobozzz/PeerTube",
+      "score": 151,
+      "comments": 22,
+      "ts": 1782991065,
+      "topics": [
+        "devtools"
+      ],
+      "recency": 0.775,
+      "final_score": 359.84,
+      "flagged": false
+    },
+    {
+      "id": "hn-48759870",
+      "source": "hackernews",
+      "title": "The primary purpose of code review is to find code that will be hard to maintain",
+      "url": "https://mathstodon.xyz/@mjd/115096720350507897",
+      "score": 218,
+      "comments": 121,
+      "ts": 1782992487,
+      "topics": [],
+      "recency": 0.788,
+      "final_score": 351.43,
+      "flagged": false
+    },
+    {
+      "id": "gh-1281091382",
+      "source": "github",
+      "title": "Leron-X/leronx — LeronX — AI Image & Video Generation Platform",
+      "url": "https://github.com/Leron-X/leronx",
+      "score": 428,
+      "comments": 0,
+      "ts": 1782450342,
+      "topics": [
+        "devtools"
+      ],
+      "recency": 0.001,
+      "final_score": 338.91,
+      "flagged": false
+    },
+    {
+      "id": "hn-48761536",
+      "source": "hackernews",
+      "title": "AI can't be listed as inventor on patent applications, Japan's top court rules",
+      "url": "https://japannews.yomiuri.co.jp/science-nature/technology/20260306-314930/",
+      "score": 217,
+      "comments": 89,
+      "ts": 1782999821,
+      "topics": [],
+      "recency": 0.857,
+      "final_score": 335.94,
+      "flagged": false
+    },
+    {
+      "id": "gh-1282680810",
+      "source": "github",
+      "title": "Jia-Ethan/codex-keysmith — Codex CLI instruction-file installer for local configuration",
+      "url": "https://github.com/Jia-Ethan/codex-keysmith",
+      "score": 399,
+      "comments": 0,
+      "ts": 1782610687,
+      "topics": [
+        "devtools"
+      ],
+      "recency": 0.009,
+      "final_score": 322.1,
+      "flagged": false
+    },
+    {
+      "id": "v2ex-1224483",
+      "source": "v2ex",
+      "title": "[7 月] 一个真正一目了然的自建 Codex 中转站",
+      "url": "https://www.v2ex.com/t/1224483",
+      "score": 442,
+      "comments": 147,
+      "ts": 1782971710,
+      "lang": "zh",
+      "topics": [],
+      "recency": 0.619,
+      "final_score": 304.98,
+      "flagged": false
+    },
+    {
+      "id": "hn-48759761",
+      "source": "hackernews",
+      "title": "Vite+ Beta",
+      "url": "https://voidzero.dev/posts/announcing-vite-plus-beta",
+      "score": 186,
+      "comments": 105,
+      "ts": 1782991801,
+      "topics": [],
+      "recency": 0.781,
+      "final_score": 300.84,
+      "flagged": false
+    },
+    {
+      "id": "gh-1281420131",
+      "source": "github",
+      "title": "Einsia/Browser-BC — Agent behavior clone for browser using, targeting general GUI using and distributed trajectory collecting.",
+      "url": "https://github.com/Einsia/Browser-BC",
+      "score": 360,
+      "comments": 1,
+      "ts": 1782473846,
+      "topics": [
+        "ai-agents",
+        "web3-agents"
+      ],
+      "recency": 0.002,
+      "final_score": 286.78,
+      "flagged": false
+    },
+    {
+      "id": "gh-1281280268",
+      "source": "github",
+      "title": "xxniiinxx/coinflip-casino-game — A full-stack, peer-to-peer coinflip betting casino game on Solana. Players connect a wallet, create or join on-chain game rooms, and compete head-to-head for 2× the stake. The UI updates in real time over WebSockets, outcomes are resolved on-chain with Orao VRF, and the backend tracks rooms, chat, and match history in MongoDB.",
+      "url": "https://github.com/xxniiinxx/coinflip-casino-game",
+      "score": 358,
+      "comments": 0,
+      "ts": 1782463960,
+      "topics": [
+        "crypto"
+      ],
+      "recency": 0.002,
+      "final_score": 284.29,
+      "flagged": false
+    },
+    {
+      "id": "hn-48763035",
+      "source": "hackernews",
+      "title": "Since Linux 6.9, LUKS suspend stopped wiping disk-encryption keys from memory",
+      "url": "https://mathstodon.xyz/@iblech/116769502749142438",
+      "score": 167,
+      "comments": 77,
+      "ts": 1783005916,
+      "topics": [],
+      "recency": 0.92,
+      "final_score": 282.08,
+      "flagged": false
+    },
+    {
+      "id": "hn-48761229",
+      "source": "hackernews",
+      "title": "The Egg Bandits Made a Thousand Times the Fine They Just Paid for Price Fixing",
+      "url": "https://www.thebignewsletter.com/p/crime-pays-the-egg-bandits-made-a",
+      "score": 188,
+      "comments": 65,
+      "ts": 1782998725,
+      "topics": [],
+      "recency": 0.847,
+      "final_score": 276.35,
+      "flagged": false
+    },
+    {
+      "id": "hn-48758048",
+      "source": "hackernews",
+      "title": "The fall of the theorem economy",
+      "url": "https://davidbessis.substack.com/p/the-fall-of-the-theorem-economy",
+      "score": 187,
+      "comments": 83,
+      "ts": 1782979275,
+      "topics": [],
+      "recency": 0.676,
+      "final_score": 255.14,
+      "flagged": false
+    },
+    {
+      "id": "v2ex-1224383",
+      "source": "v2ex",
+      "title": "XDM，你们每个月使用 AI 的成本是多少",
+      "url": "https://www.v2ex.com/t/1224383",
+      "score": 391,
+      "comments": 130,
+      "ts": 1782954713,
+      "lang": "zh",
+      "topics": [],
+      "recency": 0.509,
+      "final_score": 241.56,
+      "flagged": false
+    },
+    {
+      "id": "gh-1282773048",
+      "source": "github",
+      "title": "aquace/CVE-2026-41940-PoC — CVE-2026-41940 authentication bypass vulnerability proof-of-concept",
+      "url": "https://github.com/aquace/CVE-2026-41940-PoC",
+      "score": 571,
+      "comments": 0,
+      "ts": 1782620032,
+      "topics": [],
+      "recency": 0.011,
+      "final_score": 230.18,
+      "flagged": false
+    },
+    {
+      "id": "hn-48762862",
+      "source": "hackernews",
+      "title": "Launch HN: Manufact (YC S25) – MCP Cloud",
+      "url": "https://manufact.com",
+      "score": 57,
+      "comments": 40,
+      "ts": 1783005080,
+      "topics": [
+        "ai-agents"
+      ],
+      "recency": 0.911,
+      "final_score": 229.58,
+      "flagged": false
+    },
+    {
+      "id": "gh-1281772914",
+      "source": "github",
+      "title": "tryOpenRAM/OpenRAM — Rent GPUs and run any AI model, paid in SOL. Buy with $RAM and every $RAM spent gets burned.",
+      "url": "https://github.com/tryOpenRAM/OpenRAM",
+      "score": 564,
+      "comments": 0,
+      "ts": 1782503986,
+      "topics": [],
+      "recency": 0.003,
+      "final_score": 223.34,
+      "flagged": false
+    },
+    {
+      "id": "v2ex-1224558",
+      "source": "v2ex",
+      "title": "公司 vibe coding 的项目，团队已经无法掌控了",
+      "url": "https://www.v2ex.com/t/1224558",
+      "score": 283,
+      "comments": 94,
+      "ts": 1782983609,
+      "lang": "zh",
+      "topics": [],
+      "recency": 0.711,
+      "final_score": 213.25,
+      "flagged": false
+    },
+    {
+      "id": "v2ex-1224388",
+      "source": "v2ex",
+      "title": "这下好了,真死在科技里了",
+      "url": "https://www.v2ex.com/t/1224388",
+      "score": 340,
+      "comments": 113,
+      "ts": 1782955452,
+      "lang": "zh",
+      "topics": [],
+      "recency": 0.513,
+      "final_score": 211.32,
+      "flagged": false
+    },
+    {
+      "id": "v2ex-1224405",
+      "source": "v2ex",
+      "title": "最近使用 vless+xhttp+reality，网址用的苹果的， 1 年多被墙了。这是咋被发现的？技术探讨下",
+      "url": "https://www.v2ex.com/t/1224405",
+      "score": 316,
+      "comments": 105,
+      "ts": 1782957201,
+      "lang": "zh",
+      "topics": [],
+      "recency": 0.524,
+      "final_score": 198.74,
+      "flagged": false
+    },
+    {
+      "id": "gh-1282544248",
+      "source": "github",
+      "title": "diinki/linux-antiquity — A highly tasteful Linux-theme, reminiscent of art-nouveau and old drawings related to astronomy, science, and mythology.",
+      "url": "https://github.com/diinki/linux-antiquity",
+      "score": 485,
+      "comments": 1,
+      "ts": 1782590760,
+      "topics": [],
+      "recency": 0.008,
+      "final_score": 194.86,
+      "flagged": false
+    },
+    {
+      "id": "v2ex-1224475",
+      "source": "v2ex",
+      "title": "请警惕账号 w1573007 发布的开源项目 Termo",
+      "url": "https://www.v2ex.com/t/1224475",
+      "score": 259,
+      "comments": 86,
+      "ts": 1782970464,
+      "lang": "zh",
+      "topics": [],
+      "recency": 0.61,
+      "final_score": 178.18,
+      "flagged": false
+    },
+    {
+      "id": "gh-1281163724",
+      "source": "github",
+      "title": "cclank/lanshu-animated-architecture-diagram — Premium hand-drawn animated architecture diagram Codex skill",
+      "url": "https://github.com/cclank/lanshu-animated-architecture-diagram",
+      "score": 448,
+      "comments": 0,
+      "ts": 1782455391,
+      "topics": [],
+      "recency": 0.002,
+      "final_score": 177.32,
+      "flagged": false
+    },
+    {
+      "id": "hn-48760669",
+      "source": "hackernews",
+      "title": "Germany’s Infineon opens major chip plant as EU seeks tech autonomy",
+      "url": "https://www.rfi.fr/en/international-news/20260702-germany-s-infineon-opens-major-chip-plant-as-eu-seeks-tech-autonomy",
+      "score": 123,
+      "comments": 37,
+      "ts": 1782996391,
+      "topics": [],
+      "recency": 0.824,
+      "final_score": 173.61,
+      "flagged": false
+    },
+    {
+      "id": "gh-1281620190",
+      "source": "github",
+      "title": "ricccrd/dd — (no description)",
+      "url": "https://github.com/ricccrd/dd",
+      "score": 402,
+      "comments": 0,
+      "ts": 1782488247,
+      "topics": [],
+      "recency": 0.002,
+      "final_score": 159.58,
+      "flagged": false
+    },
+    {
+      "id": "gh-1282278996",
+      "source": "github",
+      "title": "wlzh/dji-4g-vohive-mac — 在 Mac（Apple Silicon / Intel）上用 UTM 跑 Linux 虚拟机，把大疆 4G 模块（EG25-G）伪装成移远 Quectel EC25 并部署 vohive 平台的完整步骤",
+      "url": "https://github.com/wlzh/dji-4g-vohive-mac",
+      "score": 396,
+      "comments": 1,
+      "ts": 1782561766,
+      "topics": [],
+      "recency": 0.005,
+      "final_score": 158.75,
+      "flagged": false
+    }
+  ]
+}
