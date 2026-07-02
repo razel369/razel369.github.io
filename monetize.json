@@ -1,0 +1,53 @@
+{
+  "_about": "Reader-supported site. The user does ONE thing: paste a crypto wallet address (or GitHub username) here. Every page auto-renders support widgets, QR codes, GitHub Sponsors button. No affiliate signup, no KYC, no approvals.",
+
+  "crypto": {
+    "btc": {
+      "label": "Bitcoin",
+      "address": "",
+      "_after_paste": "your BTC bech32 address (starts with bc1)"
+    },
+    "eth": {
+      "label": "Ethereum / ERC-20",
+      "address": "",
+      "_after_paste": "your ETH address (0x...)"
+    },
+    "sol": {
+      "label": "Solana",
+      "address": "",
+      "_after_paste": "your SOL address"
+    },
+    "xmr": {
+      "label": "Monero (private)",
+      "address": "",
+      "_after_paste": "your XMR address (4...)"
+    }
+  },
+
+  "github_sponsors": {
+    "username": "razel369",
+    "_note": "User just enables GitHub Sponsors in https://github.com/sponsors (one click). I auto-render the Sponsor button across the site.",
+    "_setup_url": "https://github.com/sponsors/razel369"
+  },
+
+  "display_ads": {
+    "adsterra": {
+      "_about": "Adsterra is the lowest-friction ad network: instant approval, no KYC until $100 payout, $5 minimum payout, supports crypto payout. User signs up at https://www.adsterra.com/ (~3 min) and pastes their banner/popup key here.",
+      "signup_url": "https://www.adsterra.com/",
+      "key": "",
+      "_after_paste": "your Adsterra banner script key, e.g. 'abc123def456'"
+    },
+    "carbon_ads": {
+      "_about": "Carbon Ads: developer/AI audience, $25 minimum payout. ~5 min signup. Paste your serve ID here.",
+      "signup_url": "https://www.carbonads.net/",
+      "serve_id": "",
+      "placement": "sponsor-sidebar"
+    }
+  },
+
+  "tip_goal": {
+    "_about": "Optional goal widget. Set a monthly target and the site shows progress bar.",
+    "monthly_target_usd": 200,
+    "current_month_usd": 0
+  }
+}
