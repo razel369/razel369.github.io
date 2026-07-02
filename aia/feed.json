@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T21:24:30Z",
+  "generated_at": "2026-07-02T21:39:32Z",
   "agent": "AIA — Autonomous Insight Agent",
   "version": "0.1.0",
   "raw_collected": 104,
@@ -18,14 +18,14 @@
       "source": "github",
       "title": "deepseek-ai/DeepSpec — DeepSpec: a full-stack codebase for training and evaluating speculative decoding algorithms",
       "url": "https://github.com/deepseek-ai/DeepSpec",
-      "score": 5868,
+      "score": 5870,
       "comments": 33,
       "ts": 1782466565,
       "topics": [
         "crypto"
       ],
-      "recency": 0.002,
-      "final_score": 4622.97,
+      "recency": 0.001,
+      "final_score": 4624.37,
       "flagged": false
     },
     {
@@ -33,12 +33,12 @@
       "source": "hackernews",
       "title": "Android Developer Verification: Threat masquerading as protection",
       "url": "https://f-droid.org/2026/07/01/adv-malware.html",
-      "score": 1526,
-      "comments": 635,
+      "score": 1531,
+      "comments": 643,
       "ts": 1782961215,
       "topics": [],
-      "recency": 0.464,
-      "final_score": 1624.85,
+      "recency": 0.46,
+      "final_score": 1625.77,
       "flagged": false
     },
     {
@@ -46,14 +46,14 @@
       "source": "hackernews",
       "title": "PeerTube is a free, decentralized and federated video platform",
       "url": "https://github.com/Chocobozzz/PeerTube",
-      "score": 404,
-      "comments": 175,
+      "score": 415,
+      "comments": 178,
       "ts": 1782991065,
       "topics": [
         "devtools"
       ],
-      "recency": 0.656,
-      "final_score": 1064.25,
+      "recency": 0.649,
+      "final_score": 1082.92,
       "flagged": false
     },
     {
@@ -61,7 +61,7 @@
       "source": "github",
       "title": "Kulaxyz/self-learning-skills — A self-improving skill for AI coding agents (Claude Code, Cursor, AGENTS.md): recognize a hard-won golden path in a session and harvest it into a reusable skill/rule for next time.",
       "url": "https://github.com/Kulaxyz/self-learning-skills",
-      "score": 891,
+      "score": 893,
       "comments": 1,
       "ts": 1782664236,
       "topics": [
@@ -70,22 +70,7 @@
         "web3-agents"
       ],
       "recency": 0.015,
-      "final_score": 724.04,
-      "flagged": false
-    },
-    {
-      "id": "hna-48756602",
-      "source": "hackernews-algolia",
-      "title": "Kimi K2.7 Code is generally available in GitHub Copilot",
-      "url": "https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/",
-      "score": 390,
-      "comments": 163,
-      "ts": 1782966761,
-      "topics": [
-        "devtools"
-      ],
-      "recency": 0.495,
-      "final_score": 721.71,
+      "final_score": 725.4,
       "flagged": false
     },
     {
@@ -101,7 +86,7 @@
         "web3-agents"
       ],
       "recency": 0.051,
-      "final_score": 659.23,
+      "final_score": 658.5,
       "flagged": false
     },
     {
@@ -109,12 +94,12 @@
       "source": "hackernews",
       "title": "Spain Orders Blacklist of Palantir from Public and Private Companies",
       "url": "https://clashreport.com/world/articles/spain-orders-blacklist-of-us-tech-giant-palantir-from-public-and-private-companies-fsnc2z17gjv",
-      "score": 440,
-      "comments": 135,
+      "score": 454,
+      "comments": 141,
       "ts": 1783004546,
       "topics": [],
-      "recency": 0.767,
-      "final_score": 582.46,
+      "recency": 0.759,
+      "final_score": 598.53,
       "flagged": false
     },
     {
@@ -127,7 +112,7 @@
       "ts": 1782619695,
       "topics": [],
       "recency": 0.009,
-      "final_score": 570.9,
+      "final_score": 570.78,
       "flagged": false
     },
     {
@@ -135,12 +120,12 @@
       "source": "hackernews",
       "title": "The Egg Bandits Made a Thousand Times the Fine They Just Paid for Price Fixing",
       "url": "https://www.thebignewsletter.com/p/crime-pays-the-egg-bandits-made-a",
-      "score": 393,
-      "comments": 183,
+      "score": 400,
+      "comments": 185,
       "ts": 1782998725,
       "topics": [],
-      "recency": 0.717,
-      "final_score": 559.08,
+      "recency": 0.71,
+      "final_score": 564.05,
       "flagged": false
     },
     {
@@ -148,12 +133,12 @@
       "source": "hackernews",
       "title": "Since Linux 6.9, LUKS suspend stopped wiping disk-encryption keys from memory",
       "url": "https://mathstodon.xyz/@iblech/116769502749142438",
-      "score": 337,
-      "comments": 163,
+      "score": 342,
+      "comments": 165,
       "ts": 1783005916,
       "topics": [],
-      "recency": 0.779,
-      "final_score": 512.34,
+      "recency": 0.771,
+      "final_score": 515.96,
       "flagged": false
     },
     {
@@ -165,8 +150,8 @@
       "comments": 1,
       "ts": 1782807630,
       "topics": [],
-      "recency": 0.079,
-      "final_score": 496.98,
+      "recency": 0.078,
+      "final_score": 496.18,
       "flagged": false
     },
     {
@@ -174,12 +159,12 @@
       "source": "hackernews",
       "title": "AI can't be listed as inventor on patent applications, Japan's top court rules",
       "url": "https://japannews.yomiuri.co.jp/science-nature/technology/20260306-314930/",
-      "score": 323,
-      "comments": 175,
+      "score": 328,
+      "comments": 177,
       "ts": 1782999821,
       "topics": [],
-      "recency": 0.726,
-      "final_score": 487.89,
+      "recency": 0.719,
+      "final_score": 491.45,
       "flagged": false
     },
     {
@@ -187,27 +172,12 @@
       "source": "github",
       "title": "yynxxxxx/Codex-5.5-codex-instruct-5.5 — (no description)",
       "url": "https://github.com/yynxxxxx/Codex-5.5-codex-instruct-5.5",
-      "score": 1102,
+      "score": 1103,
       "comments": 1,
       "ts": 1782631482,
       "topics": [],
       "recency": 0.01,
-      "final_score": 442.43,
-      "flagged": false
-    },
-    {
-      "id": "hn-48766076",
-      "source": "hackernews",
-      "title": "Job seekers giving up: Labor force participation falls to lowest in 50 years",
-      "url": "https://www.cnbc.com/2026/07/02/job-seekers-giving-up-labor-force-participation-rate-falls-to-lowest-in-50-years-outside-of-covid-era.html",
-      "score": 98,
-      "comments": 87,
-      "ts": 1783019780,
-      "topics": [
-        "devtools"
-      ],
-      "recency": 0.915,
-      "final_score": 428.82,
+      "final_score": 442.72,
       "flagged": false
     },
     {
@@ -215,12 +185,12 @@
       "source": "hackernews",
       "title": "The primary purpose of code review is to find code that will be hard to maintain",
       "url": "https://mathstodon.xyz/@mjd/115096720350507897",
-      "score": 296,
+      "score": 304,
       "comments": 156,
       "ts": 1782992487,
       "topics": [],
-      "recency": 0.667,
-      "final_score": 420.59,
+      "recency": 0.66,
+      "final_score": 425.24,
       "flagged": false
     },
     {
@@ -233,8 +203,8 @@
       "ts": 1782960727,
       "lang": "zh",
       "topics": [],
-      "recency": 0.462,
-      "final_score": 416.24,
+      "recency": 0.457,
+      "final_score": 414.0,
       "flagged": false
     },
     {
@@ -242,14 +212,14 @@
       "source": "github",
       "title": "CopilotKit/OpenTag — OpenTag",
       "url": "https://github.com/CopilotKit/OpenTag",
-      "score": 512,
+      "score": 513,
       "comments": 2,
       "ts": 1782437641,
       "topics": [
         "devtools"
       ],
       "recency": 0.001,
-      "final_score": 405.84,
+      "final_score": 406.62,
       "flagged": false
     },
     {
@@ -264,7 +234,7 @@
         "devtools"
       ],
       "recency": 0.001,
-      "final_score": 391.82,
+      "final_score": 391.81,
       "flagged": false
     },
     {
@@ -272,7 +242,7 @@
       "source": "github",
       "title": "lycorp-jp/sim-use — Give your AI agent eyes and hands on iOS Simulator and Android emulator/devices.",
       "url": "https://github.com/lycorp-jp/sim-use",
-      "score": 452,
+      "score": 453,
       "comments": 12,
       "ts": 1782442796,
       "topics": [
@@ -280,7 +250,20 @@
         "web3-agents"
       ],
       "recency": 0.001,
-      "final_score": 366.8,
+      "final_score": 367.57,
+      "flagged": false
+    },
+    {
+      "id": "hn-48762098",
+      "source": "hackernews",
+      "title": "Podman v6.0.0",
+      "url": "https://blog.podman.io/2026/07/introducing-podman-v6-0-0/",
+      "score": 261,
+      "comments": 102,
+      "ts": 1783002189,
+      "topics": [],
+      "recency": 0.739,
+      "final_score": 360.79,
       "flagged": false
     },
     {
@@ -295,20 +278,7 @@
         "devtools"
       ],
       "recency": 0.001,
-      "final_score": 338.73,
-      "flagged": false
-    },
-    {
-      "id": "hn-48762098",
-      "source": "hackernews",
-      "title": "Podman v6.0.0",
-      "url": "https://blog.podman.io/2026/07/introducing-podman-v6-0-0/",
-      "score": 242,
-      "comments": 95,
-      "ts": 1783002189,
-      "topics": [],
-      "recency": 0.746,
-      "final_score": 337.52,
+      "final_score": 338.72,
       "flagged": false
     },
     {
@@ -316,12 +286,12 @@
       "source": "hackernews",
       "title": "How to ask for help from people who don't know you",
       "url": "https://pradyuprasad.com/writings/how-to-ask-for-help/",
-      "score": 294,
-      "comments": 41,
+      "score": 299,
+      "comments": 43,
       "ts": 1782998362,
       "topics": [],
-      "recency": 0.714,
-      "final_score": 326.31,
+      "recency": 0.707,
+      "final_score": 330.87,
       "flagged": false
     },
     {
@@ -336,7 +306,7 @@
         "devtools"
       ],
       "recency": 0.008,
-      "final_score": 321.03,
+      "final_score": 320.97,
       "flagged": false
     },
     {
@@ -344,14 +314,14 @@
       "source": "hackernews",
       "title": "Launch HN: Manufact (YC S25) – MCP Cloud",
       "url": "https://manufact.com",
-      "score": 88,
-      "comments": 58,
+      "score": 91,
+      "comments": 59,
       "ts": 1783005080,
       "topics": [
         "ai-agents"
       ],
-      "recency": 0.772,
-      "final_score": 304.49,
+      "recency": 0.764,
+      "final_score": 310.47,
       "flagged": false
     },
     {
@@ -367,7 +337,20 @@
         "web3-agents"
       ],
       "recency": 0.002,
-      "final_score": 287.36,
+      "final_score": 287.35,
+      "flagged": false
+    },
+    {
+      "id": "hn-48758048",
+      "source": "hackernews",
+      "title": "The fall of the theorem economy",
+      "url": "https://davidbessis.substack.com/p/the-fall-of-the-theorem-economy",
+      "score": 235,
+      "comments": 101,
+      "ts": 1782979275,
+      "topics": [],
+      "recency": 0.567,
+      "final_score": 285.03,
       "flagged": false
     },
     {
@@ -382,7 +365,7 @@
         "crypto"
       ],
       "recency": 0.001,
-      "final_score": 284.89,
+      "final_score": 284.88,
       "flagged": false
     },
     {
@@ -395,21 +378,8 @@
       "ts": 1782971710,
       "lang": "zh",
       "topics": [],
-      "recency": 0.524,
-      "final_score": 283.0,
-      "flagged": false
-    },
-    {
-      "id": "hn-48758048",
-      "source": "hackernews",
-      "title": "The fall of the theorem economy",
-      "url": "https://davidbessis.substack.com/p/the-fall-of-the-theorem-economy",
-      "score": 230,
-      "comments": 99,
-      "ts": 1782979275,
-      "topics": [],
-      "recency": 0.572,
-      "final_score": 280.85,
+      "recency": 0.519,
+      "final_score": 281.38,
       "flagged": false
     },
     {
@@ -417,12 +387,12 @@
       "source": "hackernews",
       "title": "Exapunks (2018)",
       "url": "https://www.zachtronics.com/exapunks/",
-      "score": 156,
-      "comments": 53,
+      "score": 166,
+      "comments": 60,
       "ts": 1783017679,
       "topics": [],
-      "recency": 0.893,
-      "final_score": 237.54,
+      "recency": 0.884,
+      "final_score": 254.61,
       "flagged": false
     },
     {
@@ -435,7 +405,7 @@
       "ts": 1782620032,
       "topics": [],
       "recency": 0.009,
-      "final_score": 229.73,
+      "final_score": 229.68,
       "flagged": false
     },
     {
@@ -448,7 +418,7 @@
       "ts": 1782503986,
       "topics": [],
       "recency": 0.002,
-      "final_score": 223.12,
+      "final_score": 223.11,
       "flagged": false
     },
     {
@@ -456,14 +426,14 @@
       "source": "hackernews",
       "title": "Show HN: CLI tool for detecting non-exact code duplication with embedding models",
       "url": "https://github.com/rafal-qa/slopo",
-      "score": 66,
-      "comments": 30,
+      "score": 69,
+      "comments": 31,
       "ts": 1783001964,
       "topics": [
         "devtools"
       ],
-      "recency": 0.744,
-      "final_score": 199.03,
+      "recency": 0.737,
+      "final_score": 205.54,
       "flagged": false
     },
     {
@@ -471,12 +441,12 @@
       "source": "github",
       "title": "diinki/linux-antiquity — A highly tasteful Linux-theme, reminiscent of art-nouveau and old drawings related to astronomy, science, and mythology.",
       "url": "https://github.com/diinki/linux-antiquity",
-      "score": 494,
+      "score": 495,
       "comments": 1,
       "ts": 1782590760,
       "topics": [],
       "recency": 0.006,
-      "final_score": 197.9,
+      "final_score": 198.27,
       "flagged": false
     },
     {
@@ -489,8 +459,8 @@
       "ts": 1782983609,
       "lang": "zh",
       "topics": [],
-      "recency": 0.602,
-      "final_score": 196.92,
+      "recency": 0.596,
+      "final_score": 195.73,
       "flagged": false
     },
     {
@@ -503,8 +473,8 @@
       "ts": 1782955452,
       "lang": "zh",
       "topics": [],
-      "recency": 0.435,
-      "final_score": 193.69,
+      "recency": 0.43,
+      "final_score": 192.68,
       "flagged": false
     },
     {
@@ -517,8 +487,8 @@
       "ts": 1782957201,
       "lang": "zh",
       "topics": [],
-      "recency": 0.443,
-      "final_score": 183.72,
+      "recency": 0.439,
+      "final_score": 182.75,
       "flagged": false
     },
     {
@@ -544,7 +514,7 @@
       "ts": 1782488247,
       "topics": [],
       "recency": 0.002,
-      "final_score": 164.15,
+      "final_score": 164.14,
       "flagged": false
     },
     {
@@ -557,8 +527,8 @@
       "ts": 1782970464,
       "lang": "zh",
       "topics": [],
-      "recency": 0.517,
-      "final_score": 162.16,
+      "recency": 0.512,
+      "final_score": 161.24,
       "flagged": false
     },
     {
@@ -571,7 +541,33 @@
       "ts": 1782561766,
       "topics": [],
       "recency": 0.005,
-      "final_score": 158.84,
+      "final_score": 158.83,
+      "flagged": false
+    },
+    {
+      "id": "hn-48760201",
+      "source": "hackernews",
+      "title": "Is One Layer Enough? A Single Transformer Layer Matches Full-Parameter RL Train",
+      "url": "https://arxiv.org/abs/2607.01232",
+      "score": 128,
+      "comments": 29,
+      "ts": 1782994224,
+      "topics": [],
+      "recency": 0.674,
+      "final_score": 149.97,
+      "flagged": false
+    },
+    {
+      "id": "gh-1281921049",
+      "source": "github",
+      "title": "downclash/clash — (no description)",
+      "url": "https://github.com/downclash/clash",
+      "score": 344,
+      "comments": 0,
+      "ts": 1782525261,
+      "topics": [],
+      "recency": 0.003,
+      "final_score": 137.05,
       "flagged": false
     }
   ]
