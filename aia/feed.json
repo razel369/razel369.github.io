@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T21:39:32Z",
+  "generated_at": "2026-07-02T22:59:09Z",
   "agent": "AIA — Autonomous Insight Agent",
   "version": "0.1.0",
   "raw_collected": 104,
@@ -25,20 +25,7 @@
         "crypto"
       ],
       "recency": 0.001,
-      "final_score": 4624.37,
-      "flagged": false
-    },
-    {
-      "id": "hn-48755965",
-      "source": "hackernews",
-      "title": "Android Developer Verification: Threat masquerading as protection",
-      "url": "https://f-droid.org/2026/07/01/adv-malware.html",
-      "score": 1531,
-      "comments": 643,
-      "ts": 1782961215,
-      "topics": [],
-      "recency": 0.46,
-      "final_score": 1625.77,
+      "final_score": 4623.5,
       "flagged": false
     },
     {
@@ -46,14 +33,14 @@
       "source": "hackernews",
       "title": "PeerTube is a free, decentralized and federated video platform",
       "url": "https://github.com/Chocobozzz/PeerTube",
-      "score": 415,
-      "comments": 178,
+      "score": 465,
+      "comments": 208,
       "ts": 1782991065,
       "topics": [
         "devtools"
       ],
-      "recency": 0.649,
-      "final_score": 1082.92,
+      "recency": 0.614,
+      "final_score": 1188.0,
       "flagged": false
     },
     {
@@ -69,24 +56,8 @@
         "devtools",
         "web3-agents"
       ],
-      "recency": 0.015,
-      "final_score": 725.4,
-      "flagged": false
-    },
-    {
-      "id": "gh-1284538699",
-      "source": "github",
-      "title": "TianhangZhuzth/Fundamental-Ava — Build digital human beings — autonomous, collaborative, and socially intelligent agents. FNzgGxU31RWiDgLr3GvxxSa42nRntvZNSG6aBMQ1pump",
-      "url": "https://github.com/TianhangZhuzth/Fundamental-Ava",
-      "score": 750,
-      "comments": 0,
-      "ts": 1782770653,
-      "topics": [
-        "ai-agents",
-        "web3-agents"
-      ],
-      "recency": 0.051,
-      "final_score": 658.5,
+      "recency": 0.014,
+      "final_score": 724.1,
       "flagged": false
     },
     {
@@ -94,12 +65,28 @@
       "source": "hackernews",
       "title": "Spain Orders Blacklist of Palantir from Public and Private Companies",
       "url": "https://clashreport.com/world/articles/spain-orders-blacklist-of-us-tech-giant-palantir-from-public-and-private-companies-fsnc2z17gjv",
-      "score": 454,
-      "comments": 141,
+      "score": 531,
+      "comments": 170,
       "ts": 1783004546,
       "topics": [],
-      "recency": 0.759,
-      "final_score": 598.53,
+      "recency": 0.718,
+      "final_score": 680.06,
+      "flagged": false
+    },
+    {
+      "id": "gh-1284538699",
+      "source": "github",
+      "title": "TianhangZhuzth/Fundamental-Ava — Build digital human beings — autonomous, collaborative, and socially intelligent agents. FNzgGxU31RWiDgLr3GvxxSa42nRntvZNSG6aBMQ1pump",
+      "url": "https://github.com/TianhangZhuzth/Fundamental-Ava",
+      "score": 752,
+      "comments": 0,
+      "ts": 1782770653,
+      "topics": [
+        "ai-agents",
+        "web3-agents"
+      ],
+      "recency": 0.048,
+      "final_score": 656.49,
       "flagged": false
     },
     {
@@ -107,25 +94,12 @@
       "source": "github",
       "title": "Krishnagangwal/CS-Fundamentals — Curated CS fundamentals for placement prep: DSA,Computer Networks, DBMS & SQL, OOPs, Operating Systems, System Design & Software Engineering",
       "url": "https://github.com/Krishnagangwal/CS-Fundamentals",
-      "score": 1429,
+      "score": 1433,
       "comments": 0,
       "ts": 1782619695,
       "topics": [],
-      "recency": 0.009,
-      "final_score": 570.78,
-      "flagged": false
-    },
-    {
-      "id": "hn-48761229",
-      "source": "hackernews",
-      "title": "The Egg Bandits Made a Thousand Times the Fine They Just Paid for Price Fixing",
-      "url": "https://www.thebignewsletter.com/p/crime-pays-the-egg-bandits-made-a",
-      "score": 400,
-      "comments": 185,
-      "ts": 1782998725,
-      "topics": [],
-      "recency": 0.71,
-      "final_score": 564.05,
+      "recency": 0.008,
+      "final_score": 571.75,
       "flagged": false
     },
     {
@@ -133,12 +107,12 @@
       "source": "hackernews",
       "title": "Since Linux 6.9, LUKS suspend stopped wiping disk-encryption keys from memory",
       "url": "https://mathstodon.xyz/@iblech/116769502749142438",
-      "score": 342,
-      "comments": 165,
+      "score": 371,
+      "comments": 176,
       "ts": 1783005916,
       "topics": [],
-      "recency": 0.771,
-      "final_score": 515.96,
+      "recency": 0.73,
+      "final_score": 537.04,
       "flagged": false
     },
     {
@@ -146,25 +120,12 @@
       "source": "github",
       "title": "mekos2772/ios-location-spoofer — Standalone iOS app to spoof GPS location without jailbreak. Includes Shadowrocket/Surge/Loon/QX/Stash module.",
       "url": "https://github.com/mekos2772/ios-location-spoofer",
-      "score": 1071,
+      "score": 1084,
       "comments": 1,
       "ts": 1782807630,
       "topics": [],
-      "recency": 0.078,
-      "final_score": 496.18,
-      "flagged": false
-    },
-    {
-      "id": "hn-48761536",
-      "source": "hackernews",
-      "title": "AI can't be listed as inventor on patent applications, Japan's top court rules",
-      "url": "https://japannews.yomiuri.co.jp/science-nature/technology/20260306-314930/",
-      "score": 328,
-      "comments": 177,
-      "ts": 1782999821,
-      "topics": [],
-      "recency": 0.719,
-      "final_score": 491.45,
+      "recency": 0.074,
+      "final_score": 498.03,
       "flagged": false
     },
     {
@@ -177,34 +138,33 @@
       "ts": 1782631482,
       "topics": [],
       "recency": 0.01,
-      "final_score": 442.72,
+      "final_score": 442.17,
       "flagged": false
     },
     {
-      "id": "hn-48759870",
+      "id": "hn-48762098",
       "source": "hackernews",
-      "title": "The primary purpose of code review is to find code that will be hard to maintain",
-      "url": "https://mathstodon.xyz/@mjd/115096720350507897",
-      "score": 304,
-      "comments": 156,
-      "ts": 1782992487,
+      "title": "Podman v6.0.0",
+      "url": "https://blog.podman.io/2026/07/introducing-podman-v6-0-0/",
+      "score": 329,
+      "comments": 121,
+      "ts": 1783002189,
       "topics": [],
-      "recency": 0.66,
-      "final_score": 425.24,
+      "recency": 0.699,
+      "final_score": 430.9,
       "flagged": false
     },
     {
-      "id": "v2ex-1224428",
-      "source": "v2ex",
-      "title": "感觉女友很爱去看演唱会，不想让她去怎么办",
-      "url": "https://www.v2ex.com/t/1224428",
-      "score": 712,
-      "comments": 237,
-      "ts": 1782960727,
-      "lang": "zh",
+      "id": "hna-48761536",
+      "source": "hackernews-algolia",
+      "title": "AI can't be listed as inventor on patent applications, Japan's top court rules",
+      "url": "https://japannews.yomiuri.co.jp/science-nature/technology/20260306-314930/",
+      "score": 347,
+      "comments": 182,
+      "ts": 1782999821,
       "topics": [],
-      "recency": 0.457,
-      "final_score": 414.0,
+      "recency": 0.68,
+      "final_score": 414.36,
       "flagged": false
     },
     {
@@ -212,14 +172,28 @@
       "source": "github",
       "title": "CopilotKit/OpenTag — OpenTag",
       "url": "https://github.com/CopilotKit/OpenTag",
-      "score": 513,
+      "score": 515,
       "comments": 2,
       "ts": 1782437641,
       "topics": [
         "devtools"
       ],
       "recency": 0.001,
-      "final_score": 406.62,
+      "final_score": 408.12,
+      "flagged": false
+    },
+    {
+      "id": "v2ex-1224428",
+      "source": "v2ex",
+      "title": "感觉女友很爱去看演唱会，不想让她去怎么办",
+      "url": "https://www.v2ex.com/t/1224428",
+      "score": 715,
+      "comments": 238,
+      "ts": 1782960727,
+      "lang": "zh",
+      "topics": [],
+      "recency": 0.432,
+      "final_score": 404.2,
       "flagged": false
     },
     {
@@ -234,51 +208,7 @@
         "devtools"
       ],
       "recency": 0.001,
-      "final_score": 391.81,
-      "flagged": false
-    },
-    {
-      "id": "gh-1280990105",
-      "source": "github",
-      "title": "lycorp-jp/sim-use — Give your AI agent eyes and hands on iOS Simulator and Android emulator/devices.",
-      "url": "https://github.com/lycorp-jp/sim-use",
-      "score": 453,
-      "comments": 12,
-      "ts": 1782442796,
-      "topics": [
-        "ai-agents",
-        "web3-agents"
-      ],
-      "recency": 0.001,
-      "final_score": 367.57,
-      "flagged": false
-    },
-    {
-      "id": "hn-48762098",
-      "source": "hackernews",
-      "title": "Podman v6.0.0",
-      "url": "https://blog.podman.io/2026/07/introducing-podman-v6-0-0/",
-      "score": 261,
-      "comments": 102,
-      "ts": 1783002189,
-      "topics": [],
-      "recency": 0.739,
-      "final_score": 360.79,
-      "flagged": false
-    },
-    {
-      "id": "gh-1281091382",
-      "source": "github",
-      "title": "Leron-X/leronx — LeronX — AI Image & Video Generation Platform",
-      "url": "https://github.com/Leron-X/leronx",
-      "score": 428,
-      "comments": 0,
-      "ts": 1782450342,
-      "topics": [
-        "devtools"
-      ],
-      "recency": 0.001,
-      "final_score": 338.72,
+      "final_score": 391.76,
       "flagged": false
     },
     {
@@ -286,12 +216,43 @@
       "source": "hackernews",
       "title": "How to ask for help from people who don't know you",
       "url": "https://pradyuprasad.com/writings/how-to-ask-for-help/",
-      "score": 299,
-      "comments": 43,
+      "score": 344,
+      "comments": 53,
       "ts": 1782998362,
       "topics": [],
-      "recency": 0.707,
-      "final_score": 330.87,
+      "recency": 0.669,
+      "final_score": 370.48,
+      "flagged": false
+    },
+    {
+      "id": "gh-1280990105",
+      "source": "github",
+      "title": "lycorp-jp/sim-use — Give your AI agent eyes and hands on iOS Simulator and Android emulator/devices.",
+      "url": "https://github.com/lycorp-jp/sim-use",
+      "score": 456,
+      "comments": 12,
+      "ts": 1782442796,
+      "topics": [
+        "ai-agents",
+        "web3-agents"
+      ],
+      "recency": 0.001,
+      "final_score": 369.87,
+      "flagged": false
+    },
+    {
+      "id": "gh-1281091382",
+      "source": "github",
+      "title": "Leron-X/leronx — LeronX — AI Image & Video Generation Platform",
+      "url": "https://github.com/Leron-X/leronx",
+      "score": 429,
+      "comments": 0,
+      "ts": 1782450342,
+      "topics": [
+        "devtools"
+      ],
+      "recency": 0.001,
+      "final_score": 339.45,
       "flagged": false
     },
     {
@@ -306,7 +267,7 @@
         "devtools"
       ],
       "recency": 0.008,
-      "final_score": 320.97,
+      "final_score": 320.65,
       "flagged": false
     },
     {
@@ -314,14 +275,27 @@
       "source": "hackernews",
       "title": "Launch HN: Manufact (YC S25) – MCP Cloud",
       "url": "https://manufact.com",
-      "score": 91,
-      "comments": 59,
+      "score": 96,
+      "comments": 61,
       "ts": 1783005080,
       "topics": [
         "ai-agents"
       ],
-      "recency": 0.764,
-      "final_score": 310.47,
+      "recency": 0.723,
+      "final_score": 313.31,
+      "flagged": false
+    },
+    {
+      "id": "hn-48767347",
+      "source": "hackernews",
+      "title": "Virginia bans sale of geolocation data",
+      "url": "https://www.hunton.com/privacy-and-cybersecurity-law-blog/virginia-bans-sale-of-geolocation-data",
+      "score": 229,
+      "comments": 37,
+      "ts": 1783026225,
+      "topics": [],
+      "recency": 0.923,
+      "final_score": 307.67,
       "flagged": false
     },
     {
@@ -337,20 +311,20 @@
         "web3-agents"
       ],
       "recency": 0.002,
-      "final_score": 287.35,
+      "final_score": 287.29,
       "flagged": false
     },
     {
-      "id": "hn-48758048",
+      "id": "hn-48765663",
       "source": "hackernews",
-      "title": "The fall of the theorem economy",
-      "url": "https://davidbessis.substack.com/p/the-fall-of-the-theorem-economy",
-      "score": 235,
-      "comments": 101,
-      "ts": 1782979275,
+      "title": "Exapunks (2018)",
+      "url": "https://www.zachtronics.com/exapunks/",
+      "score": 196,
+      "comments": 69,
+      "ts": 1783017679,
       "topics": [],
-      "recency": 0.567,
-      "final_score": 285.03,
+      "recency": 0.836,
+      "final_score": 286.82,
       "flagged": false
     },
     {
@@ -365,7 +339,7 @@
         "crypto"
       ],
       "recency": 0.001,
-      "final_score": 284.88,
+      "final_score": 284.83,
       "flagged": false
     },
     {
@@ -378,21 +352,8 @@
       "ts": 1782971710,
       "lang": "zh",
       "topics": [],
-      "recency": 0.519,
-      "final_score": 281.38,
-      "flagged": false
-    },
-    {
-      "id": "hn-48765663",
-      "source": "hackernews",
-      "title": "Exapunks (2018)",
-      "url": "https://www.zachtronics.com/exapunks/",
-      "score": 166,
-      "comments": 60,
-      "ts": 1783017679,
-      "topics": [],
-      "recency": 0.884,
-      "final_score": 254.61,
+      "recency": 0.491,
+      "final_score": 273.09,
       "flagged": false
     },
     {
@@ -404,8 +365,21 @@
       "comments": 0,
       "ts": 1782620032,
       "topics": [],
-      "recency": 0.009,
-      "final_score": 229.68,
+      "recency": 0.008,
+      "final_score": 229.43,
+      "flagged": false
+    },
+    {
+      "id": "hn-48763790",
+      "source": "hackernews",
+      "title": "24-bit/192kHz music downloads and why they make no sense (2012)",
+      "url": "https://people.xiph.org/~xiphmont/demo/neil-young.html#toc_wd2bm",
+      "score": 82,
+      "comments": 137,
+      "ts": 1783009489,
+      "topics": [],
+      "recency": 0.76,
+      "final_score": 223.73,
       "flagged": false
     },
     {
@@ -413,27 +387,12 @@
       "source": "github",
       "title": "tryOpenRAM/OpenRAM — Rent GPUs and run any AI model, paid in SOL. Buy with $RAM and every $RAM spent gets burned.",
       "url": "https://github.com/tryOpenRAM/OpenRAM",
-      "score": 564,
+      "score": 565,
       "comments": 0,
       "ts": 1782503986,
       "topics": [],
       "recency": 0.002,
-      "final_score": 223.11,
-      "flagged": false
-    },
-    {
-      "id": "hn-48762038",
-      "source": "hackernews",
-      "title": "Show HN: CLI tool for detecting non-exact code duplication with embedding models",
-      "url": "https://github.com/rafal-qa/slopo",
-      "score": 69,
-      "comments": 31,
-      "ts": 1783001964,
-      "topics": [
-        "devtools"
-      ],
-      "recency": 0.737,
-      "final_score": 205.54,
+      "final_score": 223.44,
       "flagged": false
     },
     {
@@ -441,12 +400,12 @@
       "source": "github",
       "title": "diinki/linux-antiquity — A highly tasteful Linux-theme, reminiscent of art-nouveau and old drawings related to astronomy, science, and mythology.",
       "url": "https://github.com/diinki/linux-antiquity",
-      "score": 495,
+      "score": 498,
       "comments": 1,
       "ts": 1782590760,
       "topics": [],
       "recency": 0.006,
-      "final_score": 198.27,
+      "final_score": 199.3,
       "flagged": false
     },
     {
@@ -459,8 +418,8 @@
       "ts": 1782983609,
       "lang": "zh",
       "topics": [],
-      "recency": 0.596,
-      "final_score": 195.73,
+      "recency": 0.564,
+      "final_score": 189.61,
       "flagged": false
     },
     {
@@ -473,8 +432,8 @@
       "ts": 1782955452,
       "lang": "zh",
       "topics": [],
-      "recency": 0.43,
-      "final_score": 192.68,
+      "recency": 0.407,
+      "final_score": 187.49,
       "flagged": false
     },
     {
@@ -482,13 +441,13 @@
       "source": "v2ex",
       "title": "最近使用 vless+xhttp+reality，网址用的苹果的， 1 年多被墙了。这是咋被发现的？技术探讨下",
       "url": "https://www.v2ex.com/t/1224405",
-      "score": 319,
-      "comments": 106,
+      "score": 322,
+      "comments": 107,
       "ts": 1782957201,
       "lang": "zh",
       "topics": [],
-      "recency": 0.439,
-      "final_score": 182.75,
+      "recency": 0.415,
+      "final_score": 179.43,
       "flagged": false
     },
     {
@@ -496,12 +455,27 @@
       "source": "github",
       "title": "cclank/lanshu-animated-architecture-diagram — Premium hand-drawn animated architecture diagram Codex skill",
       "url": "https://github.com/cclank/lanshu-animated-architecture-diagram",
-      "score": 451,
+      "score": 452,
       "comments": 0,
       "ts": 1782455391,
       "topics": [],
       "recency": 0.001,
-      "final_score": 178.39,
+      "final_score": 178.75,
+      "flagged": false
+    },
+    {
+      "id": "hn-48766598",
+      "source": "hackernews",
+      "title": "Lightning Memory-Mapped Database Manager (LMDB) 1.0",
+      "url": "http://www.lmdb.tech/doc/",
+      "score": 49,
+      "comments": 27,
+      "ts": 1783022480,
+      "topics": [
+        "crypto"
+      ],
+      "recency": 0.884,
+      "final_score": 178.59,
       "flagged": false
     },
     {
@@ -509,12 +483,25 @@
       "source": "github",
       "title": "ricccrd/dd — (no description)",
       "url": "https://github.com/ricccrd/dd",
-      "score": 414,
+      "score": 416,
       "comments": 0,
       "ts": 1782488247,
       "topics": [],
       "recency": 0.002,
-      "final_score": 164.14,
+      "final_score": 164.89,
+      "flagged": false
+    },
+    {
+      "id": "gh-1282278996",
+      "source": "github",
+      "title": "wlzh/dji-4g-vohive-mac — 在 Mac（Apple Silicon / Intel）上用 UTM 跑 Linux 虚拟机，把大疆 4G 模块（EG25-G）伪装成移远 Quectel EC25 并部署 vohive 平台的完整步骤",
+      "url": "https://github.com/wlzh/dji-4g-vohive-mac",
+      "score": 397,
+      "comments": 1,
+      "ts": 1782561766,
+      "topics": [],
+      "recency": 0.004,
+      "final_score": 158.74,
       "flagged": false
     },
     {
@@ -527,34 +514,37 @@
       "ts": 1782970464,
       "lang": "zh",
       "topics": [],
-      "recency": 0.512,
-      "final_score": 161.24,
+      "recency": 0.484,
+      "final_score": 156.52,
       "flagged": false
     },
     {
-      "id": "gh-1282278996",
-      "source": "github",
-      "title": "wlzh/dji-4g-vohive-mac — 在 Mac（Apple Silicon / Intel）上用 UTM 跑 Linux 虚拟机，把大疆 4G 模块（EG25-G）伪装成移远 Quectel EC25 并部署 vohive 平台的完整步骤",
-      "url": "https://github.com/wlzh/dji-4g-vohive-mac",
-      "score": 397,
-      "comments": 1,
-      "ts": 1782561766,
-      "topics": [],
-      "recency": 0.005,
-      "final_score": 158.83,
-      "flagged": false
-    },
-    {
-      "id": "hn-48760201",
+      "id": "hn-48761944",
       "source": "hackernews",
-      "title": "Is One Layer Enough? A Single Transformer Layer Matches Full-Parameter RL Train",
-      "url": "https://arxiv.org/abs/2607.01232",
-      "score": 128,
-      "comments": 29,
-      "ts": 1782994224,
+      "title": "Immich 3.0",
+      "url": "https://github.com/immich-app/immich/discussions/29439",
+      "score": 117,
+      "comments": 38,
+      "ts": 1783001606,
       "topics": [],
-      "recency": 0.674,
-      "final_score": 149.97,
+      "recency": 0.694,
+      "final_score": 150.89,
+      "flagged": false
+    },
+    {
+      "id": "hn-48766005",
+      "source": "hackernews",
+      "title": "Claude-real-video － any LLM can watch a video",
+      "url": "https://github.com/HUANGCHIHHUNGLeo/claude-real-video",
+      "score": 48,
+      "comments": 13,
+      "ts": 1783019412,
+      "topics": [
+        "ai-agents",
+        "devtools"
+      ],
+      "recency": 0.853,
+      "final_score": 142.1,
       "flagged": false
     },
     {
@@ -567,7 +557,20 @@
       "ts": 1782525261,
       "topics": [],
       "recency": 0.003,
-      "final_score": 137.05,
+      "final_score": 137.0,
+      "flagged": false
+    },
+    {
+      "id": "hn-48765639",
+      "source": "hackernews",
+      "title": "Postgres transactions are a distributed systems superpower",
+      "url": "https://www.dbos.dev/blog/co-locating-workflow-state-with-your-data",
+      "score": 80,
+      "comments": 38,
+      "ts": 1783017512,
+      "topics": [],
+      "recency": 0.834,
+      "final_score": 130.5,
       "flagged": false
     }
   ]
