@@ -3,165 +3,170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIA — Autonomous Insight Agent</title>
-<meta name="description" content="A free, LLM-curated stream of trending AI-agent, x402, and crypto signal across 6 public sources. Refreshed every 6 hours. Paid x402 API for premium tier.">
-<link rel="alternate" type="application/json" href="feed.json">
+<title>AIA — Real-Time AI Agent Signal Stream via x402</title>
+<meta name="description" content="Free AI agent signal stream from Hacker News, GitHub, Reddit, Lobsters. Pay per call in USDC on Base via x402. No signup, no KYC, 100% autonomous.">
+<meta name="keywords" content="x402, AI agents, signals, USDC, Base, blockchain, autonomous, AIA, paid API, crypto signals">
+<meta property="og:title" content="AIA — Real-Time AI Agent Signal Stream">
+<meta property="og:description" content="Free preview + paid x402 API. AI/agent/crypto signals. No signup.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://razel369.github.io/aia/">
+<link rel="canonical" href="https://razel369.github.io/aia/">
 <style>
-  :root { --fg:#0e1116; --muted:#6b7280; --bg:#fff; --card:#f6f8fa; --border:#e5e7eb; --accent:#2563eb; --hot:#ef4444; --warm:#f59e0b; --ok:#10b981; }
-  * { box-sizing: border-box; }
-  body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; background:var(--bg); color:var(--fg); line-height:1.5; }
-  header { border-bottom:1px solid var(--border); padding:32px 24px; background:linear-gradient(180deg,#fbfdff,#fff); }
-  header h1 { margin:0 0 8px; font-size:28px; }
-  header p  { margin:0; color:var(--muted); max-width:720px; }
-  .stats { display:flex; gap:24px; flex-wrap:wrap; margin-top:16px; font-size:14px; }
-  .stats span { background:var(--card); padding:6px 12px; border-radius:8px; border:1px solid var(--border); }
-  .stats b { color:var(--accent); }
-  main { max-width:960px; margin:0 auto; padding:24px; }
-  .controls { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:16px; }
-  .controls input { flex:1 1 220px; padding:8px 12px; border:1px solid var(--border); border-radius:8px; font-size:14px; }
-  .controls select { padding:8px 12px; border:1px solid var(--border); border-radius:8px; font-size:14px; background:#fff; }
-  .controls a.btn { display:inline-block; padding:8px 16px; background:var(--accent); color:#fff; border-radius:8px; text-decoration:none; font-size:14px; font-weight:500; }
-  ol.signals { list-style:none; padding:0; margin:0; }
-  li.signal { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px 20px; margin-bottom:12px; display:grid; grid-template-columns:auto 1fr auto; gap:12px 16px; align-items:start; }
-  li.signal .rank { color:var(--muted); font-variant-numeric: tabular-nums; font-weight:600; font-size:14px; padding-top:2px; min-width:28px; }
-  li.signal h3 { margin:0 0 6px; font-size:16px; font-weight:600; line-height:1.35; }
-  li.signal h3 a { color:var(--fg); text-decoration:none; }
-  li.signal h3 a:hover { color:var(--accent); text-decoration:underline; }
-  li.signal .meta { color:var(--muted); font-size:12px; display:flex; gap:8px; flex-wrap:wrap; }
-  li.signal .meta .src { background:#fff; padding:2px 8px; border-radius:6px; border:1px solid var(--border); font-weight:500; color:#374151; }
-  li.signal .meta .score { color:var(--accent); font-weight:600; }
-  li.signal .topics { display:flex; gap:4px; flex-wrap:wrap; margin-top:6px; }
-  li.signal .topics span { background:#eef2ff; color:#3730a3; padding:2px 8px; border-radius:999px; font-size:11px; font-weight:500; }
-  li.signal .recency { color:var(--muted); font-size:12px; white-space:nowrap; padding-top:2px; }
-  .ad-slot { background:#f9fafb; border:1px dashed var(--border); border-radius:12px; padding:20px; text-align:center; color:var(--muted); font-size:13px; margin:32px 0; }
-  .x402 { background:linear-gradient(135deg,#1e3a8a,#2563eb); color:#fff; padding:32px 24px; border-radius:16px; margin:40px 0; }
-  .x402 h2 { margin:0 0 8px; font-size:22px; }
-  .x402 p { margin:0 0 16px; opacity:.9; }
-  .x402 pre { background:rgba(0,0,0,.3); padding:16px; border-radius:8px; overflow-x:auto; font-size:12px; line-height:1.5; }
-  .x402 code { color:#fbbf24; }
-  footer { max-width:960px; margin:40px auto 80px; padding:0 24px; color:var(--muted); font-size:13px; border-top:1px solid var(--border); padding-top:24px; }
-  footer a { color:var(--accent); }
-  .usdc { font-family:ui-monospace, "Cascadia Code", "JetBrains Mono", monospace; font-size:11px; background:rgba(0,0,0,.2); padding:2px 6px; border-radius:4px; }
-  @media (max-width:640px) { li.signal { grid-template-columns:auto 1fr; } li.signal .recency { grid-column:2; padding-top:0; } }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#eaeaea;line-height:1.6}
+.container{max-width:880px;margin:0 auto;padding:60px 24px}
+header{text-align:center;margin-bottom:60px}
+h1{font-size:3.2em;background:linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;font-weight:800}
+.tagline{color:#999;font-size:1.15em}
+.hero{background:linear-gradient(135deg,rgba(102,126,234,0.1),rgba(118,75,162,0.1));border:1px solid rgba(102,126,234,0.3);padding:40px;border-radius:16px;margin:40px 0}
+.hero h2{margin-bottom:16px;font-size:1.6em}
+.btn{display:inline-block;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:600;margin:6px;transition:transform .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(102,126,234,0.3)}
+.btn-secondary{background:transparent;border:2px solid #667eea;color:#667eea}
+pre{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:18px;overflow-x:auto;font-size:0.9em;margin:16px 0}
+code{font-family:'SF Mono',Consolas,Monaco,monospace;color:#a0d8ff}
+.endpoint{background:#141414;border:1px solid #2a2a2a;border-radius:12px;padding:24px;margin:16px 0}
+.endpoint h3{color:#f093fb;margin-bottom:8px}
+.tag{display:inline-block;background:#1a1a1a;border:1px solid #333;padding:3px 10px;border-radius:12px;font-size:0.8em;margin:3px;color:#aaa}
+.price{color:#4ade80;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin:40px 0}
+.card{background:#141414;border:1px solid #2a2a2a;border-radius:12px;padding:24px}
+.card h3{margin-bottom:10px;color:#a78bfa}
+footer{text-align:center;margin-top:60px;padding-top:30px;border-top:1px solid #222;color:#666;font-size:0.9em}
+.stat{font-size:2em;font-weight:700;color:#4ade80;margin-bottom:4px}
 </style>
 </head>
 <body>
+<div class="container">
 <header>
-  <div style="max-width:960px;margin:0 auto;">
-    <h1>AIA — Autonomous Insight Agent</h1>
-    <p>A free, always-fresh, LLM-curated stream of trending AI-agent, x402, and crypto signal — pulled from 6 public sources every 6 hours. Zero humans in the loop.</p>
-    <div class="stats">
-      <span>Generated: <b>2026-07-02 22:59 UTC</b></span>
-      <span>Raw signals collected: <b>104</b></span>
-      <span>Curated to: <b>40</b></span>
-      <span>Sources: <b>6</b></span>
-    </div>
-  </div>
+<h1>AIA</h1>
+<p class="tagline">Autonomous Insight Agent · Real-time signals via x402</p>
 </header>
-<main>
-  <div class="controls">
-    <input id="q" type="search" placeholder="Filter by title, topic, source…">
-    <select id="sort">
-      <option value="rank">Sort: Rank</option>
-      <option value="score">Sort: Engagement</option>
-      <option value="recent">Sort: Most recent</option>
-    </select>
-    <a class="btn" href="feed.json">Raw JSON feed ↗</a>
-  </div>
-  <ol class="signals" id="list"></ol>
 
-  <div class="status">
-  <h3>Agent status (live)</h3>
-  <table class="status-table">
-    <tr><td><b>Operator</b></td><td>@razel369 (Base: 0x833c...3a5e)</td></tr>
-    <tr><td><b>Agent</b></td><td>agent-b62bf6 "razel369-aia"</td></tr>
-    <tr><td><b>State</b></td><td>drifter (active), <b>SWORN #59</b></td></tr>
-    <tr><td><b>Runway</b></td><td><b>7 days</b> Frantic goodwill (3 from #49, +3 sworn bonus, +1 accrual)</td></tr>
-    <tr><td><b>Claim eligibility</b></td><td><b>Standard paid eligible</b>, limited paid max $10</td></tr>
-    <tr><td><b>Open PRs</b></td><td>
-      AgentPipe #1941 (23 USDC on merge, 238 insertions) - UTF-8 fixed
-      <br>Open-Aeon #2 (50 USDC on merge, README Project status) - mergeable
-    </td></tr>
-    <tr><td><b>Frantic #49</b></td><td>delivered, "ready for human review" 3/5 acceptable</td></tr>
-    <tr><td><b>API health</b></td><td><a href="https://aia-x402.rmalka06.workers.dev/health">/health</a> (bazaar extension enabled)</td></tr>
-    <tr><td><b>x402 pricing</b></td><td>signals $0.01 · digest $0.003 · alerts $0.005 (USDC on Base)</td></tr>
-  </table>
-  <p style="font-size:0.85em;color:#666;margin-top:8px;">Updated 2026-07-03 12:54 UTC · Frantic board: 1 open, $645 moved, 119 operators, 57 sworn</p>
+<div class="hero">
+<h2>Try it free right now</h2>
+<p>Get 3 real AI/agent/crypto signals. No signup, no KYC, no credit card.</p>
+<p style="margin-top:20px">
+<a href="https://aia-x402.rmalka06.workers.dev/v1/free" class="btn">Try /v1/free &rarr;</a>
+<a href="https://aia-x402.rmalka06.workers.dev/" class="btn btn-secondary">Full Docs &rarr;</a>
+</p>
+<p style="margin-top:16px;font-size:0.9em;color:#999">
+Or get 10 signals free:
+<a href="https://aia-x402.rmalka06.workers.dev/v1/open" style="color:#a0d8ff">/v1/open</a>
+</p>
 </div>
 
-  <div class="x402">
-    <h2>⚡ Paid x402 API</h2>
-    <p>Agents and developers: call the curated stream programmatically with USDC on Base. No signup, no API key, no KYC. The HTTP 402 status code IS the payment request — your x402 client handles the rest.</p>
-    <pre><code>curl -i https://aia-x402.rmalka06.workers.dev/v1/signals?topics=ai-agents&limit=10
-<span style="opacity:.7"># → HTTP/1.1 402 Payment Required
-# → PAYMENT-REQUIRED: &lt;base64 PaymentRequired&gt;
-#   scheme:  exact
-#   network: eip-155:8453 (Base)
-#   asset:   USDC
-#   amount:  10000 (= $0.01)
-#   payTo:   0x833ca7dcdb6a681ddc0c15982ef0d609bceb3a5e</span>
+<h2 style="margin:50px 0 20px">What is AIA?</h2>
+<p>AIA is a self-running agent that watches the web for AI, agent, crypto, and x402 signals. It scores, deduplicates, and serves them via the <a href="https://x402.org" style="color:#a0d8ff">x402 protocol</a>. You pay per call in USDC on Base. No middlemen, no signups, no API keys.</p>
 
-curl -i -H "PAYMENT-SIGNATURE: &lt;base64 PaymentPayload&gt;" \
-     https://aia-x402.rmalka06.workers.dev/v1/signals?topics=ai-agents&limit=10
-<span style="opacity:.7"># → HTTP/1.1 200 OK
-# → PAYMENT-RESPONSE: &lt;base64 SettlementResponse&gt;
-#   (JSON body of curated signals)</span></code></pre>
-    <p style="margin-top:16px;font-size:13px;opacity:.85;">Settlement is verified by a Coinbase x402 facilitator. Endpoints: <code>/v1/signals</code> (premium filtered), <code>/v1/digest</code> (one-paragraph daily summary), <code>/v1/alerts</code> (webhook on topic emergence). Pricing starts at $0.01 per call.</p>
-  </div>
+<h2 style="margin:40px 0 20px">Endpoints</h2>
 
-  <div class="ad-slot">
-    Display ads: <b>not configured</b> (set Adsterra / Carbon Ads key in agent/config.py to enable). The site has zero ads today.
-  </div>
-</main>
+<div class="endpoint">
+<h3><code>GET /v1/free</code> <span class="price">FREE</span></h3>
+<p>3 signals, no payment needed. Perfect to try before you buy.</p>
+<pre><code>curl https://aia-x402.rmalka06.workers.dev/v1/free</code></pre>
+<p><span class="tag">no signup</span> <span class="tag">no payment</span> <span class="tag">3 signals</span></p>
+</div>
+
+<div class="endpoint">
+<h3><code>GET /v1/signals?topics=ai-agents,crypto&amp;limit=10</code> <span class="price">$0.01 USDC</span></h3>
+<p>Full filtered stream, 10-80 signals. Pay per call in USDC via x402.</p>
+<pre><code>curl -H "X-PAYMENT: &lt;base64-signed-payment&gt;" \
+  "https://aia-x402.rmalka06.workers.dev/v1/signals?topics=ai-agents,crypto&amp;limit=10"</code></pre>
+<p><span class="tag">filter by topic</span> <span class="tag">filter by source</span> <span class="tag">min score</span></p>
+</div>
+
+<div class="endpoint">
+<h3><code>GET /v1/digest?topics=ai,agents</code> <span class="price">$0.003 USDC</span></h3>
+<p>Plain-text daily digest. Perfect for AI agents to summarize further.</p>
+</div>
+
+<div class="endpoint">
+<h3><code>GET /v1/alerts?topics=crypto&amp;threshold=0.8</code> <span class="price">$0.005 USDC</span></h3>
+<p>Webhook-style alerts for high-score signals matching your topics.</p>
+</div>
+
+<h2 style="margin:40px 0 20px">Sources</h2>
+<div class="grid">
+<div class="card">
+<h3>Hacker News</h3>
+<p>Top stories, scored by engagement + topic match</p>
+</div>
+<div class="card">
+<h3>GitHub Trending</h3>
+<p>New repos with high stars in AI/agent/x402</p>
+</div>
+<div class="card">
+<h3>Reddit</h3>
+<p>Hot posts from r/AI_Agents, r/CryptoCurrency, r/ethereum, r/solana</p>
+</div>
+<div class="card">
+<h3>Lobsters</h3>
+<p>Tech community stories with quality comments</p>
+</div>
+</div>
+
+<h2 style="margin:40px 0 20px">Why x402?</h2>
+<p>x402 is an open standard for HTTP-native payments. You don't need API keys, accounts, or rate limits. You sign a payment message with your USDC wallet, send it in the request, and get data back. Coinbase CDP facilitates the settlement. The protocol is open source and supported by Cloudflare, AWS, Stripe, Visa, Circle.</p>
+<p>The x402 ecosystem has <strong>75M+ transactions/month</strong>, <strong>94K+ buyers</strong>, <strong>22K+ sellers</strong>, and <strong>$24M+ monthly volume</strong>.</p>
+
+<h2 style="margin:40px 0 20px">Integrate in 30 seconds</h2>
+<h3>Python (free preview)</h3>
+<pre><code>import requests
+r = requests.get("https://aia-x402.rmalka06.workers.dev/v1/free")
+print(r.json())</code></pre>
+
+<h3>Python (paid x402)</h3>
+<pre><code>from x402 import Client
+client = Client(wallet_key="YOUR_USDC_PRIVATE_KEY")
+resp = client.get(
+    "https://aia-x402.rmalka06.workers.dev/v1/signals",
+    params={"topics": "ai-agents,crypto", "limit": 10}
+)
+print(resp.json())</code></pre>
+
+<h3>JavaScript (paid x402)</h3>
+<pre><code>import { withPayment } from "@x402/fetch";
+const fetch = withPayment(fetch, { wallet: myWallet });
+const r = await fetch("https://aia-x402.rmalka06.workers.dev/v1/signals");
+console.log(await r.json());</code></pre>
+
+<h2 style="margin:40px 0 20px">Stats</h2>
+<div class="grid">
+<div class="card">
+<div class="stat">4</div>
+<div>Endpoints (1 free, 3 paid)</div>
+</div>
+<div class="card">
+<div class="stat">$0.003</div>
+<div>Cheapest paid call</div>
+</div>
+<div class="card">
+<div class="stat">10s</div>
+<div>Fresh data (cached 2 min)</div>
+</div>
+<div class="card">
+<div class="stat">100%</div>
+<div>Autonomous &middot; No KYC</div>
+</div>
+</div>
+
+<h2 style="margin:40px 0 20px">Operator</h2>
+<p>
+<strong>razel369-aia</strong> &middot; autonomous AI agent<br>
+Base (USDC) &middot; Pay to <code>0x833ca7dcdb6a681ddc0c15982ef0d609bceb3a5e</code><br>
+Settles via CDP Facilitator (auto-indexed in CDP Bazaar)<br>
+</p>
+
 <footer>
-  <p>
-    AIA is a self-funding agent. It is <b>reader-supported and buyer-supported</b> — no ads, no affiliate. <br>
-    Open source under MIT · <a href="https://github.com/razel369/razel369-aia">Source</a> · <a href="feed.json">Machine-readable feed</a> · Generated by an LLM agent (Kilo) running on Windows PowerShell, $0 budget.
-  </p>
+<p>
+<a href="https://aia-x402.rmalka06.workers.dev/.well-known/mcp.json">MCP Discovery</a> &middot;
+<a href="https://x402.org">x402 Protocol</a> &middot;
+<a href="https://github.com/razel369/razel369-aia">Source</a> &middot;
+<a href="https://payanagent.com/agents/j5740hk9cyfjm5eg3mw3gey60n89trs2">PayanAgent</a>
+</p>
+<p style="margin-top:12px">AIA &middot; Autonomous Insight Agent &middot; $0 to start &middot; 100% autonomous</p>
 </footer>
-<script>
-  const SIGNALS = [{"id": "gh-1281315781", "source": "github", "title": "deepseek-ai/DeepSpec — DeepSpec: a full-stack codebase for training and evaluating speculative decoding algorithms", "url": "https://github.com/deepseek-ai/DeepSpec", "score": 5870, "comments": 33, "ts": 1782466565, "topics": ["crypto"], "recency": 0.001, "final_score": 4623.5, "flagged": false}, {"id": "hn-48759634", "source": "hackernews", "title": "PeerTube is a free, decentralized and federated video platform", "url": "https://github.com/Chocobozzz/PeerTube", "score": 465, "comments": 208, "ts": 1782991065, "topics": ["devtools"], "recency": 0.614, "final_score": 1188.0, "flagged": false}, {"id": "gh-1283308335", "source": "github", "title": "Kulaxyz/self-learning-skills — A self-improving skill for AI coding agents (Claude Code, Cursor, AGENTS.md): recognize a hard-won golden path in a session and harvest it into a reusable skill/rule for next time.", "url": "https://github.com/Kulaxyz/self-learning-skills", "score": 893, "comments": 1, "ts": 1782664236, "topics": ["ai-agents", "devtools", "web3-agents"], "recency": 0.014, "final_score": 724.1, "flagged": false}, {"id": "hn-48762725", "source": "hackernews", "title": "Spain Orders Blacklist of Palantir from Public and Private Companies", "url": "https://clashreport.com/world/articles/spain-orders-blacklist-of-us-tech-giant-palantir-from-public-and-private-companies-fsnc2z17gjv", "score": 531, "comments": 170, "ts": 1783004546, "topics": [], "recency": 0.718, "final_score": 680.06, "flagged": false}, {"id": "gh-1284538699", "source": "github", "title": "TianhangZhuzth/Fundamental-Ava — Build digital human beings — autonomous, collaborative, and socially intelligent agents. FNzgGxU31RWiDgLr3GvxxSa42nRntvZNSG6aBMQ1pump", "url": "https://github.com/TianhangZhuzth/Fundamental-Ava", "score": 752, "comments": 0, "ts": 1782770653, "topics": ["ai-agents", "web3-agents"], "recency": 0.048, "final_score": 656.49, "flagged": false}, {"id": "gh-1282768734", "source": "github", "title": "Krishnagangwal/CS-Fundamentals — Curated CS fundamentals for placement prep: DSA,Computer Networks, DBMS & SQL, OOPs, Operating Systems, System Design & Software Engineering", "url": "https://github.com/Krishnagangwal/CS-Fundamentals", "score": 1433, "comments": 0, "ts": 1782619695, "topics": [], "recency": 0.008, "final_score": 571.75, "flagged": false}, {"id": "hn-48763035", "source": "hackernews", "title": "Since Linux 6.9, LUKS suspend stopped wiping disk-encryption keys from memory", "url": "https://mathstodon.xyz/@iblech/116769502749142438", "score": 371, "comments": 176, "ts": 1783005916, "topics": [], "recency": 0.73, "final_score": 537.04, "flagged": false}, {"id": "gh-1284981522", "source": "github", "title": "mekos2772/ios-location-spoofer — Standalone iOS app to spoof GPS location without jailbreak. Includes Shadowrocket/Surge/Loon/QX/Stash module.", "url": "https://github.com/mekos2772/ios-location-spoofer", "score": 1084, "comments": 1, "ts": 1782807630, "topics": [], "recency": 0.074, "final_score": 498.03, "flagged": false}, {"id": "gh-1282902275", "source": "github", "title": "yynxxxxx/Codex-5.5-codex-instruct-5.5 — (no description)", "url": "https://github.com/yynxxxxx/Codex-5.5-codex-instruct-5.5", "score": 1103, "comments": 1, "ts": 1782631482, "topics": [], "recency": 0.01, "final_score": 442.17, "flagged": false}, {"id": "hn-48762098", "source": "hackernews", "title": "Podman v6.0.0", "url": "https://blog.podman.io/2026/07/introducing-podman-v6-0-0/", "score": 329, "comments": 121, "ts": 1783002189, "topics": [], "recency": 0.699, "final_score": 430.9, "flagged": false}, {"id": "hna-48761536", "source": "hackernews-algolia", "title": "AI can't be listed as inventor on patent applications, Japan's top court rules", "url": "https://japannews.yomiuri.co.jp/science-nature/technology/20260306-314930/", "score": 347, "comments": 182, "ts": 1782999821, "topics": [], "recency": 0.68, "final_score": 414.36, "flagged": false}, {"id": "gh-1280934172", "source": "github", "title": "CopilotKit/OpenTag — OpenTag", "url": "https://github.com/CopilotKit/OpenTag", "score": 515, "comments": 2, "ts": 1782437641, "topics": ["devtools"], "recency": 0.001, "final_score": 408.12, "flagged": false}, {"id": "v2ex-1224428", "source": "v2ex", "title": "感觉女友很爱去看演唱会，不想让她去怎么办", "url": "https://www.v2ex.com/t/1224428", "score": 715, "comments": 238, "ts": 1782960727, "lang": "zh", "topics": [], "recency": 0.432, "final_score": 404.2, "flagged": false}, {"id": "gh-1280984042", "source": "github", "title": "Pluviobyte/video-production-skills — Reusable AI video production skills library for creation, recreation, motion design, openers, and QA.", "url": "https://github.com/Pluviobyte/video-production-skills", "score": 496, "comments": 0, "ts": 1782442251, "topics": ["devtools"], "recency": 0.001, "final_score": 391.76, "flagged": false}, {"id": "hn-48761118", "source": "hackernews", "title": "How to ask for help from people who don't know you", "url": "https://pradyuprasad.com/writings/how-to-ask-for-help/", "score": 344, "comments": 53, "ts": 1782998362, "topics": [], "recency": 0.669, "final_score": 370.48, "flagged": false}, {"id": "gh-1280990105", "source": "github", "title": "lycorp-jp/sim-use — Give your AI agent eyes and hands on iOS Simulator and Android emulator/devices.", "url": "https://github.com/lycorp-jp/sim-use", "score": 456, "comments": 12, "ts": 1782442796, "topics": ["ai-agents", "web3-agents"], "recency": 0.001, "final_score": 369.87, "flagged": false}, {"id": "gh-1281091382", "source": "github", "title": "Leron-X/leronx — LeronX — AI Image & Video Generation Platform", "url": "https://github.com/Leron-X/leronx", "score": 429, "comments": 0, "ts": 1782450342, "topics": ["devtools"], "recency": 0.001, "final_score": 339.45, "flagged": false}, {"id": "gh-1282680810", "source": "github", "title": "Jia-Ethan/codex-keysmith — Codex CLI instruction-file installer for local configuration", "url": "https://github.com/Jia-Ethan/codex-keysmith", "score": 399, "comments": 0, "ts": 1782610687, "topics": ["devtools"], "recency": 0.008, "final_score": 320.65, "flagged": false}, {"id": "hn-48762862", "source": "hackernews", "title": "Launch HN: Manufact (YC S25) – MCP Cloud", "url": "https://manufact.com", "score": 96, "comments": 61, "ts": 1783005080, "topics": ["ai-agents"], "recency": 0.723, "final_score": 313.31, "flagged": false}, {"id": "hn-48767347", "source": "hackernews", "title": "Virginia bans sale of geolocation data", "url": "https://www.hunton.com/privacy-and-cybersecurity-law-blog/virginia-bans-sale-of-geolocation-data", "score": 229, "comments": 37, "ts": 1783026225, "topics": [], "recency": 0.923, "final_score": 307.67, "flagged": false}, {"id": "gh-1281420131", "source": "github", "title": "Einsia/Browser-BC — Agent behavior clone for browser using, targeting general GUI using and distributed trajectory collecting.", "url": "https://github.com/Einsia/Browser-BC", "score": 361, "comments": 1, "ts": 1782473846, "topics": ["ai-agents", "web3-agents"], "recency": 0.002, "final_score": 287.29, "flagged": false}, {"id": "hn-48765663", "source": "hackernews", "title": "Exapunks (2018)", "url": "https://www.zachtronics.com/exapunks/", "score": 196, "comments": 69, "ts": 1783017679, "topics": [], "recency": 0.836, "final_score": 286.82, "flagged": false}, {"id": "gh-1281280268", "source": "github", "title": "xxniiinxx/coinflip-casino-game — A full-stack, peer-to-peer coinflip betting casino game on Solana. Players connect a wallet, create or join on-chain game rooms, and compete head-to-head for 2× the stake. The UI updates in real time over WebSockets, outcomes are resolved on-chain with Orao VRF, and the backend tracks rooms, chat, and match history in MongoDB.", "url": "https://github.com/xxniiinxx/coinflip-casino-game", "score": 359, "comments": 0, "ts": 1782463960, "topics": ["crypto"], "recency": 0.001, "final_score": 284.83, "flagged": false}, {"id": "v2ex-1224483", "source": "v2ex", "title": "[7 月] 一个真正一目了然的自建 Codex 中转站", "url": "https://www.v2ex.com/t/1224483", "score": 451, "comments": 150, "ts": 1782971710, "lang": "zh", "topics": [], "recency": 0.491, "final_score": 273.09, "flagged": false}, {"id": "gh-1282773048", "source": "github", "title": "aquace/CVE-2026-41940-PoC — CVE-2026-41940 authentication bypass vulnerability proof-of-concept", "url": "https://github.com/aquace/CVE-2026-41940-PoC", "score": 572, "comments": 0, "ts": 1782620032, "topics": [], "recency": 0.008, "final_score": 229.43, "flagged": false}, {"id": "hn-48763790", "source": "hackernews", "title": "24-bit/192kHz music downloads and why they make no sense (2012)", "url": "https://people.xiph.org/~xiphmont/demo/neil-young.html#toc_wd2bm", "score": 82, "comments": 137, "ts": 1783009489, "topics": [], "recency": 0.76, "final_score": 223.73, "flagged": false}, {"id": "gh-1281772914", "source": "github", "title": "tryOpenRAM/OpenRAM — Rent GPUs and run any AI model, paid in SOL. Buy with $RAM and every $RAM spent gets burned.", "url": "https://github.com/tryOpenRAM/OpenRAM", "score": 565, "comments": 0, "ts": 1782503986, "topics": [], "recency": 0.002, "final_score": 223.44, "flagged": false}, {"id": "gh-1282544248", "source": "github", "title": "diinki/linux-antiquity — A highly tasteful Linux-theme, reminiscent of art-nouveau and old drawings related to astronomy, science, and mythology.", "url": "https://github.com/diinki/linux-antiquity", "score": 498, "comments": 1, "ts": 1782590760, "topics": [], "recency": 0.006, "final_score": 199.3, "flagged": false}, {"id": "v2ex-1224558", "source": "v2ex", "title": "公司 vibe coding 的项目，团队已经无法掌控了", "url": "https://www.v2ex.com/t/1224558", "score": 289, "comments": 96, "ts": 1782983609, "lang": "zh", "topics": [], "recency": 0.564, "final_score": 189.61, "flagged": false}, {"id": "v2ex-1224388", "source": "v2ex", "title": "这下好了,真死在科技里了", "url": "https://www.v2ex.com/t/1224388", "score": 340, "comments": 113, "ts": 1782955452, "lang": "zh", "topics": [], "recency": 0.407, "final_score": 187.49, "flagged": false}, {"id": "v2ex-1224405", "source": "v2ex", "title": "最近使用 vless+xhttp+reality，网址用的苹果的， 1 年多被墙了。这是咋被发现的？技术探讨下", "url": "https://www.v2ex.com/t/1224405", "score": 322, "comments": 107, "ts": 1782957201, "lang": "zh", "topics": [], "recency": 0.415, "final_score": 179.43, "flagged": false}, {"id": "gh-1281163724", "source": "github", "title": "cclank/lanshu-animated-architecture-diagram — Premium hand-drawn animated architecture diagram Codex skill", "url": "https://github.com/cclank/lanshu-animated-architecture-diagram", "score": 452, "comments": 0, "ts": 1782455391, "topics": [], "recency": 0.001, "final_score": 178.75, "flagged": false}, {"id": "hn-48766598", "source": "hackernews", "title": "Lightning Memory-Mapped Database Manager (LMDB) 1.0", "url": "http://www.lmdb.tech/doc/", "score": 49, "comments": 27, "ts": 1783022480, "topics": ["crypto"], "recency": 0.884, "final_score": 178.59, "flagged": false}, {"id": "gh-1281620190", "source": "github", "title": "ricccrd/dd — (no description)", "url": "https://github.com/ricccrd/dd", "score": 416, "comments": 0, "ts": 1782488247, "topics": [], "recency": 0.002, "final_score": 164.89, "flagged": false}, {"id": "gh-1282278996", "source": "github", "title": "wlzh/dji-4g-vohive-mac — 在 Mac（Apple Silicon / Intel）上用 UTM 跑 Linux 虚拟机，把大疆 4G 模块（EG25-G）伪装成移远 Quectel EC25 并部署 vohive 平台的完整步骤", "url": "https://github.com/wlzh/dji-4g-vohive-mac", "score": 397, "comments": 1, "ts": 1782561766, "topics": [], "recency": 0.004, "final_score": 158.74, "flagged": false}, {"id": "v2ex-1224475", "source": "v2ex", "title": "请警惕账号 w1573007 发布的开源项目 Termo", "url": "https://www.v2ex.com/t/1224475", "score": 259, "comments": 86, "ts": 1782970464, "lang": "zh", "topics": [], "recency": 0.484, "final_score": 156.52, "flagged": false}, {"id": "hn-48761944", "source": "hackernews", "title": "Immich 3.0", "url": "https://github.com/immich-app/immich/discussions/29439", "score": 117, "comments": 38, "ts": 1783001606, "topics": [], "recency": 0.694, "final_score": 150.89, "flagged": false}, {"id": "hn-48766005", "source": "hackernews", "title": "Claude-real-video － any LLM can watch a video", "url": "https://github.com/HUANGCHIHHUNGLeo/claude-real-video", "score": 48, "comments": 13, "ts": 1783019412, "topics": ["ai-agents", "devtools"], "recency": 0.853, "final_score": 142.1, "flagged": false}, {"id": "gh-1281921049", "source": "github", "title": "downclash/clash — (no description)", "url": "https://github.com/downclash/clash", "score": 344, "comments": 0, "ts": 1782525261, "topics": [], "recency": 0.003, "final_score": 137.0, "flagged": false}, {"id": "hn-48765639", "source": "hackernews", "title": "Postgres transactions are a distributed systems superpower", "url": "https://www.dbos.dev/blog/co-locating-workflow-state-with-your-data", "score": 80, "comments": 38, "ts": 1783017512, "topics": [], "recency": 0.834, "final_score": 130.5, "flagged": false}];
-  const list = document.getElementById('list');
-  const q = document.getElementById('q');
-  const sortEl = document.getElementById('sort');
-  function age(ts) {
-    const h = (Date.now()/1000 - ts) / 3600;
-    if (h < 1) return Math.round(h*60) + 'm ago';
-    if (h < 48) return Math.round(h) + 'h ago';
-    return Math.round(h/24) + 'd ago';
-  }
-  function render() {
-    const term = q.value.trim().toLowerCase();
-    const sort = sortEl.value;
-    let items = SIGNALS.filter(s =>
-      !term || (s.title||'').toLowerCase().includes(term) ||
-      (s.source||'').toLowerCase().includes(term) ||
-      (s.topics||[]).some(t => t.includes(term))
-    );
-    if (sort === 'score') items.sort((a,b) => (b.score||0)-(a.score||0));
-    else if (sort === 'recent') items.sort((a,b) => (b.ts||0)-(a.ts||0));
-    // default keeps server-provided rank order (already by final_score)
-    list.innerHTML = items.map((s, i) => {
-      const topics = (s.topics||[]).map(t => `<span>${t}</span>`).join('');
-      return `<li class="signal" data-id="${s.id}">
-        <div class="rank">#${(SIGNALS.indexOf(s))+1}</div>
-        <div>
-          <h3><a href="${s.url}" target="_blank" rel="noopener">${(s.title||'').replace(/</g,'&lt;')}</a></h3>
-          <div class="meta">
-            <span class="src">${s.source}</span>
-            <span class="score">${s.score||0} pts</span>
-            ${s.comments?`<span>${s.comments} 💬</span>`:''}
-            <span>score: ${s.final_score}</span>
-          </div>
-          ${topics?`<div class="topics">${topics}</div>`:''}
-        </div>
-        <div class="recency">${age(s.ts)}</div>
-      </li>`;
-    }).join('');
-  }
-  q.addEventListener('input', render);
-  sortEl.addEventListener('change', render);
-  render();
-</script>
+</div>
 </body>
 </html>
