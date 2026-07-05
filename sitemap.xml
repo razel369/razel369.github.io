@@ -1,15 +1,34 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
-    <loc>https://razel369.github.io/aia/</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>daily</changefreq>
+    <loc>https://razel369.github.io/ai-integrity.html</loc>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
   <url>
-    <loc>https://aia-x402.rmalka06.workers.dev/</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>daily</changefreq>
+    <loc>https://razel369.github.io/ai-integrity-he.html</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <url>
+    <loc>https://razel369.github.io/blog/index.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://razel369.github.io/blog/bank-of-israel-directive-369.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://razel369.github.io/blog/privacy-protection-amendment-13-ai.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
