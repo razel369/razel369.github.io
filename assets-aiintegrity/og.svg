@@ -1,0 +1,8 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'>
+<rect width='1200' height='630' fill='#08090b'/>
+<circle cx='600' cy='280' r='160' fill='none' stroke='#10b981' stroke-width='6' opacity='0.15'/>
+<circle cx='600' cy='280' r='110' fill='none' stroke='#10b981' stroke-width='4' opacity='0.3'/>
+<path d='M510 280l60 60 130-130' stroke='#10b981' stroke-width='20' fill='none' stroke-linecap='round' stroke-linejoin='round'/>
+<text x='600' y='480' font-family='Arial, sans-serif' font-weight='800' font-size='60' fill='#fafafa' text-anchor='middle'>AI Integrity</text>
+<text x='600' y='540' font-family='Arial, sans-serif' font-weight='500' font-size='24' fill='#a1a1aa' text-anchor='middle'>When the regulator asks, you have the answer.</text>
+</svg>
