@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Integrity — תאימות AI לבנקים, חברות ביטוח ו-stаartапיים בישראל</title>
+<meta name="description" content="הכלי הישראלי הראשון לתיעוד והוכחת החלטות AI agents. עומד בדרישות בנק ישראל (הוראה 369), תיקון 13 לחוק הגנת הפרטיות ו-EU AI Act Article 12. קוד פתוח, 30 שניות להתקנה.">
+<meta name="keywords" content="AI compliance Israel, בנק ישראל AI, תיקון 13 AI, EU AI Act, audit trail AI agent, hash chain">
+<meta property="og:title" content="AI Integrity — תאימות AI לבנקים ו-fintech בישראל">
+<meta property="og:description" content="30 שניות להתקנה. 30 שניות ל-evidence bundle חתום. תאימות מלאה לרגולציה הישראלית.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<style>
+  :root {
+    --bg: #0b0f1a;
+    --bg-2: #111827;
+    --fg: #e5e7eb;
+    --fg-2: #9ca3af;
+    --accent: #10b981;
+    --accent-2: #34d399;
+    --warn: #f59e0b;
+    --danger: #ef4444;
+    --border: #1f2937;
+    --hl: #1e293b;
+    --code-bg: #0f172a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Segoe UI', 'Heebo', system-ui, -apple-system, sans-serif;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(11,15,26,0.92); backdrop-filter: blur(10px); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-weight: 800; font-size: 20px; color: var(--accent); letter-spacing: -0.5px; }
+  nav a { color: var(--fg-2); text-decoration: none; margin-left: 24px; font-size: 15px; transition: color 0.2s; }
+  nav a:hover { color: var(--accent); }
+  .hero { padding: 90px 0 70px; text-align: center; }
+  .hero .badge {
+    display: inline-block; padding: 5px 14px; background: rgba(16,185,129,0.12); color: var(--accent);
+    border-radius: 99px; font-size: 13px; font-weight: 600; margin-bottom: 28px; border: 1px solid rgba(16,185,129,0.3);
+  }
+  .hero h1 { font-size: 52px; font-weight: 800; line-height: 1.15; letter-spacing: -1.5px; margin-bottom: 24px; max-width: 850px; margin-inline: auto; }
+  .hero p { font-size: 20px; color: var(--fg-2); max-width: 700px; margin: 0 auto 36px; }
+  .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn { padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; transition: transform 0.15s, background 0.15s; display: inline-block; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--accent); color: #0b0f1a; }
+  .btn-primary:hover { background: var(--accent-2); }
+  .btn-secondary { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  section { padding: 70px 0; border-top: 1px solid var(--border); }
+  h2 { font-size: 36px; font-weight: 800; letter-spacing: -1px; margin-bottom: 16px; text-align: center; }
+  .section-sub { color: var(--fg-2); text-align: center; font-size: 17px; margin-bottom: 50px; max-width: 600px; margin-inline: auto; }
+
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .feature { background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; padding: 28px 24px; transition: border-color 0.2s; }
+  .feature:hover { border-color: var(--accent); }
+  .feature-icon { width: 48px; height: 48px; background: rgba(16,185,129,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 16px; }
+  .feature h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+  .feature p { font-size: 14px; color: var(--fg-2); }
+
+  .demo { background: var(--code-bg); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin-top: 30px; font-family: 'Consolas', 'Courier New', monospace; font-size: 14px; line-height: 1.9; overflow-x: auto; }
+  .demo .comment { color: var(--fg-2); }
+  .demo .key { color: var(--accent-2); }
+  .demo .str { color: var(--warn); }
+
+  .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; max-width: 900px; margin: 30px auto 0; }
+  .price { background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; padding: 32px 24px; }
+  .price.featured { border-color: var(--accent); transform: scale(1.04); box-shadow: 0 0 40px rgba(16,185,129,0.15); }
+  .price .name { font-size: 14px; color: var(--fg-2); text-transform: uppercase; letter-spacing: 1px; }
+  .price .amount { font-size: 42px; font-weight: 800; margin: 12px 0 4px; letter-spacing: -1.5px; }
+  .price .period { color: var(--fg-2); font-size: 14px; }
+  .price ul { list-style: none; margin-top: 20px; }
+  .price ul li { padding: 8px 0; font-size: 14px; border-bottom: 1px solid var(--border); }
+  .price ul li::before { content: '✓'; color: var(--accent); margin-left: 8px; }
+
+  .reg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 30px; }
+  .reg-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; }
+  .reg-card .reg-name { font-weight: 700; color: var(--accent); font-size: 15px; margin-bottom: 6px; }
+  .reg-card .reg-desc { color: var(--fg-2); font-size: 13px; }
+
+  .waitlist { max-width: 480px; margin: 30px auto; display: flex; gap: 10px; }
+  .waitlist input { flex: 1; padding: 14px 16px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 8px; color: var(--fg); font-size: 15px; font-family: inherit; }
+  .waitlist input:focus { outline: none; border-color: var(--accent); }
+
+  footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: var(--fg-2); font-size: 14px; }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 720px) {
+    .hero h1 { font-size: 36px; }
+    .hero p { font-size: 17px; }
+    h2 { font-size: 28px; }
+    nav { display: none; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a class="logo" href="/">⚡ AI Integrity</a>
+    <nav>
+      <a href="#features">יכולות</a>
+      <a href="#demo">דמו</a>
+      <a href="#regulation">רגולציה</a>
+      <a href="#pricing">מחירים</a>
+      <a href="https://github.com/razel369/ai-integrity" target="_blank">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container">
+    <span class="badge">🇮🇱 הכלי הראשון בעברית לתאימות AI — בנקים, ביטוח, healthtech</span>
+    <h1>כשהרגולטור שואל "למה ה-AI סירב החזר כספי?" — יש לכם תשובה חתומה תוך 30 שניות.</h1>
+    <p>SDK של 3 שורות שמתלבש על כל AI agent קיים. תיעוד אוטומטי. חתימה קריפטוגרפית. תאימות מלאה לבנק ישראל, תיקון 13, ו-EU AI Act.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#waitlist">הצטרפו ל-waitlist</a>
+      <a class="btn btn-secondary" href="https://github.com/razel369/ai-integrity" target="_blank">צפו בקוד ←</a>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <h2>הפתרון לכל בעיה שלכם עם רגולטורים</h2>
+    <p class="section-sub">בלי להחליף את ה-agent, בלי להוסיף תהליכים. פשוט 3 שורות קוד.</p>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🔗</div>
+        <h3>Audit Trail חסין שיבוש</h3>
+        <p>כל החלטת AI נחתמת ב-hash chain (SHA-256). אם מישהו שינה אפילו תו אחד בעבר — השרשרת נשברת. בלחיצת כפתור: evidence bundle שאפשר לשלוח לרגולטור.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📋</div>
+        <h3>Policy as Code בעברית</h3>
+        <p>הגדירו את כללי הרגולציה ב-Markdown. אנחנו מתרגמים לכללים מבוצעים אוטומטית. שינוי בהוראת בנק ישראל? PR אחד, ואתם מעודכנים.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🛡️</div>
+        <h3>חבילות מוכנות לרגולציה הישראלית</h3>
+        <p>15+ כללים מובנים: החלטות אשראי, AML, סנקציות, העברות בנקאיות, גישה ל-PHI, מרשמים, בדיקות גנטיות. מותאמים לבנק ישראל, PPA ומשרד הבריאות.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📦</div>
+        <h3>Evidence Bundle חתום</h3>
+        <p>ZIP שמכיל את כל ההיסטוריה, חתום ב-Ed25519. הרגולטור יכול לאמת את החתימה בלי להתקין שום דבר.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">⚡</div>
+        <h3>30 שניות להתקנה</h3>
+        <p>3 שורות Python. אפס תלויות בכבדות. PostgreSQL או SQLite. קוד פתוח (MIT). אפשר לעשות self-host מאחורי ה-VPC שלכם.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔍</div>
+        <h3>Re-evaluate על היסטוריה</h3>
+        <p>מדיניות השתנתה? הריצו אותה על כל ההחלטות שכבר נעשו. אידיאלי לבדיקות עומק לפני ביקורת רגולטורית.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="container">
+    <h2>ככה זה נראה</h2>
+    <p class="section-sub">התקנה, הפעלה, וקבלת evidence bundle — הכל בפחות מדקה.</p>
+    <div class="demo">
+<span class="comment"># 1. מתקינים</span>
+pip install ai-integrity
+
+<span class="comment"># 2. מוסיפים 3 שורות לקוד שלכם</span>
+from ai_integrity import AgentClient
+client = <span class="key">AgentClient</span>(api_key=<span class="str">"aik_live_..."</span>)
+
+<span class="key">@client.track</span>(tool=<span class="str">"credit_decision"</span>)
+def process_loan(application):
+    result = my_llm.analyze(application)
+    <span class="key">client.record_event</span>(tool=<span class="str">"credit_decision"</span>, payload=<span class="key">result</span>)
+    <span class="key">return</span> result
+
+<span class="comment"># 3. מקבלים evidence bundle חתום</span>
+curl https://api.ai-integrity.dev/v1/runs/run_8a3f2c/evidence.zip
+  -H <span class="str">"X-API-Key: aik_live_..."</span> -o evidence.zip
+
+<span class="comment"># ה-ZIP מכיל:</span>
+<span class="comment">#   ✓ audit.json — כל האירועים, hash-chained</span>
+<span class="comment">#   ✓ audit.txt — סיכום לרגולטור</span>
+<span class="comment">#   ✓ summary.md — הסבר אנושי</span>
+<span class="comment">#   ✓ chain_proof.txt — הוכחת tamper-evidence</span>
+<span class="comment">#   ✓ signature.sig — חתימת Ed25519</span>
+    </div>
+  </div>
+</section>
+
+<section id="regulation">
+  <div class="container">
+    <h2>תאימות לכל הרגולציות הרלוונטיות</h2>
+    <p class="section-sub">ישראל, אירופה, ארה״ב — כל ההחלטות מתועדות לפי הפורמט שהרגולטור מצפה לו.</p>
+    <div class="reg-grid">
+      <div class="reg-card">
+        <div class="reg-name">🇮🇱 בנק ישראל — הוראה 369</div>
+        <div class="reg-desc">ניהול סיכוני מודלים. תיעוד מלא, תיקוף, בקרה.</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">🇮🇱 תיקון 13 + PPA AI Guidance</div>
+        <div class="reg-desc">הסבר איך ה-agent מחליט, DPIA, רישום החלטות.</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">🇮🇱 חוק ניידות מידע רפואי 2024</div>
+        <div class="reg-desc">תקן FHIR, רישום גישה ל-PHI, הסכמת מטופל.</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">🇪🇺 EU AI Act Article 12</div>
+        <div class="reg-desc">6 חודשי לוג לפחות, traceability, hash-chained.</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">🇺🇸 SOX / HIPAA / SOC 2</div>
+        <div class="reg-desc">אם אתם עובדים עם ארה״ב — כבר מכוסים.</div>
+      </div>
+      <div class="reg-card">
+        <div class="reg-name">🇮🇱 רשות שוק ההון + משרד הבריאות</div>
+        <div class="reg-desc">Packs מותאמים לביטוח, פנסיה, ומערכות בריאות.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <h2>מחירים פשוטים</h2>
+    <p class="section-sub">בלי מכירות. בלי שיחות. תוכלו להתקין ולשלם בעצמכם.</p>
+    <div class="pricing">
+      <div class="price">
+        <div class="name">Open Source</div>
+        <div class="amount">$0</div>
+        <div class="period">לתמיד</div>
+        <ul>
+          <li>קוד MIT מלא</li>
+          <li>Self-host על השרת שלכם</li>
+          <li>SQLite או Postgres</li>
+          <li>1 evidence bundle / חודש</li>
+          <li>תמיכה ב-GitHub</li>
+        </ul>
+      </div>
+      <div class="price featured">
+        <div class="name">Cloud</div>
+        <div class="amount">$99</div>
+        <div class="period">לחודש</div>
+        <ul>
+          <li>10,000 אירועים / חודש</li>
+          <li>Evidence bundles ללא הגבלה</li>
+          <li>Hosted, multi-region</li>
+          <li>Webhook integrations</li>
+          <li>תמיכה ב-Slack, 24 שעות</li>
+        </ul>
+      </div>
+      <div class="price">
+        <div class="name">Enterprise</div>
+        <div class="amount">$499</div>
+        <div class="period">לחודש + custom</div>
+        <ul>
+          <li>אירועים ללא הגבלה</li>
+          <li>VPC self-host</li>
+          <li>Custom compliance packs</li>
+          <li>Dedicated engineer</li>
+          <li>SOC 2 Type 2 assistance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="waitlist" style="text-align: center;">
+  <div class="container">
+    <h2>הצטרפו ל-waitlist</h2>
+    <p class="section-sub">אנחנו בגרסת בטא. שולחים גישה ל-10 חברות הראשונות עד סוף יולי 2026.</p>
+    <form class="waitlist" onsubmit="event.preventDefault(); alert('תודה! נחזור אליך תוך 24 שעות.');">
+      <input type="email" placeholder="email@company.com" required>
+      <button type="submit" class="btn btn-primary">הצטרפות</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI Integrity · קוד פתוח (MIT) · <a href="https://github.com/razel369/ai-integrity">GitHub</a> · <a href="https://github.com/razel369/ai-integrity/blob/main/docs/SOC2.md">SOC 2</a></p>
+    <p style="margin-top: 8px;">© 2026 Raz Monsonego</p>
+  </div>
+</footer>
+</body>
+</html>
