@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הוראה 369 לבנק ישראל — כל מה שצריך לדעת על AI Risk Management בבנקים (2026)</title>
+<meta name="description" content="הוראה 369 של בנק ישראל דורשת מהבנקים לתעד, לתקף, ולפקח על כל מודל AI. מדריך מעשי ל-CISO, Risk VP, ומנהלי תאימות בבנקים ישראליים.">
+<meta name="keywords" content="הוראה 369, בנק ישראל, AI compliance בנק, ניהול סיכוני מודלים, model risk management בנק ישראל, AI בנק ישראל, פיקוח על הבנקים AI">
+<link rel="canonical" href="https://razel369.github.io/ai-integrity/blog/bank-of-israel-directive-369.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="הוראה 369 — מדריך מלא ל-AI Risk Management בבנקים">
+<meta property="og:description" content="מה ההוראה דורשת, איך עומדים בה, ואיך AI Integrity עוזר בלחיצת כפתור.">
+<meta property="og:image" content="https://razel369.github.io/assets-aiintegrity/og.svg">
+
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<!-- FAQ Schema for AEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "מה דורשת הוראה 369 של בנק ישראל?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "הוראה 369 (ניהול סיכוני מודלים) דורשת מתאגידים בנקאיים לזהות, למדוד, לפקח, ולדווח על סיכונים הנובעים משימוש במודלים, כולל מודלי AI. הדרישות המרכזיות: תיעוד מלא של מטרת המודל, תיקוף עצמאי, בקרה שוטפת על ביצועים, תהליך אישור הדרגתי, ודיווח לדירקטוריון. ההוראה חלה על כל תאגיד בנקאי בהתאם למורכבות המודל."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "האם הוראה 369 חלה על AI agents אוטונומיים?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "כן. ביוני 2026 בנק ישראל הוציא חוזר 2849 שמרחיב את הוראה 369 לכל יישום AI, כולל סוכנים אוטונומיים שמבצעים תהליכים שלמים. הדרישות כוללות תיעוד של כל החלטה אוטומטית, הסבר על ההיגיון שהוביל להחלטה, ויכולת לשחזר את התהליך מקלט ועד פלט."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "איך עומדים בהוראה 369 עם AI agents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "הדרך המעשית: (1) רישום אוטומטי של כל החלטה (קלט, פלט, היגיון, חותמת זמן). (2) תיעוד חסין שיבוש באמצעות hash chain (SHA-256). (3) Evidence bundle חתום (Ed25519) שאפשר לשלוח לפיקוח. (4) מדיניות כקוד (Policy as Code) שמאפשרת לרגולטור לראות את הכללים שמפעילים את ה-AI. AI Integrity מספק את כל אלה ב-SDK של 3 שורות Python."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה ההבדל בין הוראה 369 ל-EU AI Act?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "הוראה 369 מתמקדת בניהול סיכוני מודלים ספציפית בבנקאות ישראלית. EU AI Act Article 12 רחב יותר וחל על כל מערכת AI בסיכון גבוה באיחוד האירופי, עם דרישות דומות של תיעוד, רישום, ו-6 חודשי לוג לפחות. בנק ישראל אימץ גישת פיקוח מבוססת סיכונים (כמו ארה״ב ובריטניה) ולא חוק AI ייעודי דומה ל-EU."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "כמה זמן לוקח לעמוד בהוראה 369 עם AI agents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "הטמעה ראשונית עם AI Integrity לוקחת 30 שניות (התקנת SDK). בניית הקטלוג הראשון של החלטות שעברו תיעוד מלא — שבוע עד חודש, תלוי במספר המודלים הפעילים. הפקת ה-evidence bundle הראשון שעומד בדרישות הפיקוח — 30 שניות נוספות (curl אחד)."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Article Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "הוראה 369 לבנק ישראל — מדריך מלא ל-AI Risk Management בבנקים",
+  "description": "מדריך מעשי לעמידה בדרישות הוראה 369 של בנק ישראל ל-AI בבנקים.",
+  "datePublished": "2026-07-06",
+  "dateModified": "2026-07-06",
+  "inLanguage": "he",
+  "author": {
+    "@type": "Organization",
+    "name": "AI Integrity",
+    "url": "https://razel369.github.io/ai-integrity.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Integrity"
+  }
+}
+</script>
+
+<style>
+  :root {
+    --bg: #fff; --fg: #0a0a0a; --fg-2: #4b5563; --fg-3: #6b7280;
+    --accent: #059669; --accent-2: #10b981;
+    --border: #e5e7eb; --card: #f8fafc;
+    --code-bg: #1e293b; --code-fg: #e2e8f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Segoe UI', 'Heebo', system-ui, -apple-system, sans-serif;
+    line-height: 1.75;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  nav.top {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+    font-size: 14px;
+  }
+  nav.top a { color: var(--fg-2); text-decoration: none; }
+  nav.top a:hover { color: var(--accent); }
+  nav.top .sep { color: var(--fg-3); margin: 0 8px; }
+
+  article { padding: 20px 0 80px; }
+  .article-meta {
+    color: var(--fg-3); font-size: 14px;
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -1.2px;
+    margin-bottom: 24px;
+  }
+  .article-sub {
+    font-size: 21px;
+    color: var(--fg-2);
+    margin-bottom: 36px;
+    line-height: 1.45;
+  }
+  h2 {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+    margin: 48px 0 16px;
+    line-height: 1.2;
+  }
+  h3 {
+    font-size: 21px;
+    font-weight: 700;
+    margin: 32px 0 12px;
+  }
+  p { margin-bottom: 18px; }
+  ul, ol { margin: 0 40px 22px; }
+  li { margin-bottom: 8px; }
+  strong { color: var(--fg); font-weight: 700; }
+  a { color: var(--accent); }
+  a:hover { color: var(--accent-2); text-decoration: underline; }
+  blockquote {
+    border-right: 4px solid var(--accent);
+    padding: 16px 24px 16px 0;
+    margin: 28px 0;
+    background: var(--card);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--fg-2);
+  }
+  .code-block {
+    background: var(--code-bg);
+    color: var(--code-fg);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 14.5px;
+    line-height: 1.7;
+    overflow-x: auto;
+    direction: ltr;
+    text-align: left;
+  }
+  .code-block .comment { color: #94a3b8; }
+  .code-block .key { color: #34d399; }
+  .code-block .str { color: #f59e0b; }
+  .info-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-right: 4px solid var(--accent);
+    padding: 20px 24px;
+    border-radius: 8px;
+    margin: 28px 0;
+  }
+  .info-box-title {
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--accent);
+  }
+  .faq { margin: 32px 0; }
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+  }
+  .faq-q { font-weight: 700; font-size: 18px; margin-bottom: 10px; }
+  .faq-a { color: var(--fg-2); font-size: 16px; line-height: 1.6; }
+  .cta-box {
+    background: linear-gradient(135deg, #ecfdf5, #f0fdf4);
+    border: 1px solid #a7f3d0;
+    border-radius: 12px;
+    padding: 32px 28px;
+    margin: 48px 0;
+    text-align: center;
+  }
+  .cta-box h3 { margin-bottom: 8px; }
+  .cta-box p { color: var(--fg-2); margin-bottom: 16px; }
+  .cta-box .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+  .related {
+    margin: 48px 0;
+    padding: 24px;
+    background: var(--card);
+    border-radius: 8px;
+  }
+  .related h3 { margin-bottom: 12px; }
+  .related ul { list-style: none; padding: 0; margin: 0; }
+  .related li { padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .related li:last-child { border-bottom: none; }
+  footer { padding: 30px 0; border-top: 1px solid var(--border); margin-top: 60px; text-align: center; color: var(--fg-3); font-size: 14px; }
+  @media (max-width: 600px) {
+    h1 { font-size: 32px; }
+    .article-sub { font-size: 18px; }
+    h2 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+<nav class="top">
+  <a href="https://razel369.github.io/ai-integrity.html">AI Integrity</a>
+  <span class="sep">›</span>
+  <a href="https://razel369.github.io/ai-integrity.html#regulations">רגולציה</a>
+  <span class="sep">›</span>
+  <span>הוראה 369</span>
+</nav>
+
+<article>
+  <div class="article-meta">6 ביולי 2026 · 12 דקות קריאה · עודכן: אותו יום</div>
+  <h1>הוראה 369 לבנק ישראל — מדריך מלא ל-AI Risk Management בבנקים (2026)</h1>
+  <p class="article-sub">
+    אם אתם מפתחים או משתמשים ב-AI agents בתאגיד בנקאי ישראלי, הוראה 369 היא הרגולציה שתקבע אם ה-AI שלכם יעלה לפרודקשן או יישאר בפיילוט. מדריך מעשי ל-CISO, Risk VP, ומנהלי תאימות — עם דוגמאות, ציטוטים מההוראה, ודרך מעשית לעמוד בה בלי לבנות תשתית חדשה.
+  </p>
+
+  <h2>מה זה הוראה 369?</h2>
+
+  <p>
+    <strong>הוראה 369</strong> (ניהול סיכוני מודלים) של הפיקוח על הבנקים בבנק ישראל היא ההוראה המרכזית שמסדירה איך תאגידים בנקאיים מנהלים סיכונים הנובעים משימוש ב<strong>מודלים כמותיים</strong> — ובפרט מודלי AI. ההוראה פורסמה במקורה ב-2019 ועודכנה בהרחבות שונות. ביוני 2026, בנק ישראל הוציא <strong>חוזר 2849</strong> שמרחיב את היקף ההוראה לכל יישום AI, כולל סוכנים אוטונומיים.
+  </p>
+
+  <blockquote>
+    "ההנחיות בהוראה זו ייושמו על-ידי כל תאגיד בנקאי בהתאם למורכבות ולהיקף השימוש שהוא עושה במודלים... כל האמור בהוראה זו חל גם על מודלים הכוללים שימוש או התבססות על בינה מלאכותית."
+    <br><br>— בנק ישראל, הוראה 369 (עדכון יוני 2026)
+  </blockquote>
+
+  <h2>הדרישות המרכזיות של הוראה 369</h2>
+
+  <p>
+    ההוראה כוללת 7 דרישות מרכזיות. לפניכם פירוט של מה שצריך לעשות בפועל, לא רק מה שכתוב:
+  </p>
+
+  <h3>1. זיהוי וקטלוג של כל מודל</h3>
+  <p>
+    התאגיד הבנקאי חייב לנהל <strong>מרשם (registry)</strong> של כל מודל שמשמש לקבלת החלטות. עבור כל מודל — מטרה, קלטים, פלטים, בעלים, תאריך אישור, גרסה.
+  </p>
+
+  <h3>2. תיקוף (Validation) לפני כניסה לפרודקשן</h3>
+  <p>
+    לפני שמודל נכנס לסביבת ייצור, הוא חייב לעבור <strong>תיקוף עצמאי</strong> — בדיקה של איכות הנתונים, התאמה למטרה, יציבות, ויכולת הכללה. התיקוף מתועד בכתב וחייב להיות זמין לפיקוח.
+  </p>
+
+  <h3>3. בקרה שוטפת (Ongoing Monitoring)</h3>
+  <p>
+    אחרי שהמודל בפרודקשן, התאגיד חייב לפקח <strong>באופן שוטף</strong> על ביצועי המודל — דיוק, דריפט (drift), התפלגות קלטים, ויחס התרעות שווא.
+  </p>
+
+  <h3>4. תהליך אישור הדרגתי (Tiered Approval)</h3>
+  <p>
+    ההוראה מחייבת שמודלים יאושרו לפי רמת סיכון. מודל בסיכון גבוה דורש אישור של <strong>ועדת מודלים</strong> שכוללת נציגי סיכונים, טכנולוגיה, ועסקים.
+  </p>
+
+  <h3>5. דיווח לדירקטוריון</h3>
+  <p>
+    סיכוני מודלים צריכים לעלות לדירקטוריון <strong>לפחות אחת לרבעון</strong>. הדירקטוריון צריך לאשר את המדיניות ולעקוב אחר חריגות.
+  </p>
+
+  <h3>6. תיעוד (Documentation)</h3>
+  <p>
+    תיעוד מלא של המודל: מטרה, תיאוריה ולוגיקה, נתוני אימון, בדיקות שנערכו, מגבלות ידועות. <strong>התיעוד חייב להיות מסודר ומתעדכן</strong>.
+  </p>
+
+  <h3>7. ניהול שינויים (Change Management)</h3>
+  <p>
+    כל שינוי במודל — גרסה חדשה, פיצ'ר חדש, או שינוי בנתונים — דורש תהליך פורמלי של הערכת סיכון מחדש.
+  </p>
+
+  <h2>מה חדש ב-2026?</h2>
+
+  <p>
+    ביוני 2026, בנק ישראל פרסם <strong>חוזר 2849</strong> עם שלוש תוספות משמעותיות:
+  </p>
+
+  <ol>
+    <li><strong>הרחבה לסוכני AI אוטונומיים</strong> — סוכן שמבצע תהליך שלם (לא רק מסייע לעובד) נדרש באותה רמת בקרה כמו מודל.</li>
+    <li><strong>דרישת תיעוד החלטות</strong> — כל החלטה אוטומטית חייבת להיות רשומה עם הסבר על ההיגיון.</li>
+    <li><strong>אחריות דירקטוריון מורחבת</strong> — הדירקטוריון לא רק מאשר את המדיניות, אלא צריך לוודא שיש מנגנון לזיהוי וטיפול בסיכונים מתעוררים.</li>
+  </ol>
+
+  <h2>איך AI Agents נכנסים לזה?</h2>
+
+  <p>
+    סוכן AI (AI Agent) שמקבל החלטות על לקוחות בנק — למשל סוכן שמחליט על אישור הלוואה, סוכן שמסרב עסקה בגלל חשד להלבנת הון, או סוכן שמציע מוצר ללקוח — נחשב <strong>מודל</strong> לכל דבר. ההוראה חלה עליו במלואה.
+  </p>
+
+  <p>
+    הבעיה: רוב הבנקים מתייחסים ל-AI agents כ<strong>"כלי עזר לעובד"</strong> או כ<strong>"מערכת תומכת החלטה"</strong> — ולא כמודל. בעקבות החוזר החדש, גישה זו כבר לא תקפה.
+  </p>
+
+  <div class="info-box">
+    <div class="info-box-title">חשוב להבין</div>
+    <p style="margin:0;">
+      כל קריאה של סוכן AI ל<strong>tool חיצוני</strong> (כמו העברה כספית, פתיחת חשבון, או עדכון רישום אשראי) היא בעצם <strong>החלטה אוטומטית</strong> במובן של ההוראה. היא חייבת תיעוד, בקרה, ויכולת שחזור.
+    </p>
+  </div>
+
+  <h2>איך עומדים בהוראה 369 בפועל?</h2>
+
+  <p>הדרך המעשית לעמוד בהוראה 369 עם AI agents מבוססת על 5 שכבות:</p>
+
+  <h3>שכבה 1: תיעוד אוטומטי של כל החלטה</h3>
+  <p>
+    כל קריאה ל-AI נרשמת אוטומטית: <strong>קלט</strong> (מה הסוכן קיבל), <strong>פלט</strong> (מה הוא החליט), <strong>היגיון</strong> (למה הוא בחר בזה), <strong>חותמת זמן</strong>, <strong>מזהה סוכן</strong>.
+  </p>
+
+  <h3>שכבה 2: תיעוד חסין שיבוש (Hash Chain)</h3>
+  <p>
+    כל רשומה מקושרת לקודמתה באמצעות <strong>SHA-256</strong>. אם מישהו משנה תו אחד בעבר, השרשרת נשברת. הפיקוח יכול לאמת בלי להתקין שום כלי.
+  </p>
+
+  <h3>שכבה 3: חתימה דיגיטלית</h3>
+  <p>
+    ה-evidence bundle המלא נחתם ב<strong>Ed25519</strong>. החתימה מוכיחה שהתוכן לא הוחלף, גם אם מי שחתם לא נמצא בזמן הבדיקה.
+  </p>
+
+  <div class="code-block">
+<span class="comment"># דוגמה: SDK שמתלבש על הסוכן ב-3 שורות</span>
+<span class="key">from</span> ai_integrity <span class="key">import</span> AgentClient
+client <span class="key">=</span> <span class="key">AgentClient</span>(api_key=<span class="str">"aik_live_..."</span>)
+
+<span class="key">@client.track</span>(tool=<span class="str">"loan_decision"</span>)
+<span class="key">def</span> evaluate_loan(application):
+    result = <span class="key">my_llm</span>.analyze(application)
+    <span class="key">return</span> result
+
+<span class="comment"># כל קריאה ל-evaluate_loan נרשמת אוטומטית</span>
+<span class="comment"># evidence bundle זמין בלחיצת כפתור</span>
+  </div>
+
+  <h3>שכבה 4: Policy as Code</h3>
+  <p>
+    הכללים שמגדירים מתי הסוכן רשאי לפעול, מתי הוא חייב להעביר לבקרה אנושית, ומתי הוא חייב לחסום — כתובים ב<strong>Markdown</strong>, נשמרים ב-Git, ומבוצעים אוטומטית. שינוי במדיניות = PR אחד.
+  </p>
+
+  <h3>שכבה 5: Evidence Bundle בלחיצת כפתור</h3>
+  <p>
+    כשמגיע הפיקוח, אתם לא צריכים לחפש ב-Datadog, לבקש מה-data engineer, או לרוץ למצוא screenshots. <strong>curl אחד</strong> ויש לכם ZIP חתום עם כל מה שצריך.
+  </p>
+
+  <div class="code-block">
+<span class="comment"># הפקת evidence bundle</span>
+<span class="key">$</span> curl https://api.ai-integrity.dev/v1/runs/run_8a3f2c/evidence.zip <span class="key">\</span>
+       -H <span class="str">"X-API-Key: aik_live_..."</span> -o evidence.zip
+
+<span class="comment"># evidence.zip מכיל:</span>
+<span class="comment">#   audit.json       — כל האירועים (hash-chained)</span>
+<span class="comment">#   audit.txt        — סיכום לקריאה</span>
+<span class="comment">#   summary.md       — הסבר אנושי</span>
+<span class="comment">#   chain_proof.txt  — הוכחת tamper-evidence</span>
+<span class="comment">#   signature.sig    — חתימת Ed25519</span>
+  </div>
+
+  <h2>שאלות נפוצות</h2>
+
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q">מה דורשת הוראה 369 של בנק ישראל?</div>
+      <div class="faq-a">
+        הוראה 369 (ניהול סיכוני מודלים) דורשת מתאגידים בנקאיים לזהות, למדוד, לפקח, ולדווח על סיכונים הנובעים משימוש במודלים, כולל מודלי AI. הדרישות המרכזיות: תיעוד מלא של מטרת המודל, תיקוף עצמאי, בקרה שוטפת על ביצועים, תהליך אישור הדרגתי, ודיווח לדירקטוריון. ההוראה חלה על כל תאגיד בנקאי בהתאם למורכבות המודל.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">האם הוראה 369 חלה על AI agents אוטונומיים?</div>
+      <div class="faq-a">
+        כן. ביוני 2026 בנק ישראל הוציא חוזר 2849 שמרחיב את הוראה 369 לכל יישום AI, כולל סוכנים אוטונומיים שמבצעים תהליכים שלמים. הדרישות כוללות תיעוד של כל החלטה אוטומטית, הסבר על ההיגיון שהוביל להחלטה, ויכולת לשחזר את התהליך מקלט ועד פלט.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">איך עומדים בהוראה 369 עם AI agents?</div>
+      <div class="faq-a">
+        הדרך המעשית: (1) רישום אוטומטי של כל החלטה (קלט, פלט, היגיון, חותמת זמן). (2) תיעוד חסין שיבוש באמצעות hash chain (SHA-256). (3) Evidence bundle חתום (Ed25519) שאפשר לשלוח לפיקוח. (4) מדיניות כקוד (Policy as Code) שמאפשרת לרגולטור לראות את הכללים שמפעילים את ה-AI. AI Integrity מספק את כל אלה ב-SDK של 3 שורות Python.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">מה ההבדל בין הוראה 369 ל-EU AI Act?</div>
+      <div class="faq-a">
+        הוראה 369 מתמקדת בניהול סיכוני מודלים ספציפית בבנקאות ישראלית. EU AI Act Article 12 רחב יותר וחל על כל מערכת AI בסיכון גבוה באיחוד האירופי, עם דרישות דומות של תיעוד, רישום, ו-6 חודשי לוג לפחות. בנק ישראל אימץ גישת פיקוח מבוססת סיכונים (כמו ארה״ב ובריטניה) ולא חוק AI ייעודי דומה ל-EU.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">כמה זמן לוקח לעמוד בהוראה 369 עם AI agents?</div>
+      <div class="faq-a">
+        הטמעה ראשונית עם AI Integrity לוקחת 30 שניות (התקנת SDK). בניית הקטלוג הראשון של החלטות שעברו תיעוד מלא — שבוע עד חודש, תלוי במספר המודלים הפעילים. הפקת ה-evidence bundle הראשון שעומד בדרישות הפיקוח — 30 שניות נוספות (curl אחד).
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>רוצים pack מוכן להוראה 369?</h3>
+    <p>15 כללים שכבר ממופים לדרישות בנק ישראל, תיקון 13, ו-EU AI Act. מותקן ב-curl אחד.</p>
+    <a class="btn" href="https://github.com/razel369/ai-integrity/blob/main/verticals/il_fintech_bank_israel.md">להורדת ה-Pack ←</a>
+  </div>
+
+  <div class="related">
+    <h3>קראו גם</h3>
+    <ul>
+      <li>📋 <a href="https://razel369.github.io/ai-integrity.html">הפתרון המלא לתאימות AI בבנקים</a></li>
+      <li>📖 <a href="https://github.com/razel369/ai-integrity/blob/main/docs/SOC2.md">SOC 2 compliance pack</a></li>
+      <li>🇪🇺 <a href="https://razel369.github.io/ai-integrity.html#regulations">EU AI Act Article 12 pack</a></li>
+      <li>🏥 <a href="https://github.com/razel369/ai-integrity/blob/main/verticals/il_health_digital_health.md">Health Information Mobility Law 2024 pack</a></li>
+    </ul>
+  </div>
+
+</article>
+
+<footer>
+  © 2026 AI Integrity · <a href="https://razel369.github.io/ai-integrity.html">חזרה לדף הראשי</a>
+</footer>
+</div>
+</body>
+</html>
