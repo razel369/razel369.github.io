@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EU AI Act Article 12 — מה זה אומר לסטארטאפ ישראלי (2026)</title>
+<meta name="description" content="EU AI Act Article 12 דורש רישום, traceability, ושמירת לוגים למערכות AI בסיכון גבוה. נכנס לתוקף אוגוסט 2026. מדריך מעשי לסטארטאפים ישראליים שמוכרים לאירופה.">
+<meta name="keywords" content="EU AI Act, Article 12, AI compliance Europe, GDPR AI, tamper evident, audit trail AI, רגולציית AI אירופה">
+<link rel="canonical" href="https://razel369.github.io/ai-integrity/blog/eu-ai-act-article-12.html">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "האם EU AI Act חל על סטארטאפים ישראליים?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "כן, בעקיפין. EU AI Act חל על כל חברה שמציעה מוצרים או שירותים באיחוד האירופי, גם אם היא לא מבוססת שם. אם הסטארטאפ שלכם מוכר ללקוחות בגרמניה, צרפת, או הולנד — ה-EU AI Act חל עליכם. גם אם אתם לא מוכרים לאירופה ישירות, לקוחות שלכם (למשל בנקים בארה״ב שעובדים עם ספקים אירופיים) עלולים לדרוש מכם תאימות."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה דורש Article 12?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Article 12 דורש ממערכות AI בסיכון גבוה: (1) רישום אוטומטי של פעולות לאורך כל מחזור החיים. (2) שמירת לוגים לתקופה שלא תקצר מ-6 חודשים. (3) Traceability מלאה של המערכת — ניתן לעקוב אחר כל החלטה מקלט ועד פלט. (4) Tamper-evident storage — כל שינוי בלוג חייב להיות ניתן לזיהוי. (5) Information to enable post-market monitoring by authorities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מתי EU AI Act נכנס לתוקף?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ה-EU AI Act נכנס לתוקף באוגוסט 2024, אבל הדרישות נכנסות בהדרגה: פברואר 2025 — איסור על שימושים פרובלמטיים. אוגוסט 2025 — חובות על מודלים כלליים (GPT, Claude). אוגוסט 2026 — חובות מלאות על מערכות בסיכון גבוה, כולל Article 12. אוגוסט 2027 — חובות על מערכות מוטמעות."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה הקנס אם לא עומדים ב-EU AI Act?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "עד 15 מיליון אירו, או 3% מהמחזור השנתי העולמי, הגבוה מביניהם. עבור חברות קטנות — עד 7.5 מיליון אירו או 1% מהמחזור. בנוסף, הרשויות יכולות להורות להפסיק שיווק, לאסור שימוש, ולחייב תיקונים."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה ההבדל בין EU AI Act ל-GDPR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GDPR מסדיר איך מעבדים מידע אישי באיחוד האירופי. EU AI Act מסדיר איך בונים ומפעילים מערכות AI, ללא קשר למידע שהן מעבדות. במקרים רבים, מערכת AI בסיכון גבוה שמעבדת מידע אישי צריכה לעמוד בשניהם. הקנסות מצטברים — אי-עמידה בשניהם יכולה להגיע ל-7% מהמחזור."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "EU AI Act Article 12 — מה זה אומר לסטארטאפ ישראלי",
+  "datePublished": "2026-07-06",
+  "inLanguage": "he",
+  "author": {"@type": "Organization", "name": "AI Integrity"}
+}
+</script>
+
+<style>
+  :root { --bg:#fff; --fg:#0a0a0a; --fg-2:#4b5563; --fg-3:#6b7280; --accent:#059669; --accent-2:#10b981; --border:#e5e7eb; --card:#f8fafc; --code-bg:#1e293b; --code-fg:#e2e8f0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background:var(--bg); color:var(--fg); font-family:'Segoe UI','Heebo',system-ui,sans-serif; line-height:1.75; font-size:18px; -webkit-font-smoothing:antialiased; }
+  .container { max-width:760px; margin:0 auto; padding:0 24px; }
+  nav.top { padding:16px 0; border-bottom:1px solid var(--border); margin-bottom:40px; font-size:14px; }
+  nav.top a { color:var(--fg-2); text-decoration:none; }
+  nav.top .sep { color:var(--fg-3); margin:0 8px; }
+  article { padding:20px 0 80px; }
+  .article-meta { color:var(--fg-3); font-size:14px; margin-bottom:12px; }
+  h1 { font-size:44px; font-weight:800; line-height:1.15; letter-spacing:-1.2px; margin-bottom:24px; }
+  .article-sub { font-size:21px; color:var(--fg-2); margin-bottom:36px; line-height:1.45; }
+  h2 { font-size:30px; font-weight:800; letter-spacing:-0.6px; margin:48px 0 16px; line-height:1.2; }
+  h3 { font-size:21px; font-weight:700; margin:32px 0 12px; }
+  p { margin-bottom:18px; } ul, ol { margin:0 40px 22px; } li { margin-bottom:8px; }
+  strong { color:var(--fg); font-weight:700; } a { color:var(--accent); }
+  blockquote { border-right:4px solid var(--accent); padding:16px 24px 16px 0; margin:28px 0; background:var(--card); border-radius:0 8px 8px 0; color:var(--fg-2); }
+  .code-block { background:var(--code-bg); color:var(--code-fg); border-radius:8px; padding:20px 24px; margin:24px 0; font-family:'Consolas','Courier New',monospace; font-size:14.5px; line-height:1.7; overflow-x:auto; direction:ltr; text-align:left; }
+  .code-block .comment{color:#94a3b8} .code-block .key{color:#34d399} .code-block .str{color:#f59e0b}
+  .faq { margin:32px 0; }
+  .faq-item { border:1px solid var(--border); border-radius:8px; padding:20px 24px; margin-bottom:12px; }
+  .faq-q { font-weight:700; font-size:18px; margin-bottom:10px; }
+  .faq-a { color:var(--fg-2); font-size:16px; line-height:1.6; }
+  .cta-box { background:linear-gradient(135deg,#ecfdf5,#f0fdf4); border:1px solid #a7f3d0; border-radius:12px; padding:32px 28px; margin:48px 0; text-align:center; }
+  .cta-box .btn { display:inline-block; padding:12px 24px; background:var(--accent); color:white; text-decoration:none; border-radius:8px; font-weight:600; }
+  footer { padding:30px 0; border-top:1px solid var(--border); margin-top:60px; text-align:center; color:var(--fg-3); font-size:14px; }
+</style>
+</head>
+<body>
+<div class="container">
+<nav class="top">
+  <a href="https://razel369.github.io/ai-integrity.html">AI Integrity</a>
+  <span class="sep">›</span>
+  <a href="https://razel369.github.io/ai-integrity/blog/">בלוג</a>
+  <span class="sep">›</span>
+  <span>EU AI Act</span>
+</nav>
+
+<article>
+  <div class="article-meta">6 ביולי 2026 · 11 דקות קריאה</div>
+  <h1>EU AI Act Article 12 — מה זה אומר לסטארטאפ ישראלי</h1>
+  <p class="article-sub">
+    אם הסטארטאפ שלכם מוכר ללקוחות באירופה, או עובד עם שותפים שמוכרים לאירופה — <strong>EU AI Act חל עליכם</strong>. באוגוסט 2026, Article 12 נכנס לאכיפה מלאה. הנה מה שצריך לדעת ואיך לעמוד בזה.
+  </p>
+
+  <h2>מה זה EU AI Act?</h2>
+
+  <p>
+    <strong>EU AI Act</strong> (Regulation 2024/1689) הוא החוק הראשון בעולם שמסדיר בינה מלאכותית בצורה כוללת. הוא קובע רמות סיכון שונות למערכות AI — מ"לא מסוכן" (כמו ספאם-פילטר) ועד "אסור" (כמו social scoring ממשלתי). ככל שהסיכון גבוה יותר, הדרישות מחמירות.
+  </p>
+
+  <p>
+    רוב הסטארטאפים הישראליים לא נופלים בקטגוריה של "אסור". הם נופלים בקטגוריה של <strong>"בסיכון גבוה"</strong> (high-risk), שכוללת מערכות שמשפיעות על:
+  </p>
+
+  <ul>
+    <li>זכויות אדם (אשראי, העסקה, ביטוח)</li>
+    <li>בריאות (אבחון, טיפול, מרשם)</li>
+    <li>בטיחות (תחבורה, תשתית, רכב אוטונומי)</li>
+    <li>שירותים ציבוריים (מערכת המשפט, רווחה)</li>
+    <li>זיהוי ביומטרי</li>
+  </ul>
+
+  <h2>מה דורש Article 12?</h2>
+
+  <p>
+    Article 12 (Article 12 — Record-keeping) מתמקד ב<strong>תיעוד</strong>. זה הסעיף שמשפיע ישירות על כל מי שמפעיל מערכת AI בסיכון גבוה:
+  </p>
+
+  <h3>1. רישום אוטומטי של פעולות</h3>
+  <p>
+    <strong>Automatic logging</strong> — כל פעולה של המערכת חייבת להירשם באופן אוטומטי, לאורך כל מחזור החיים שלה. ההגדרה של "פעולה" היא רחבה: קלט, פלט, קריאות API, החלטות, אינטראקציות.
+  </p>
+
+  <h3>2. שמירת לוגים לתקופה מינימלית</h3>
+  <p>
+    הלוגים חייבים להישמר ל<strong>תקופה שלא תקצר מ-6 חודשים</strong>. הרבה חברות שומרות לוגים ל-30 יום, מה שלא מספיק ל-Article 12. צריך גם לתכנן retention לתקופות ארוכות יותר עבור תעשיות רגולטוריות (בריאות, פיננסים).
+  </p>
+
+  <h3>3. Traceability מלאה</h3>
+  <p>
+    צריך להיות אפשר <strong>לעקוב אחר כל החלטה מקלט ועד פלט</strong>. מה היו הנתונים, איזה גרסה של המודל רץ, מה היו הפרמטרים, מה היו התוצאות הביניים. לא מספיק "ה-AI החליט X" — צריך להראות למה.
+  </p>
+
+  <h3>4. Tamper-Evident Storage</h3>
+  <p>
+    הלוגים חייבים להיות <strong>חסיני שיבוש</strong>. אם מישהו שינה רשומה אחרי שנכתבה, זה צריך להיות ניתן לזיהוי. במילים פשוטות: hash chain עם חתימה דיגיטלית.
+  </p>
+
+  <h3>5. נגישות לרשויות</h3>
+  <p>
+    הלוגים צריכים להיות נגישים לרשויות פיקוח כשהן מבקשות. זה לא אומר public — זה אומר שצריך להיות תהליך מובנה של "לחיצת כפתור → bundle חתום → שליחה לרגולטור".
+  </p>
+
+  <blockquote>
+    "High-risk AI systems shall be designed and developed with capabilities enabling the automatic recording of events ('logs') over the lifetime of the system. The logs shall be kept for a period appropriate to the intended purpose of the high-risk AI system, of at least 6 months."
+    <br><br>— EU AI Act, Article 12 (1)
+  </blockquote>
+
+  <h2>מי חייב לעמוד בזה?</h2>
+
+  <p>
+    <strong>כל מי שמציע מוצרים או שירותים שכוללים AI בסיכון גבוה ב-EU</strong>. זה כולל:
+  </p>
+
+  <ul>
+    <li>✅ סטארטאפים ישראליים שמוכרים ללקוחות בגרמניה, צרפת, הולנד, איטליה, ספרד, וכו׳</li>
+    <li>✅ סטארטאפים שעובדים עם שותפים אירופיים (resellers, integrators)</li>
+    <li>✅ סטארטאפים שמוכרים לבנקים אירופיים, ביטוח, בריאות — גם אם לא באירופה</li>
+    <li>✅ חברות ישראליות שמשתמשות ב-AI של ספקים אירופיים (downstream liability)</li>
+  </ul>
+
+  <h2>מתי זה נכנס לתוקף?</h2>
+
+  <p>
+    בשלבים. <strong>Article 12 נכנס לאכיפה מלאה באוגוסט 2026</strong> — זה אומר שיש לכם בדיוק חודשיים אחרי היום הזה לעמוד בזה. אחרי התאריך הזה, אי-עמידה היא עבירה אזרחית.
+  </p>
+
+  <h2>מה הקנסות?</h2>
+
+  <p>
+    <strong>עד 15 מיליון אירו או 3% מהמחזור השנתי העולמי, הגבוה מביניהם</strong>.
+  </p>
+
+  <p>
+    עבור רוב הסטארטאפים, הסכום היחסי (3% מהמחזור) יהיה קטן יותר מ-15M. אבל 3% מהמחזור על אי-עמידה ב-EU AI Act היא <strong>סכום שמחסל סטארטאפ</strong> ברגע.
+  </p>
+
+  <h2>איך AI Integrity עוזר?</h2>
+
+  <p>
+    AI Integrity נבנה בדיוק עבור Article 12. הנה איך הוא עונה על כל אחת מהדרישות:
+  </p>
+
+  <h3>1. Automatic Logging</h3>
+  <p>
+    <strong>3 שורות Python</strong> וכל החלטה אוטומטית של ה-AI agent נרשמת — קלט, פלט, היגיון, חותמת זמן, מזהה סוכן. בלי לכתוב שורה אחת של logging code.
+  </p>
+
+  <div class="code-block">
+<span class="comment"># Install and add 3 lines</span>
+<span class="key">$</span> pip install ai-integrity
+
+<span class="key">from</span> ai_integrity <span class="key">import</span> AgentClient
+client = <span class="key">AgentClient</span>(api_key=<span class="str">"aik_live_..."</span>)
+
+<span class="key">@client.track</span>(tool=<span class="str">"loan_decision"</span>)
+<span class="key">def</span> evaluate_loan(application):
+    <span class="key">return</span> <span class="key">my_llm</span>.analyze(application)
+  </div>
+
+  <h3>2. 6+ Months Retention</h3>
+  <p>
+    ה-DB שלנו תומך ב-retention policies מובנים. ברירת המחדל היא 7 שנים (מתאים לתעשיות מרובות-רגולציה), אבל אפשר להגדיר 6 חודשים לפי הצורך.
+  </p>
+
+  <h3>3. Traceability</h3>
+  <p>
+    כל אירוע כולל <strong>metadata מלא</strong>: איזה agent, איזה גרסה, אילו קלטים, מה היו פעולות הביניים. אפשר לשחזר כל החלטה מקלט ועד פלט.
+  </p>
+
+  <h3>4. Tamper-Evidence</h3>
+  <p>
+    <strong>SHA-256 hash chain</strong> — כל רשומה מקושרת לקודמתה. שינוי אחד בעבר = שרשרת שבורה = זיהוי מיידי. מתמטית מוכח, לא הצהרה.
+  </p>
+
+  <h3>5. Bundle for Authorities</h3>
+  <p>
+    <strong>Evidence bundle חתום ב-Ed25519</strong> — קובץ ZIP שמכיל את כל הלוגים, ההוכחה, והסיכום. הרגולטור יכול לאמת את החתימה בלי להתקין שום דבר. זה בדיוק מה ש-Article 12 דורש.
+  </p>
+
+  <h2>מה ההבדל בין EU AI Act ל-GDPR?</h2>
+
+  <p>
+    <strong>GDPR</strong> מסדיר איך מעבדים מידע אישי. <strong>EU AI Act</strong> מסדיר איך בונים ומפעילים מערכות AI. הם <strong>לא סותרים</strong>, הם משלימים:
+  </p>
+
+  <ul>
+    <li>GDPR דורש הסכמה, מינימום נתונים, מחיקה. קנס: עד 4% מהמחזור.</li>
+    <li>EU AI Act דורש תיעוד, תיקוף, פיקוח. קנס: עד 3% מהמחזור.</li>
+    <li>במערכת AI שמעבדת מידע אישי, שניהם חלים.</li>
+  </ul>
+
+  <p>
+    <strong>הקנס המצטבר יכול להגיע ל-7% מהמחזור</strong> — לא תרחיש סביר לסטארטאפ, אבל גם לא בלתי-אפשרי.
+  </p>
+
+  <h2>שאלות נפוצות</h2>
+
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q">האם EU AI Act חל על סטארטאפים ישראליים?</div>
+      <div class="faq-a">כן, בעקיפין. EU AI Act חל על כל חברה שמציעה מוצרים או שירותים באיחוד האירופי, גם אם היא לא מבוססת שם. אם הסטארטאפ שלכם מוכר ללקוחות בגרמניה, צרפת, או הולנד — ה-EU AI Act חל עליכם. גם אם אתם לא מוכרים לאירופה ישירות, לקוחות שלכם (למשל בנקים בארה״ב שעובדים עם ספקים אירופיים) עלולים לדרוש מכם תאימות.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">מה דורש Article 12?</div>
+      <div class="faq-a">Article 12 דורש ממערכות AI בסיכון גבוה: (1) רישום אוטומטי של פעולות לאורך כל מחזור החיים. (2) שמירת לוגים לתקופה שלא תקצר מ-6 חודשים. (3) Traceability מלאה של המערכת — ניתן לעקוב אחר כל החלטה מקלט ועד פלט. (4) Tamper-evident storage — כל שינוי בלוג חייב להיות ניתן לזיהוי. (5) Information to enable post-market monitoring by authorities.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">מתי EU AI Act נכנס לתוקף?</div>
+      <div class="faq-a">ה-EU AI Act נכנס לתוקף באוגוסט 2024, אבל הדרישות נכנסות בהדרגה: פברואר 2025 — איסור על שימושים פרובלמטיים. אוגוסט 2025 — חובות על מודלים כלליים (GPT, Claude). אוגוסט 2026 — חובות מלאות על מערכות בסיכון גבוה, כולל Article 12. אוגוסט 2027 — חובות על מערכות מוטמעות.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">מה הקנס אם לא עומדים ב-EU AI Act?</div>
+      <div class="faq-a">עד 15 מיליון אירו, או 3% מהמחזור השנתי העולמי, הגבוה מביניהם. עבור חברות קטנות — עד 7.5 מיליון אירו או 1% מהמחזור. בנוסף, הרשויות יכולות להורות להפסיק שיווק, לאסור שימוש, ולחייב תיקונים.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">מה ההבדל בין EU AI Act ל-GDPR?</div>
+      <div class="faq-a">GDPR מסדיר איך מעבדים מידע אישי באיחוד האירופי. EU AI Act מסדיר איך בונים ומפעילים מערכות AI, ללא קשר למידע שהן מעבדות. במקרים רבים, מערכת AI בסיכון גבוה שמעבדת מידע אישי צריכה לעמוד בשניהם. הקנסות מצטברים — אי-עמידה בשניהם יכולה להגיע ל-7% מהמחזור.</div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>מתחילים עם AI Integrity</h3>
+    <p>3 שורות Python. תאימות מלאה ל-EU AI Act Article 12, תיקון 13, והוראה 369. קוד פתוח (MIT).</p>
+    <a class="btn" href="https://github.com/razel369/ai-integrity">לקוד ב-GitHub ←</a>
+  </div>
+</article>
+
+<footer>© 2026 AI Integrity · <a href="https://razel369.github.io/ai-integrity.html">חזרה לדף הראשי</a></footer>
+</div>
+</body>
+</html>

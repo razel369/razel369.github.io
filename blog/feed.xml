@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>AI Integrity Blog</title>
+    <link>https://razel369.github.io/ai-integrity/blog/</link>
+    <description>מאמרים בעברית על תאימות AI בישראל — תיקון 13, הוראה 369, EU AI Act, ועוד.</description>
+    <language>he-IL</language>
+    <atom:link href="https://razel369.github.io/ai-integrity/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Jul 2026 00:00:00 +0300</lastBuildDate>
+    <item>
+      <title>הוראה 369 לבנק ישראל — מדריך מלא ל-AI Risk Management בבנקים</title>
+      <link>https://razel369.github.io/ai-integrity/blog/bank-of-israel-directive-369.html</link>
+      <guid>https://razel369.github.io/ai-integrity/blog/bank-of-israel-directive-369.html</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0300</pubDate>
+      <description>7 דרישות, מה חדש ביוני 2026, ואיך עומדים בהוראה עם AI agents.</description>
+    </item>
+    <item>
+      <title>תיקון 13 לחוק הגנת הפרטיות ו-AI — מה סטארטאפ צריך לדעת</title>
+      <link>https://razel369.github.io/ai-integrity/blog/privacy-protection-amendment-13-ai.html</link>
+      <guid>https://razel369.github.io/ai-integrity/blog/privacy-protection-amendment-13-ai.html</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0300</pubDate>
+      <description>החוק נכנס לתוקף. ה-PPA פרסם הנחיות. הנה מה שאתם צריכים לעשות השבוע.</description>
+    </item>
+    <item>
+      <title>EU AI Act Article 12 — מה זה אומר לסטארטאפ ישראלי</title>
+      <link>https://razel369.github.io/ai-integrity/blog/eu-ai-act-article-12.html</link>
+      <guid>https://razel369.github.io/ai-integrity/blog/eu-ai-act-article-12.html</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0300</pubDate>
+      <description>אוגוסט 2026 הוא ה-deadline. Article 12 נכנס לאכיפה מלאה.</description>
+    </item>
+    <item>
+      <title>חוק ניידות מידע רפואי 2024 — מדריך לסטארטאפ Digital Health</title>
+      <link>https://razel369.github.io/ai-integrity/blog/health-information-mobility-law-2024.html</link>
+      <guid>https://razel369.github.io/ai-integrity/blog/health-information-mobility-law-2024.html</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0300</pubDate>
+      <description>תקן FHIR, רישום גישה ל-PHI, הסכמת מטופל.</description>
+    </item>
+  </channel>
+</rss>

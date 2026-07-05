@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>חוק ניידות מידע רפואי 2024 — מדריך לסטארטאפ digital health</title>
+<meta name="description" content="חוק ניידות מידע רפואי 5784-2024 מחייב תקן FHIR, רישום גישה ל-PHI, והסכמת מטופל. מדריך מעשי לסטארטאפים של digital health בישראל.">
+<meta name="keywords" content="חוק ניידות מידע רפואי, digital health ישראל, FHIR, PHI access log, AI רפואה רגולציה">
+<link rel="canonical" href="https://razel369.github.io/ai-integrity/blog/health-information-mobility-law-2024.html">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "מה זה חוק ניידות מידע רפואי?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "חוק ניידות מידע רפואי (תשפ״ד-2024) הוא חוק ישראלי שמסדיר העברת מידע רפואי בין גופי בריאות. הוא מחייב שימוש בתקן FHIR (Fast Healthcare Interoperability Resources), רישום של כל גישה למידע רפואי, והסכמת מטופל מפורשת לפני כל שיתוף. החוק נכנס לתוקף בהדרגה מ-2024 עם יישום מלא ב-2027."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "האם החוק חל על סטארטאפים של digital health?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "כן, בהחלט. החוק חל על כל מי שמעבד, מאחסן, או מעביר מידע רפואי בישראל — כולל סטארטאפים. אם המוצר שלכם נוגע ב-PHI (Protected Health Information) של ישראלים — גם אם רק כדי להציג אותו למטופל — החוק חל עליכם."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה הקשר בין החוק הזה ל-AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "החוק לא מדבר על AI במפורש, אבל הוא מחייב תיעוד של כל גישה למידע רפואי. כל פעם ש-AI agent שלכם ניגש ל-PHI, זו 'גישה' במובן החוק. בנוסף, תיקון 13 לחוק הגנת הפרטיות + הנחיות ה-PPA ל-AI מחייבים הסכמה מפורשת לפני שימוש ב-AI על מידע רפואי."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה זה FHIR ולמה זה חשוב?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "FHIR (Fast Healthcare Interoperability Resources) הוא תקן בינלאומי להעברת מידע רפואי. החוק מחייב אותו כתקן אחיד כדי שמערכות בריאות שונות (קופות חולים, בתי חולים, מרפאות פרטיות, סטארטאפים) יוכלו להחליף מידע. הוא גם מאפשר API אחידים שעובדים בכל המערכות."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "איך תאימות לחוק ניידות מידע רפואי עובדת בפועל?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "בפועל זה אומר: (1) חיבור למערכות בריאות דרך FHIR-compliant APIs. (2) רישום של כל גישה ל-PHI (קריאה, כתיבה, מחיקה) — מי, מתי, למה, אילו נתונים. (3) הסכמת מטופל מתועדת לפני כל שיתוף. (4) Audit trail עם tamper-evidence. (5) זמן תגובה לבקשות מטופל למחיקה/גישה תוך זמן סביר."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "חוק ניידות מידע רפואי 2024 — מדריך לסטארטאפ digital health",
+  "datePublished": "2026-07-06",
+  "inLanguage": "he",
+  "author": {"@type": "Organization", "name": "AI Integrity"}
+}
+</script>
+
+<style>
+  :root { --bg:#fff; --fg:#0a0a0a; --fg-2:#4b5563; --fg-3:#6b7280; --accent:#059669; --accent-2:#10b981; --border:#e5e7eb; --card:#f8fafc; --code-bg:#1e293b; --code-fg:#e2e8f0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background:var(--bg); color:var(--fg); font-family:'Segoe UI','Heebo',system-ui,sans-serif; line-height:1.75; font-size:18px; }
+  .container { max-width:760px; margin:0 auto; padding:0 24px; }
+  nav.top { padding:16px 0; border-bottom:1px solid var(--border); margin-bottom:40px; font-size:14px; }
+  nav.top a { color:var(--fg-2); text-decoration:none; } nav.top .sep { color:var(--fg-3); margin:0 8px; }
+  article { padding:20px 0 80px; }
+  .article-meta { color:var(--fg-3); font-size:14px; margin-bottom:12px; }
+  h1 { font-size:44px; font-weight:800; line-height:1.15; letter-spacing:-1.2px; margin-bottom:24px; }
+  .article-sub { font-size:21px; color:var(--fg-2); margin-bottom:36px; line-height:1.45; }
+  h2 { font-size:30px; font-weight:800; letter-spacing:-0.6px; margin:48px 0 16px; line-height:1.2; }
+  h3 { font-size:21px; font-weight:700; margin:32px 0 12px; }
+  p { margin-bottom:18px; } ul, ol { margin:0 40px 22px; } li { margin-bottom:8px; }
+  strong { color:var(--fg); font-weight:700; } a { color:var(--accent); }
+  blockquote { border-right:4px solid var(--accent); padding:16px 24px 16px 0; margin:28px 0; background:var(--card); border-radius:0 8px 8px 0; color:var(--fg-2); }
+  .code-block { background:var(--code-bg); color:var(--code-fg); border-radius:8px; padding:20px 24px; margin:24px 0; font-family:'Consolas','Courier New',monospace; font-size:14.5px; line-height:1.7; overflow-x:auto; direction:ltr; text-align:left; }
+  .code-block .comment{color:#94a3b8} .code-block .key{color:#34d399} .code-block .str{color:#f59e0b}
+  .faq { margin:32px 0; }
+  .faq-item { border:1px solid var(--border); border-radius:8px; padding:20px 24px; margin-bottom:12px; }
+  .faq-q { font-weight:700; font-size:18px; margin-bottom:10px; }
+  .faq-a { color:var(--fg-2); font-size:16px; line-height:1.6; }
+  .cta-box { background:linear-gradient(135deg,#ecfdf5,#f0fdf4); border:1px solid #a7f3d0; border-radius:12px; padding:32px 28px; margin:48px 0; text-align:center; }
+  .cta-box .btn { display:inline-block; padding:12px 24px; background:var(--accent); color:white; text-decoration:none; border-radius:8px; font-weight:600; }
+  footer { padding:30px 0; border-top:1px solid var(--border); margin-top:60px; text-align:center; color:var(--fg-3); font-size:14px; }
+</style>
+</head>
+<body>
+<div class="container">
+<nav class="top">
+  <a href="https://razel369.github.io/ai-integrity.html">AI Integrity</a>
+  <span class="sep">›</span>
+  <a href="https://razel369.github.io/ai-integrity/blog/">בלוג</a>
+  <span class="sep">›</span>
+  <span>Digital Health</span>
+</nav>
+
+<article>
+  <div class="article-meta">6 ביולי 2026 · 9 דקות קריאה</div>
+  <h1>חוק ניידות מידע רפואי 2024 — מדריך לסטארטאפ Digital Health</h1>
+  <p class="article-sub">
+    אם המוצר שלכם נוגע במידע רפואי של ישראלים, חוק ניידות מידע רפואי 5784-2024 חל עליכם. הנה מה שאתם צריכים לדעת — ואיך AI Integrity עוזר לעמוד בו בלי לבנות תשתית חדשה.
+  </p>
+
+  <h2>מה זה חוק ניידות מידע רפואי?</h2>
+
+  <p>
+    <strong>חוק ניידות מידע רפואי, תשפ״ד-2024</strong> הוא חוק ישראלי שמטרתו לאפשר העברת מידע רפואי בין גופי בריאות בצורה סטנדרטית, מאובטחת, ומבוקרת. החוק מחייב:
+  </p>
+
+  <ul>
+    <li>שימוש ב<strong>תקן FHIR</strong> (Fast Healthcare Interoperability Resources) להעברת מידע</li>
+    <li><strong>רישום של כל גישה</strong> למידע רפואי אישי (PHI)</li>
+    <li><strong>הסכמת מטופל מפורשת</strong> לפני שיתוף מידע בין גופים</li>
+    <li><strong>Audit trail</strong> עם tamper-evidence לכל פעולה</li>
+    <li><strong>זכות מטופל לגישה, תיקון, ומחיקה</strong> תוך זמן סביר</li>
+  </ul>
+
+  <p>
+    החוק נכנס לתוקף בהדרגה. הדרישות הראשונות חלות מ-2024, ו<strong>יישום מלא מתוכנן ל-2027</strong>.
+  </p>
+
+  <h2>למה החוק הזה חשוב לסטארטאפ?</h2>
+
+  <p>
+    עד החוק הזה, העברת מידע רפואי בין קופת חולים לבית חולים, או מרופא פרטי לסטארטאפ, הייתה <strong>כאוס טכני</strong>: כל גוף השתמש בפורמט אחר, אין סטנדרט, וכל העברה הייתה דורשת משא ומתן טכני.
+  </p>
+
+  <p>
+    החוק משנה את זה בשני אופנים קריטיים:
+  </p>
+
+  <h3>1. פותח שוק</h3>
+  <p>
+    סטארטאפ שעובד עם תקן FHIR יכול <strong>להתחבר לכל קופת חולים, בית חולים, או מרפאה</strong> בלי לבנות אינטגרציה נפרדת לכל אחד. זה מוריד את ה-entry barrier בצורה דרמטית.
+  </p>
+
+  <h3>2. מחייב אמון</h3>
+  <p>
+    בלי tamper-evident audit trail, סטארטאפ לא יכול להוכיח שהוא לא ראה מידע שלא היה צריך. <strong>הרופא לא יסכים להעביר לכם מידע מטופל אם הוא לא יכול לראות מי נגע במה</strong>.
+  </p>
+
+  <h2>דרישות החוק שצריכות לעניין אתכם</h2>
+
+  <h3>1. תקן FHIR</h3>
+  <p>
+    החוק מחייב <strong>FHIR R4</strong> כתקן. זה תקן פתוח של HL7, ויש לו קהילה גדולה של ספריות ב-Python, Java, JavaScript, ועוד. רוב הסטארטאפים ישתמשו ב-HAPI FHIR או fhirclient.
+  </p>
+
+  <h3>2. Audit Trail</h3>
+  <p>
+    כל גישה למידע רפואי חייבת להירשם עם:
+  </p>
+
+  <ul>
+    <li><strong>מי</strong> ביצע את הפעולה (מזהה המשתמש או ה-AI agent)</li>
+    <li><strong>מתי</strong> (חותמת זמן מדויקת)</li>
+    <li><strong>איזה פעולה</strong> (קריאה, כתיבה, מחיקה)</li>
+    <li><strong>אילו נתונים</strong> ניגשו אליהם</li>
+    <li><strong>למה</strong> (purpose — טיפול, מחקר, אדמיניסטרציה)</li>
+  </ul>
+
+  <h3>3. הסכמת מטופל</h3>
+  <p>
+    הסכמה חייבת להיות:
+  </p>
+
+  <ul>
+    <li><strong>מפורשת</strong> (לא "תנאי כלליים")</li>
+    <li><strong>מתועדת</strong> (proof of consent)</li>
+    <li><strong>ניתנת לביטול</strong> (opt-out קל)</li>
+    <li><strong>ספציפית ל-AI</strong> (תיקון 13 + הנחיות PPA)</li>
+  </ul>
+
+  <h3>4. Tamper-Evidence</h3>
+  <p>
+    הלוג חייב להיות חסין שיבוש. במילים פשוטות: אם מישהו בארגון שלכם מחק או שינה רישום אחרי שנכתב, זה צריך להיות ניתן לזיהוי.
+  </p>
+
+  <h2>החיבור ל-AI</h2>
+
+  <p>
+    החוק לא מדבר על AI במפורש. <strong>אבל</strong> ברגע שה-AI agent שלכם ניגש ל-PHI, זו <strong>"גישה"</strong> במובן החוק. זה אומר:
+  </p>
+
+  <ul>
+    <li>כל קריאה של ה-agent למידע רפואי צריכה להירשם</li>
+    <li>ההסכמה חייבת לכלול שימוש ב-AI</li>
+    <li>אם ה-agent <strong>מסיק</strong> מידע (למשל סיכון למחלה), זו <strong>"החלטה אוטומטית"</strong> שדורשת הסבר</li>
+    <li>הרופא המטפל חייב לאמת כל המלצה קלינית לפני יישום</li>
+  </ul>
+
+  <h2>איך AI Integrity עוזר?</h2>
+
+  <p>
+    חבילת <code>il_health_digital_health</code> שלנו נבנתה בדיוק עבור הצורך הזה. הנה איך היא עונה על הדרישות:
+  </p>
+
+  <h3>רישום כל גישה ל-PHI</h3>
+  <p>
+    כל קריאה, כתיבה, או מחיקה של מידע רפואי נרשמת אוטומטית. הרישום כולל את כל המטא-דאטה שדורש החוק: מי, מתי, מה, למה.
+  </p>
+
+  <div class="code-block">
+<span class="comment"># הוספת רישום לכל קריאה של מידע רפואי</span>
+<span class="key">@client.track</span>(tool=<span class="str">"read_patient_record"</span>)
+<span class="key">def</span> get_patient_history(patient_id, purpose):
+    <span class="comment"># הקריאה נרשמת אוטומטית עם:</span>
+    <span class="comment"># - מי: [מזהה ה-agent]</span>
+    <span class="comment"># - מתי: [חותמת זמן]</span>
+    <span class="comment"># - מה: patient_id, fields_accessed</span>
+    <span class="comment"># - למה: purpose</span>
+    <span class="key">return</span> <span class="key">fhir_client</span>.read(patient_id)
+  </div>
+
+  <h3>אכיפת הסכמה</h3>
+  <p>
+    אפשר להגדיר policy שאומר: "אסור לקרוא PHI ללא proof of consent". המערכת חוסמת פעולות לפני שהן קורות.
+  </p>
+
+  <div class="code-block">
+<span class="comment"># Policy: block-phi-access-without-purpose</span>
+<span class="comment"># גישה ל-PHI ללא purpose אסורה</span>
+If <span class="str">`payload.tool`</span> equals <span class="str">`read_patient_record`</span>
+   AND <span class="str">`payload.purpose`</span> is empty:
+  <span class="key">→</span> deny
+  Reason: <span class="str">"גישה ל-PHI ללא סיבה מתועדדת"</span>
+  </div>
+
+  <h3>Tamper-Evidence</h3>
+  <p>
+    כל רישום מקושר ב-hash chain לקודמו. שינוי אחד בעבר = השרשרת נשברת. משרד הבריאות יכול לאמת בלי להתקין שום דבר.
+  </p>
+
+  <h3>זכות מטופל</h3>
+  <p>
+    כל פעולה של AI שמשפיעה על מטופל נרשמת עם הסבר. אם מטופל מבקש "לראות מי הסתכל על המידע שלי", זה בלחיצת כפתור.
+  </p>
+
+  <h2>שאלות נפוצות</h2>
+
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q">מה זה חוק ניידות מידע רפואי?</div>
+      <div class="faq-a">חוק ניידות מידע רפואי (תשפ״ד-2024) הוא חוק ישראלי שמסדיר העברת מידע רפואי בין גופי בריאות. הוא מחייב שימוש בתקן FHIR, רישום של כל גישה למידע רפואי, והסכמת מטופל מפורשת לפני כל שיתוף. החוק נכנס לתוקף בהדרגה מ-2024 עם יישום מלא ב-2027.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">האם החוק חל על סטארטאפים של digital health?</div>
+      <div class="faq-a">כן, בהחלט. החוק חל על כל מי שמעבד, מאחסן, או מעביר מידע רפואי בישראל — כולל סטארטאפים. אם המוצר שלכם נוגע ב-PHI של ישראלים — גם אם רק כדי להציג אותו למטופל — החוק חל עליכם.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">מה הקשר בין החוק הזה ל-AI?</div>
+      <div class="faq-a">החוק לא מדבר על AI במפורש, אבל הוא מחייב תיעוד של כל גישה למידע רפואי. כל פעם ש-AI agent שלכם ניגש ל-PHI, זו 'גישה' במובן החוק. בנוסף, תיקון 13 לחוק הגנת הפרטיות + הנחיות ה-PPA ל-AI מחייבים הסכמה מפורשת לפני שימוש ב-AI על מידע רפואי.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">מה זה FHIR ולמה זה חשוב?</div>
+      <div class="faq-a">FHIR (Fast Healthcare Interoperability Resources) הוא תקן בינלאומי להעברת מידע רפואי. החוק מחייב אותו כתקן אחיד כדי שמערכות בריאות שונות יוכלו להחליף מידע. הוא גם מאפשר API אחידים שעובדים בכל המערכות.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">איך תאימות לחוק ניידות מידע רפואי עובדת בפועל?</div>
+      <div class="faq-a">בפועל זה אומר: (1) חיבור למערכות בריאות דרך FHIR-compliant APIs. (2) רישום של כל גישה ל-PHI (קריאה, כתיבה, מחיקה). (3) הסכמת מטופל מתועדת לפני כל שיתוף. (4) Audit trail עם tamper-evidence. (5) זמן תגובה לבקשות מטופל למחיקה/גישה.</div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>צריכים את ה-pack לדיגיטל-הלת'?</h3>
+    <p>14 כללים מוכנים לחוק ניידות מידע רפואי, תיקון 13, והנחיות משרד הבריאות. מותקן ב-curl אחד.</p>
+    <a class="btn" href="https://github.com/razel369/ai-integrity/blob/main/verticals/il_health_digital_health.md">להורדת ה-Pack ←</a>
+  </div>
+</article>
+
+<footer>© 2026 AI Integrity · <a href="https://razel369.github.io/ai-integrity.html">חזרה לדף הראשי</a></footer>
+</div>
+</body>
+</html>
