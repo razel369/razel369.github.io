@@ -1,4 +1,4 @@
-# Show HN Post — Final Copy
+# Show HN Post — Final Copy (Eidot)
 
 This is the exact text to submit to Hacker News today or tomorrow morning.
 
@@ -11,17 +11,17 @@ https://github.com/razel369/ai-integrity
 ## TITLE (in the form field, exactly as written)
 
 ```
-Show HN: AI Integrity – Open-source tamper-evident audit trail for AI agents
+Show HN: Eidot – Open-source tamper-evident audit trail for AI agents
 ```
 
-(80 chars max; Hacker News-style — lowercase, concrete, no marketing)
-
-## TEXT (the optional "text" field — Hacker News posts that include
-context tend to get more engagement)
+## TEXT (the optional "text" field)
 
 ```
-Author here. We built this because every AI agent governance tool we tried
-was either:
+Author here. We just renamed and shipped the next version of this:
+"Eidot" (עדות = "testimony" in Hebrew). The substance is the same,
+but the name fits the Israeli market we're targeting first.
+
+We built this because every AI agent governance tool we tried was either:
 
 (a) A SaaS observability platform (Langfuse, Helicone) — great for
     engineers, useless for regulators. Standard APPEND logs can be edited
@@ -47,7 +47,7 @@ So we shipped this:
 The interesting design choices that took the most thought:
 
 1. The chain has to be cryptographic, not just append-only. Hash + signature
-   every batch. Auditors verify with openssl ed25519 -verify — no SaaS, no
+   every batch. Auditors verify with `openssl ed25519 -verify` — no SaaS, no
    trust required.
 
 2. Policies are markdown, not JSON. We debated this for 6 weeks. We landed
@@ -63,16 +63,16 @@ The interesting design choices that took the most thought:
 What's not great yet (we'd love feedback):
 
 - Multi-modal events (vision, voice, audio) — our current event schema is
-  text-only. Designing the right abstraction for "what was the input?"
-  when input is a video is non-trivial.
+  text-only.
 - Streaming response handling — partial outputs from streamed LLMs.
-- Multi-agent orchestration — when agent A delegates to agent B, do we
-  put both events in one chain or fork?
+- Multi-agent orchestration — when agent A delegates to agent B, fork the
+  chain or share it?
 
 MIT-licensed. Repo: https://github.com/razel369/ai-integrity
 
-Happy to discuss the chain scheme, the policy DSL grammar, or how we
-decided the export format.
+Happy to discuss the chain scheme, the policy DSL grammar, or how
+Israeli banking regulation shaped the design (we started from Bank of
+Israel Directive 369).
 ```
 
 ---
@@ -84,11 +84,8 @@ decided the export format.
 3. Paste title exactly as written
 4. Paste text exactly as written
 5. Submit
-6. Be online for the first 4 hours to reply to comments. HN rewards
-   engagement in the early window — the difference between top-of-front-page
-   and page 10 is often just the author being present for questions.
-7. Best time: Tuesday, Wednesday, or Thursday, 8-10 AM US Eastern (when
-   European + US East Coast audiences overlap).
+6. Be online for the first 4 hours to reply to comments.
+7. Best time: Tuesday, Wednesday, or Thursday, 8-10 AM US Eastern.
 
 ## WHAT TO DO AFTER IT POSTS
 
@@ -106,34 +103,18 @@ Within 30 minutes of any comment, respond. Common questions and prepared answers
 > We tried both. JSON is what engineers love. But the moment a regulator
 > needs to review a policy, JSON fails — they don't know the syntax, the
 > tooling, the schema. Markdown reads like an English policy document
-> with a structured "if-then-action" inside it. Compliance teams can edit
-> it directly in their normal tool. Reviewers can review in code review.
-> The grammar is small and well-defined.
+> with a structured "if-then-action" inside it.
 
 **Q: "What's the deployment story? Single-host or SaaS?"**
 > Both. The SDK works against either your local instance or our hosted
-> version. Bundles are generated server-side. Self-host with Docker
-> (one command). For most teams starting out, the hosted version is the
-> fastest path — one API key, 5 minutes.
+> version at eidot.ai. Bundles are generated server-side. Self-host
+> with Docker (one command).
 
 **Q: "Does it integrate with LangChain / LlamaIndex / OpenAI Assistants?"**
 > We have wrappers for LangChain tools (Python). OpenAI Assistants and
 > LlamaIndex need minimal adapters — happy to write them on request.
-> The model is "wrap any function with a decorator", so any function can
-> be audited.
 
 **Q: "Is this free?"**
-> MIT-licensed source. The hosted version is free up to ~1M events/month.
-> Above that, we charge for storage (which is the actual cost). Self-host
-> is unlimited.
-
-## IF IT GETS NO TRACTION
-
-Possible reasons and fixes:
-- Title too vague → edit and resubmit (HN allows resubmit after 24h)
-- Posted wrong time → wait until Tuesday morning
-- Posted without text → resubmit with text
-- Audience mismatch → try /r/MachineLearning instead
-
-Most posts that don't make front page get 20-100 visits in 24 hours from
-HN alone. Even an "unsuccessful" Show HN is worth the 5 minutes.
+> MIT-licensed source. The hosted version (eidot.ai) is free up to
+> ~1M events/month. Above that, we charge for storage (the actual cost).
+> Self-host is unlimited.
