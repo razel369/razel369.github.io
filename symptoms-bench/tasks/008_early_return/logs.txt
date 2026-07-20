@@ -1,0 +1,10 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________________ test_find ___________________________________
+tests/test_smoke.py:7: in test_find
+    assert find_first([9, 8, 7], 7) == 2
+E   assert None == 2
+E    +  where None = find_first([9, 8, 7], 7)
+=========================== short test summary info ============================
+FAILED tests/test_smoke.py::test_find - assert None == 2
+1 failed in 0.01s

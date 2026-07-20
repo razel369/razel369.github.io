@@ -1,0 +1,10 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________________________ test_clamp_low ________________________________
+tests/test_smoke.py:7: in test_clamp_low
+    assert clamp(-5, 0, 10) == 0
+E   assert -5 == 0
+E    +  where -5 = clamp(-5, 0, 10)
+=========================== short test summary info ============================
+FAILED tests/test_smoke.py::test_clamp_low - assert -5 == 0
+1 failed in 0.01s

@@ -1,0 +1,46 @@
+# SymptomsBench
+
+**Symptoms-Only Bug Hunt** — an LLM agent benchmark where the model gets a buggy repo and failing logs, but **no issue description**.
+
+## Protocol
+
+1. Agent receives:
+   - Source files under `workspace/`
+   - `logs.txt` (failing test / traceback output)
+2. Agent must **not** receive:
+   - The human-readable bug description
+   - Hidden verification tests used for grading
+3. Success = hidden tests pass after the agent's edits.
+
+## Quick start
+
+```bash
+# Generate / refresh failing logs for all tasks
+python3 harness/prepare_logs.py
+
+# Score a candidate workspace (manual)
+python3 harness/grade.py --task tasks/001_off_by_one
+
+# Run models via Ollama
+python3 harness/run_eval.py --models qwen2.5:3b llama3.2:3b gemma2:2b
+```
+
+## Metrics
+
+| Metric | Meaning |
+|--------|---------|
+| `resolve@1` | Fraction of tasks fixed on first attempt |
+| `steps` | Number of model calls used |
+| `cost_tokens` | Prompt + completion tokens |
+| `regression` | Hidden tests that newly fail (should stay 0) |
+
+## Task layout
+
+```
+tasks/<id>_<slug>/
+  meta.json          # difficulty, tags, description (HIDDEN from agent)
+  bug_manifest.json  # planted bug info (HIDDEN)
+  workspace/         # what the agent sees (buggy code)
+  logs.txt           # failing symptoms (agent sees)
+  hidden_tests/      # grading only
+```

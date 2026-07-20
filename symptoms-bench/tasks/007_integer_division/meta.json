@@ -1,0 +1,8 @@
+{
+  "id": "007_integer_division",
+  "difficulty": "easy",
+  "tags": [
+    "math"
+  ],
+  "description": "Average should be float mean, not floor division."
+}

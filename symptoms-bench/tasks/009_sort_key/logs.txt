@@ -1,0 +1,12 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________________________ test_long_first ________________________________
+tests/test_smoke.py:7: in test_long_first
+    assert longest_first(["a", "bbbb", "cc"]) == ["bbbb", "cc", "a"]
+E   AssertionError: assert ['a', 'cc', 'bbbb'] == ['bbbb', 'cc', 'a']
+E     
+E     At index 0 diff: 'a' != 'bbbb'
+E     Use -v to get more diff
+=========================== short test summary info ============================
+FAILED tests/test_smoke.py::test_long_first - AssertionError: assert ['a', 'c...
+1 failed in 0.01s

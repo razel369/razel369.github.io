@@ -1,0 +1,10 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________________ test_banned_casefold _____________________________
+tests/test_smoke.py:7: in test_banned_casefold
+    assert contains_banned("Hello WORLD", ["world"]) is True
+E   AssertionError: assert False is True
+E    +  where False = contains_banned('Hello WORLD', ['world'])
+=========================== short test summary info ============================
+FAILED tests/test_smoke.py::test_banned_casefold - AssertionError: assert Fal...
+1 failed in 0.01s

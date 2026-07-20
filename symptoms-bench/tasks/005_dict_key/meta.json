@@ -1,0 +1,8 @@
+{
+  "id": "005_dict_key",
+  "difficulty": "easy",
+  "tags": [
+    "dicts"
+  ],
+  "description": "Histogram uses wrong key when counting."
+}

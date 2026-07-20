@@ -1,0 +1,9 @@
+{
+  "id": "008_early_return",
+  "difficulty": "medium",
+  "tags": [
+    "loops",
+    "controlflow"
+  ],
+  "description": "Finder returns on first mismatch instead of continuing."
+}

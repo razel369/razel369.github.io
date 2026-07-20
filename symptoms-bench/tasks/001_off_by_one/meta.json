@@ -1,0 +1,9 @@
+{
+  "id": "001_off_by_one",
+  "difficulty": "easy",
+  "tags": [
+    "loops",
+    "indexing"
+  ],
+  "description": "Sum should include the last index."
+}

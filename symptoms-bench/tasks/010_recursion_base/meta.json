@@ -1,0 +1,8 @@
+{
+  "id": "010_recursion_base",
+  "difficulty": "medium",
+  "tags": [
+    "recursion"
+  ],
+  "description": "Factorial base case wrong for 0."
+}

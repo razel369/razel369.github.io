@@ -1,0 +1,9 @@
+{
+  "id": "006_mutable_default",
+  "difficulty": "medium",
+  "tags": [
+    "defaults",
+    "gotchas"
+  ],
+  "description": "Append helper leaks state across calls via mutable default."
+}

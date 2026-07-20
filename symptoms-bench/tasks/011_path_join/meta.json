@@ -1,0 +1,8 @@
+{
+  "id": "011_path_join",
+  "difficulty": "medium",
+  "tags": [
+    "paths"
+  ],
+  "description": "Join uses string plus and drops separators."
+}

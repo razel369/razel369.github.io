@@ -1,0 +1,9 @@
+{
+  "id": "012_unique_preserve",
+  "difficulty": "medium",
+  "tags": [
+    "sets",
+    "order"
+  ],
+  "description": "Dedup should preserve first-seen order."
+}

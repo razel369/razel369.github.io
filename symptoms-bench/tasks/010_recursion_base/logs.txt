@@ -1,0 +1,10 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________________ test_fact0 __________________________________
+tests/test_smoke.py:7: in test_fact0
+    assert factorial(0) == 1
+E   assert 0 == 1
+E    +  where 0 = factorial(0)
+=========================== short test summary info ============================
+FAILED tests/test_smoke.py::test_fact0 - assert 0 == 1
+1 failed in 0.01s
