@@ -1,0 +1,10 @@
+binance-bot/
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+logs/
+data/
+*.log
