@@ -21,7 +21,14 @@ python3 harness/prepare_logs.py
 # Score a candidate workspace (manual)
 python3 harness/grade.py --task tasks/001_off_by_one
 
-# Run models via Ollama
+# Sanity: buggy code fails, oracle fixes pass
+python3 harness/sanity_check.py
+
+# Recommended: free local HuggingFace models (CPU)
+python3 harness/run_eval_hf.py \
+  --models HuggingFaceTB/SmolLM2-360M-Instruct Qwen/Qwen2.5-0.5B-Instruct Qwen/Qwen2.5-1.5B-Instruct
+
+# Optional: Ollama (may segfault on some CPUs)
 python3 harness/run_eval.py --models qwen2.5:3b llama3.2:3b gemma2:2b
 ```
 

@@ -23,10 +23,19 @@ GRADE = ROOT / "harness" / "grade.py"
 SYSTEM = """You are a debugging agent.
 You receive a small Python project and the failing test output (logs).
 There is NO separate bug description — diagnose from symptoms only.
-Return ONLY a JSON object mapping relative file paths to the FULL fixed file contents.
-Example:
-{"sum_window.py": "def sum_all(nums):\\n    return sum(nums)\\n"}
-Do not wrap in markdown. Do not include tests/ files unless you must fix them.
+
+Return the FIXED source file(s) using this exact format:
+
+<<<FILE path/to/file.py>>>
+# full fixed source of that file
+<<<END>>>
+
+Rules:
+- Output one or more <<<FILE ...>>> blocks only.
+- Use the real relative path from the project (not a made-up name).
+- Put the FULL fixed file contents between the markers.
+- Do not rewrite tests/.
+- Do not explain.
 """
 
 
@@ -64,7 +73,7 @@ def build_prompt(task_dir: Path) -> str:
     for rel, content in files.items():
         parts.append(f"\n----- FILE: {rel} -----\n{content}")
     parts.append(
-        "\nRespond with JSON only: {\"relative/path.py\": \"full fixed source\"}"
+        "\nRespond with one or more <<<FILE path>>> ... <<<END>>> blocks containing FULL fixed file contents."
     )
     return "\n".join(parts)
 
@@ -96,27 +105,113 @@ def ollama_chat(model: str, prompt: str, timeout: int = 180) -> tuple[str, dict]
     return content, usage
 
 
-def extract_json_map(text: str) -> dict[str, str]:
-    text = text.strip()
-    # Strip markdown fences if present
-    fence = re.search(r"```(?:json)?\s*(\{.*\})\s*```", text, re.DOTALL)
-    if fence:
-        text = fence.group(1)
-    # Find first JSON object
-    start = text.find("{")
-    end = text.rfind("}")
-    if start < 0 or end < 0:
-        raise ValueError("no JSON object in model output")
-    obj = json.loads(text[start : end + 1])
-    if not isinstance(obj, dict):
-        raise ValueError("JSON root must be object")
+def _repair_raw_newlines_in_json(s: str) -> str:
+    """Escape raw control chars that appear inside JSON string literals."""
+    out: list[str] = []
+    in_str = False
+    escape = False
+    for ch in s:
+        if in_str:
+            if escape:
+                out.append(ch)
+                escape = False
+            elif ch == "\\":
+                out.append(ch)
+                escape = True
+            elif ch == '"':
+                out.append(ch)
+                in_str = False
+            elif ch == "\n":
+                out.append("\\n")
+            elif ch == "\r":
+                out.append("\\r")
+            elif ch == "\t":
+                out.append("\\t")
+            else:
+                out.append(ch)
+        else:
+            if ch == '"':
+                in_str = True
+            out.append(ch)
+    return "".join(out)
+
+
+def extract_file_map(text: str, default_py: str | None = None) -> dict[str, str]:
+    """Parse model output into {relative_path: contents}.
+
+    Preferred format:
+      <<<FILE path.py>>>
+      ...
+      <<<END>>>
+    Also accepts JSON maps and a lone python fence when default_py is set.
+    """
     out: dict[str, str] = {}
-    for k, v in obj.items():
-        if isinstance(v, str):
-            out[str(k)] = v
-    if not out:
-        raise ValueError("empty file map")
-    return out
+    for match in re.finditer(
+        r"<<<FILE\s+([^\n>]+)>>>\s*\n?(.*?)<<<END>>>",
+        text,
+        re.DOTALL | re.IGNORECASE,
+    ):
+        rel = match.group(1).strip()
+        content = match.group(2)
+        if content.endswith("\n"):
+            content = content[:-1]
+        out[rel] = content
+    if out:
+        return out
+
+    fence_files = re.findall(
+        r"```(?:python)?\s*\n# FILE:\s*([^\n]+)\n(.*?)```",
+        text,
+        re.DOTALL,
+    )
+    for rel, content in fence_files:
+        out[rel.strip()] = content.strip("\n")
+    if out:
+        return out
+
+    # Lone python fence → single known source file (closed or truncated)
+    if default_py:
+        lone = re.search(r"```(?:python)?\s*\n(.*?)(?:```|$)", text, re.DOTALL)
+        if lone and ("def " in lone.group(1) or "return " in lone.group(1)):
+            body = lone.group(1).strip("\n")
+            # Drop leading "# path" comment lines models invent
+            body = re.sub(r"^(?:#.*\n)+", "", body)
+            if body.strip():
+                return {default_py: body}
+
+    # Bare source: model dumps a def without markers
+    if default_py and re.search(r"^def\s+\w+\(", text, re.MULTILINE):
+        # Take from first def to end, strip trailing fences/explanations
+        m = re.search(r"(def\s+\w+\(.*)", text, re.DOTALL)
+        if m:
+            body = m.group(1)
+            body = re.split(r"\n```|\n<<<END>>>|\nExplanation:", body)[0]
+            return {default_py: body.strip("\n")}
+
+    # Legacy JSON object fallback (tolerate raw newlines in strings)
+    stripped = text.strip()
+    fence = re.search(r"```(?:json)?\s*(\{.*\})\s*```", stripped, re.DOTALL)
+    if fence:
+        stripped = fence.group(1)
+    start = stripped.find("{")
+    end = stripped.rfind("}")
+    if start >= 0 and end > start:
+        candidate = stripped[start : end + 1]
+        try:
+            obj = json.loads(candidate)
+        except json.JSONDecodeError:
+            try:
+                obj = json.loads(_repair_raw_newlines_in_json(candidate))
+            except json.JSONDecodeError as exc:
+                raise ValueError(f"unparseable model output: {exc}") from exc
+        if isinstance(obj, dict):
+            for k, v in obj.items():
+                if isinstance(v, str):
+                    out[str(k)] = v
+            if out:
+                return out
+
+    raise ValueError("no file blocks or JSON object in model output")
 
 
 def apply_files(workspace_src: Path, files: dict[str, str], dest: Path) -> None:
@@ -158,6 +253,14 @@ def grade(task_dir: Path, workspace: Path) -> bool:
     return bool(payload.get("passed"))
 
 
+def default_source_file(task_dir: Path) -> str | None:
+    py_files = [
+        p.relative_to(task_dir / "workspace").as_posix()
+        for p in sorted((task_dir / "workspace").glob("*.py"))
+    ]
+    return py_files[0] if len(py_files) == 1 else None
+
+
 def run_model_on_task(model: str, task_dir: Path) -> dict:
     prompt = build_prompt(task_dir)
     t0 = time.time()
@@ -167,7 +270,7 @@ def run_model_on_task(model: str, task_dir: Path) -> dict:
     raw = ""
     try:
         raw, usage = ollama_chat(model, prompt)
-        files = extract_json_map(raw)
+        files = extract_file_map(raw, default_py=default_source_file(task_dir))
         with tempfile.TemporaryDirectory(prefix="symptoms-run-") as tmp:
             dest = Path(tmp) / "workspace"
             apply_files(task_dir / "workspace", files, dest)
