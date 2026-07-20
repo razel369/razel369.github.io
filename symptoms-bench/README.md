@@ -28,9 +28,15 @@ python3 harness/sanity_check.py
 python3 harness/run_eval_hf.py \
   --models HuggingFaceTB/SmolLM2-360M-Instruct Qwen/Qwen2.5-0.5B-Instruct Qwen/Qwen2.5-1.5B-Instruct
 
+# Stronger models via free/cheap APIs (needs a key — see STRONGER_MODELS.md)
+export GROQ_API_KEY='...'   # or GEMINI_API_KEY / OPENROUTER_API_KEY
+python3 harness/run_eval_api.py --provider groq --models llama-3.3-70b-versatile
+
 # Optional: Ollama (may segfault on some CPUs)
 python3 harness/run_eval.py --models qwen2.5:3b llama3.2:3b gemma2:2b
 ```
+
+See [STRONGER_MODELS.md](STRONGER_MODELS.md) for Groq / Gemini / OpenRouter setup.
 
 ## Metrics
 
