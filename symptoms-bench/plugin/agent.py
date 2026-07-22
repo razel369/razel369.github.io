@@ -56,7 +56,14 @@ class SymptomsDebugger:
         self.generate_fn = generate_fn
         self.max_attempts = max_attempts
 
-    def _prompt(self, files: dict[str, str], logs: str, attempt: int, prior: list[AttemptRecord]) -> str:
+    def _prompt(
+        self,
+        files: dict[str, str],
+        logs: str,
+        attempt: int,
+        prior: list[AttemptRecord],
+        default_py: str | None = None,
+    ) -> str:
         parts = [
             f"Attempt {attempt}/{self.max_attempts}",
             "Failing logs (symptoms only):",
@@ -71,9 +78,15 @@ class SymptomsDebugger:
         if prior:
             parts.append("\nPrevious attempts failed. Do NOT repeat the same broken patch.")
             parts.append("Use the newest logs above; invent a different fix hypothesis.")
+            last_err = prior[-1].error
+            if last_err:
+                parts.append(f"Scaffold note: {last_err}")
         parts.append(
-            "\nRespond with <<<FILE path>>> ... <<<END>>> blocks containing FULL fixed file contents."
+            "\nRespond with <<<FILE source.py>>> ... <<<END>>> for the buggy module ONLY "
+            "(never tests/). Full file contents required."
         )
+        if default_py:
+            parts.append(f"The source file to fix is almost certainly: {default_py}")
         return "\n".join(parts)
 
     def repair(
@@ -108,13 +121,25 @@ class SymptomsDebugger:
                     and "tests" not in p.parts
                     and "__pycache__" not in p.parts
                 }
-                user = self._prompt(files, logs, attempt, history)
+                user = self._prompt(files, logs, attempt, history, default_py=default_py)
                 raw = ""
                 error = None
                 try:
                     raw = self.generate_fn(SYSTEM, user)
                     patch = extract_file_map(raw, default_py=default_py)
-                    for rel, content in patch.items():
+                    # Never allow editing tests — that cheats the symptom channel.
+                    filtered = {
+                        rel: content
+                        for rel, content in patch.items()
+                        if "tests" not in Path(rel).parts
+                        and not Path(rel).name.startswith("test_")
+                    }
+                    if not filtered:
+                        raise ValueError(
+                            "model patched tests/ or produced no source file; "
+                            "edit the buggy .py module instead"
+                        )
+                    for rel, content in filtered.items():
                         rel_path = Path(rel)
                         if rel_path.is_absolute() or ".." in rel_path.parts:
                             continue
