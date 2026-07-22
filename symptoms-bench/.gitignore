@@ -1,6 +1,7 @@
 interface/replies/*.txt
 interface/SCORECARD.md
 interface/scorecard.json
+interface/session.json
 **/__pycache__/
 **/.pytest_cache/
 *.pyc

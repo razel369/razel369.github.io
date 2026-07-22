@@ -40,14 +40,22 @@ See [STRONGER_MODELS.md](STRONGER_MODELS.md) for Groq / Gemini / OpenRouter setu
 
 ## Chat-interface benchmark (paste into any model UI)
 
-Ready-to-copy prompts live in [`interface/`](interface/):
+Ready-to-copy prompts + **automation UI**:
 
 ```bash
-python3 interface/build_pack.py          # regenerate prompts
-# then open interface/README.md
-# copy interface/SYSTEM.txt + interface/tasks/001_off_by_one_USER.txt into the chat
-python3 interface/grade_reply.py --task 001_off_by_one --reply replies/001_off_by_one.txt
+cd symptoms-bench
+python3 interface/build_pack.py
+
+# Browser dashboard (recommended)
+python3 interface/session_app.py
+# open http://127.0.0.1:8765
+
+# Or guided CLI
+python3 interface/run_session.py --model "Fable 5" --attempts 3
 ```
+
+Manual files still available under `interface/tasks/*_USER.txt`.
+See [interface/README.md](interface/README.md).
 
 ## Symptoms Debugger plugin
 
