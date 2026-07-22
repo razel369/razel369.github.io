@@ -1,0 +1,8 @@
+{
+  "id": "003_wrong_variable",
+  "difficulty": "easy",
+  "tags": [
+    "variables"
+  ],
+  "description": "Clamp uses raw value instead of clamped result."
+}

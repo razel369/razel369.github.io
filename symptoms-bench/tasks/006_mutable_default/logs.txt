@@ -1,0 +1,12 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________________________________ test_no_leak _________________________________
+tests/test_smoke.py:9: in test_no_leak
+    assert a == ["x"]
+E   AssertionError: assert ['x', 'y'] == ['x']
+E     
+E     Left contains one more item: 'y'
+E     Use -v to get more diff
+=========================== short test summary info ============================
+FAILED tests/test_smoke.py::test_no_leak - AssertionError: assert ['x', 'y'] ...
+1 failed in 0.01s

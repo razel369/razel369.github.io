@@ -1,0 +1,47 @@
+# 003_wrong_variable
+
+1. Set system from `../SYSTEM.txt` (or use COMBINED below).
+2. Copy the USER prompt.
+3. Save model reply to `../replies/003_wrong_variable.txt`.
+4. Grade: `python3 interface/grade_reply.py --task 003_wrong_variable --reply interface/replies/003_wrong_variable.txt`
+
+## USER prompt
+
+```
+Task: 003_wrong_variable
+Attempt: 1/1
+
+## Failing logs (symptoms only)
+```
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________________________ test_clamp_low ________________________________
+tests/test_smoke.py:7: in test_clamp_low
+    assert clamp(-5, 0, 10) == 0
+E   assert -5 == 0
+E    +  where -5 = clamp(-5, 0, 10)
+=========================== short test summary info ============================
+FAILED tests/test_smoke.py::test_clamp_low - assert -5 == 0
+1 failed in 0.01s
+```
+
+## Project files
+
+### clamp.py
+```python
+def clamp(x: float, lo: float, hi: float) -> float:
+    """Clamp x into [lo, hi]."""
+    if x < lo:
+        result = lo
+    elif x > hi:
+        result = hi
+    else:
+        result = x
+    return x
+```
+
+## Your job
+Fix the bug so the failing tests would pass.
+Reply with <<<FILE ...>>> <<<END>>> blocks only.
+Most likely file to edit: `clamp.py`
+```

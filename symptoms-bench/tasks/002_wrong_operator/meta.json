@@ -1,0 +1,8 @@
+{
+  "id": "002_wrong_operator",
+  "difficulty": "easy",
+  "tags": [
+    "operators"
+  ],
+  "description": "Discount application subtracts instead of multiplying fraction."
+}

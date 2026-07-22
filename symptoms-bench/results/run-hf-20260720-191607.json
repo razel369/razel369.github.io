@@ -1,0 +1,56 @@
+{
+  "benchmark": "SymptomsBench",
+  "protocol": "logs-only",
+  "backend": "transformers-cpu",
+  "summary": {
+    "Qwen/Qwen2.5-3B-Instruct": {
+      "resolve_at_1": 0.25,
+      "resolved": 1,
+      "total": 4,
+      "avg_seconds": 38.06,
+      "tokens": 2132
+    }
+  },
+  "runs": [
+    {
+      "task": "001_off_by_one",
+      "model": "Qwen/Qwen2.5-3B-Instruct",
+      "passed": true,
+      "seconds": 19.38,
+      "prompt_tokens": 396,
+      "completion_tokens": 65,
+      "error": null,
+      "raw_preview": "<<<FILE sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    \"\"\"Return the sum of every element in nums.\"\"\"\n    total = 0\n    for i in range(len(nums)):  # FIXED: remove -1\n        total += nums[i]\n    return total\n<<<END>>>"
+    },
+    {
+      "task": "002_wrong_operator",
+      "model": "Qwen/Qwen2.5-3B-Instruct",
+      "passed": false,
+      "seconds": 37.84,
+      "prompt_tokens": 472,
+      "completion_tokens": 140,
+      "error": null,
+      "raw_preview": "<<<FILE tests/test_smoke.py >>>\nfrom pricing import apply_discount\n\ndef test_discount():\n    assert abs(apply_discount(100.0, 0.2) - 80.0) < 1e-9\n# full fixed source of that file\n<<<END>\n<<<FILE pricing.py >>>\ndef apply_discount(price: float, discount: float) -> float:\n    \"\"\"Apply fractional discount in [0, 1], e.g. 0.2 = 20% off.\"\"\"\n    return price * (1 - discount)  # FIXED: use multiplication instead of subtraction\n# full fixed source of that file\n<<<END>\u00bb"
+    },
+    {
+      "task": "003_wrong_variable",
+      "model": "Qwen/Qwen2.5-3B-Instruct",
+      "passed": false,
+      "seconds": 46.25,
+      "prompt_tokens": 392,
+      "completion_tokens": 139,
+      "error": null,
+      "raw_preview": "<<<FILE tests/test_smoke.py >>>\nfrom .clamp import clamp\n\ndef test_clamp_low():\n    assert clamp(-5, 0, 10) == 0\n# full fixed source of that file\n<<<END>>\n<<<FILE clamp.py >>>\ndef clamp(x: float, lo: float, hi: float) -> float:\n    \"\"\"Clamp x into [lo, hi].\"\"\"\n    if x < lo:\n        result = lo\n    elif x > hi:\n        result = hi\n    else:\n        result = x\n    return result  # FIX: return result instead of x\n# full fixed source of that file\n<<<END>>>"
+    },
+    {
+      "task": "004_case_sensitive",
+      "model": "Qwen/Qwen2.5-3B-Instruct",
+      "passed": false,
+      "seconds": 48.79,
+      "prompt_tokens": 388,
+      "completion_tokens": 140,
+      "error": null,
+      "raw_preview": "<<<FILE tests/test_smoke.py>>>\nfrom .filter_words import contains_banned\n\ndef test_banned_casefold():\n    assert contains_banned(\"Hello WORLD\", [\"world\"]) is False\n\n<<<END>>\n<<<FILE filter_words.py>>>\ndef contains_banned(text: str, banned: list[str]) -> bool:\n    \"\"\"Return True if any banned word appears (case-insensitive).\"\"\"\n    tokens = text.lower().split()  # Convert text to lowercase\n    for token in tokens:\n        if token in [banned_word.lower() for banned_word in banned]:  # Check case-"
+    }
+  ]
+}

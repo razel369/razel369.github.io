@@ -1,0 +1,390 @@
+{
+  "benchmark": "SymptomsBench",
+  "protocol": "logs-only",
+  "backend": "transformers-cpu",
+  "summary": {
+    "HuggingFaceTB/SmolLM2-360M-Instruct": {
+      "resolve_at_1": 0.0,
+      "resolved": 0,
+      "total": 12,
+      "avg_seconds": 3.66,
+      "tokens": 6753
+    },
+    "Qwen/Qwen2.5-0.5B-Instruct": {
+      "resolve_at_1": 0.3333333333333333,
+      "resolved": 4,
+      "total": 12,
+      "avg_seconds": 3.7,
+      "tokens": 5674
+    },
+    "Qwen/Qwen2.5-1.5B-Instruct": {
+      "resolve_at_1": 0.4166666666666667,
+      "resolved": 5,
+      "total": 12,
+      "avg_seconds": 8.76,
+      "tokens": 5585
+    }
+  },
+  "runs": [
+    {
+      "task": "001_off_by_one",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "passed": false,
+      "seconds": 3.45,
+      "prompt_tokens": 490,
+      "completion_tokens": 70,
+      "error": null,
+      "raw_preview": "```python\ndef sum_all(nums: list[int]) -> int:\n    \"\"\"Return the sum of every element in nums.\"\"\"\n    total = 0\n    for i in range(len(nums) - 1):  # BUG: off-by-one\n        total += nums[i]\n    return total\n```"
+    },
+    {
+      "task": "002_wrong_operator",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "passed": false,
+      "seconds": 3.51,
+      "prompt_tokens": 565,
+      "completion_tokens": 69,
+      "error": null,
+      "raw_preview": "```python\n<<<FILE sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    \"\"\"Sum all numbers in the list.\"\"\"\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total\n<<<END>>>\n```"
+    },
+    {
+      "task": "003_wrong_variable",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "passed": false,
+      "seconds": 3.31,
+      "prompt_tokens": 474,
+      "completion_tokens": 64,
+      "error": null,
+      "raw_preview": "<<<FILE sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    \"\"\"Sum all numbers in a list.\"\"\"\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total\n<<<END>>>"
+    },
+    {
+      "task": "004_case_sensitive",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "passed": false,
+      "seconds": 4.02,
+      "prompt_tokens": 482,
+      "completion_tokens": 81,
+      "error": null,
+      "raw_preview": "```python\n# filter_words.py\ndef contains_banned(text: str, banned: list[str]) -> bool:\n    \"\"\"Return True if any banned word appears (case-insensitive).\"\"\"\n    tokens = text.split()\n    for token in tokens:\n        if token in banned:  # BUG: case-sensitive\n            return True\n    return False\n```"
+    },
+    {
+      "task": "005_dict_key",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "passed": false,
+      "seconds": 2.89,
+      "prompt_tokens": 546,
+      "completion_tokens": 50,
+      "error": null,
+      "raw_preview": "<<<FILE sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total"
+    },
+    {
+      "task": "006_mutable_default",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "passed": false,
+      "seconds": 3.52,
+      "prompt_tokens": 476,
+      "completion_tokens": 70,
+      "error": null,
+      "raw_preview": "```python\n# Mutable Default\n\ndef append_item(item: str, bucket: list[str] | None = []) -> list[str]:\n    \"\"\"Append item to bucket and return it. Empty bucket by default.\"\"\"\n    bucket.append(item)  # BUG: mutable default\n    return bucket\n```"
+    },
+    {
+      "task": "007_integer_division",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "passed": false,
+      "seconds": 2.66,
+      "prompt_tokens": 468,
+      "completion_tokens": 47,
+      "error": null,
+      "raw_preview": "```python\n# stats.py\ndef mean(nums: list[float]) -> float:\n    \"\"\"Return arithmetic mean.\"\"\"\n    return sum(nums) // len(nums)  # BUG: floor division\n```"
+    },
+    {
+      "task": "008_early_return",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "passed": false,
+      "seconds": 3.18,
+      "prompt_tokens": 465,
+      "completion_tokens": 62,
+      "error": null,
+      "raw_preview": "```python\n# FIXED\ndef find_first(preds: list[int], target: int) -> int | None:\n    \"\"\"Return index of target or None.\"\"\"\n    for i, value in enumerate(preds):\n        if value != target:\n            return i\n    return None\n```"
+    },
+    {
+      "task": "009_sort_key",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "passed": false,
+      "seconds": 4.37,
+      "prompt_tokens": 497,
+      "completion_tokens": 87,
+      "error": null,
+      "raw_preview": "```python\n<<<FILE sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total\n\ndef longest_first(words: list[str]) -> list[str]:\n    return sorted(words, key=len, reverse=True)\n```"
+    },
+    {
+      "task": "010_recursion_base",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "passed": false,
+      "seconds": 7.34,
+      "prompt_tokens": 445,
+      "completion_tokens": 166,
+      "error": null,
+      "raw_preview": "```python\ndef sum_window(nums: list[int], window_size: int) -> int:\n    \"\"\"\n    Sum the window of numbers from the input list.\n\n    Args:\n        nums (list[int]): The input list of numbers.\n        window_size (int): The size of the window.\n\n    Returns:\n        int: The sum of the window.\n\n    Raises:\n        ValueError: If the input list is empty.\n    \"\"\"\n    if not nums:\n        raise ValueError(\"Input list is empty\")\n\n    window = []\n    total = 0\n    for num in nums:\n        window.append("
+    },
+    {
+      "task": "011_path_join",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "passed": false,
+      "seconds": 2.86,
+      "prompt_tokens": 476,
+      "completion_tokens": 53,
+      "error": null,
+      "raw_preview": "<<<FILE sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total\n\n```"
+    },
+    {
+      "task": "012_unique_preserve",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "passed": false,
+      "seconds": 2.87,
+      "prompt_tokens": 494,
+      "completion_tokens": 56,
+      "error": null,
+      "raw_preview": "<<<FILE sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total\n\n<<<END>>>"
+    },
+    {
+      "task": "001_off_by_one",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "passed": false,
+      "seconds": 3.5,
+      "prompt_tokens": 406,
+      "completion_tokens": 62,
+      "error": null,
+      "raw_preview": "<<<FILE sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    \"\"\"Return the sum of every element in nums.\"\"\"\n    total = 0\n    for i in range(len(nums) - 1):\n        total += nums[i]\n    return total\n<<<END>>>"
+    },
+    {
+      "task": "002_wrong_operator",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "passed": false,
+      "seconds": 3.09,
+      "prompt_tokens": 482,
+      "completion_tokens": 48,
+      "error": null,
+      "raw_preview": "<<<FILE:sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total\n<<<END>>>"
+    },
+    {
+      "task": "003_wrong_variable",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "passed": true,
+      "seconds": 4.04,
+      "prompt_tokens": 402,
+      "completion_tokens": 75,
+      "error": null,
+      "raw_preview": "<<<FILE:clamp.py>>>\ndef clamp(x: float, lo: float, hi: float) -> float:\n    \"\"\"Clamp x into [lo, hi].\"\"\"\n    if x < lo:\n        result = lo\n    elif x > hi:\n        result = hi\n    else:\n        result = x\n    return result\n<<<END>>>"
+    },
+    {
+      "task": "004_case_sensitive",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "passed": true,
+      "seconds": 5.51,
+      "prompt_tokens": 398,
+      "completion_tokens": 108,
+      "error": null,
+      "raw_preview": "<<<FILE:filter_words.py>>>\ndef contains_banned(text: str, banned: list[str]) -> bool:\n    \"\"\"Return True if any banned word appears (case-insensitive).\"\"\"\n    tokens = text.split()\n    for token in tokens:\n        if token.lower() in banned:  # BUG: case-sensitive\n            return True\n    return False\n\n<<<END>>>\n\n<<<FILE:README.md>>>\n# Case Sensitive\nRun smoke tests:\n\n```bash\npython -m pytest tests/ -q\n```"
+    },
+    {
+      "task": "005_dict_key",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "passed": false,
+      "seconds": 5.97,
+      "prompt_tokens": 460,
+      "completion_tokens": 114,
+      "error": null,
+      "raw_preview": "<<<FILE:histogram.py>>>\ndef count_items(items: list[str]) -> dict[str, int]:\n    \"\"\"Count occurrences of each item.\"\"\"\n    counts: dict[str, int] = {}\n    for item in items:\n        key = items[0]  # BUG: always first item\n        counts[key] = counts.get(key, 0) + 1\n    return counts\n\n<<<END>>>\n\n<<<FILE:README.md>>>\n# Dict Key\n\nRun smoke tests:\n\n```bash\npython -m pytest tests/ -q\n```"
+    },
+    {
+      "task": "006_mutable_default",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "passed": false,
+      "seconds": 2.96,
+      "prompt_tokens": 389,
+      "completion_tokens": 48,
+      "error": null,
+      "raw_preview": "<<<FILE:sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total\n<<<END>>>"
+    },
+    {
+      "task": "007_integer_division",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "passed": true,
+      "seconds": 4.48,
+      "prompt_tokens": 392,
+      "completion_tokens": 82,
+      "error": null,
+      "raw_preview": "<<<FILE sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total\n<<<END>>>\n\n<<<FILE stats.py>>>\ndef mean(nums: list[float]) -> float:\n    \"\"\"Return arithmetic mean.\"\"\"\n    return sum(nums) / len(nums)\n<<<END>>>"
+    },
+    {
+      "task": "008_early_return",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "passed": false,
+      "seconds": 2.94,
+      "prompt_tokens": 393,
+      "completion_tokens": 48,
+      "error": null,
+      "raw_preview": "<<<FILE:sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total\n<<<END>>>"
+    },
+    {
+      "task": "009_sort_key",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "passed": true,
+      "seconds": 4.03,
+      "prompt_tokens": 403,
+      "completion_tokens": 74,
+      "error": null,
+      "raw_preview": "<<<FILE rank.py>>>\ndef longest_first(words: list[str]) -> list[str]:\n    \"\"\"Return words sorted by length descending, stable for ties.\"\"\"\n    return sorted(words, key=len, reverse=True)\n<<<END>>>\n\n<<<FILE README.md>>>\n# Sort Key\n\nRun smoke tests:\n\n```bash\npython -m pytest tests/ -q\n```"
+    },
+    {
+      "task": "010_recursion_base",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "passed": false,
+      "seconds": 3.4,
+      "prompt_tokens": 367,
+      "completion_tokens": 62,
+      "error": null,
+      "raw_preview": "<<<FILE:fact.py>>>\ndef factorial(n: int) -> int:\n    \"\"\"Compute n! for n >= 0.\"\"\"\n    if n == 0:\n        return 0  # BUG: should be 1\n    return n * factorial(n - 1)\n\n<<<END>>>"
+    },
+    {
+      "task": "011_path_join",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "passed": false,
+      "seconds": 1.29,
+      "prompt_tokens": 380,
+      "completion_tokens": 19,
+      "error": "ValueError: no file blocks or JSON object in model output",
+      "raw_preview": "<<<FILE:README.md>>>\n<<<FILE:paths.py>>>\n<<<END>>>"
+    },
+    {
+      "task": "012_unique_preserve",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "passed": false,
+      "seconds": 3.15,
+      "prompt_tokens": 410,
+      "completion_tokens": 52,
+      "error": null,
+      "raw_preview": "<<<FILE unique.py>>>\ndef unique_preserve(items: list[str]) -> list[str]:\n    \"\"\"Deduplicate while preserving first-seen order.\"\"\"\n    return sorted(set(items))  # BUG: sorts instead of preserving order\n<<<END>>>"
+    },
+    {
+      "task": "001_off_by_one",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "passed": true,
+      "seconds": 10.61,
+      "prompt_tokens": 406,
+      "completion_tokens": 72,
+      "error": null,
+      "raw_preview": "<<<FILE sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    \"\"\"Return the sum of every element in nums.\"\"\"\n    total = 0\n    for i in range(len(nums)):  # Fixed: removed -1 to avoid off-by-one error\n        total += nums[i]\n    return total\n<<<END>>>"
+    },
+    {
+      "task": "002_wrong_operator",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "passed": false,
+      "seconds": 7.74,
+      "prompt_tokens": 482,
+      "completion_tokens": 47,
+      "error": null,
+      "raw_preview": "<<<FILE sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total\n<<<END>>>"
+    },
+    {
+      "task": "003_wrong_variable",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "passed": true,
+      "seconds": 10.51,
+      "prompt_tokens": 402,
+      "completion_tokens": 74,
+      "error": null,
+      "raw_preview": "<<<FILE clamp.py>>>\ndef clamp(x: float, lo: float, hi: float) -> float:\n    \"\"\"Clamp x into [lo, hi].\"\"\"\n    if x < lo:\n        result = lo\n    elif x > hi:\n        result = hi\n    else:\n        result = x\n    return result\n<<<END>>>"
+    },
+    {
+      "task": "004_case_sensitive",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "passed": false,
+      "seconds": 7.95,
+      "prompt_tokens": 398,
+      "completion_tokens": 52,
+      "error": null,
+      "raw_preview": "<<<FILE sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total\n<<<END>>>/testCase/sum_window.py"
+    },
+    {
+      "task": "005_dict_key",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "passed": false,
+      "seconds": 7.81,
+      "prompt_tokens": 460,
+      "completion_tokens": 47,
+      "error": null,
+      "raw_preview": "<<<FILE sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total\n<<<END>>>"
+    },
+    {
+      "task": "006_mutable_default",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "passed": false,
+      "seconds": 7.34,
+      "prompt_tokens": 389,
+      "completion_tokens": 47,
+      "error": null,
+      "raw_preview": "<<<FILE sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total\n<<<END>>>"
+    },
+    {
+      "task": "007_integer_division",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "passed": false,
+      "seconds": 7.31,
+      "prompt_tokens": 392,
+      "completion_tokens": 47,
+      "error": null,
+      "raw_preview": "<<<FILE sum_window.py>>>\ndef sum_all(nums: list[int]) -> int:\n    total = 0\n    for i in range(len(nums)):\n        total += nums[i]\n    return total\n<<<END>>>"
+    },
+    {
+      "task": "008_early_return",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "passed": true,
+      "seconds": 10.34,
+      "prompt_tokens": 393,
+      "completion_tokens": 74,
+      "error": null,
+      "raw_preview": "<<<FILE find.py>>>\ndef find_first(preds: list[int], target: int) -> int | None:\n    \"\"\"Return index of target or None.\"\"\"\n    for i, value in enumerate(preds):\n        if value != target:\n            continue  # FIX: avoid giving up too early\n        return i\n    return None\n<<<END>>>"
+    },
+    {
+      "task": "009_sort_key",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "passed": false,
+      "seconds": 8.55,
+      "prompt_tokens": 403,
+      "completion_tokens": 56,
+      "error": null,
+      "raw_preview": "<<<FILE sort_key.py>>>\ndef longest_first(words: list[str]) -> list[str]:\n    \"\"\"Return words sorted by length descending, stable for ties.\"\"\"\n    return sorted(words, key=len, reverse=True)  # Fixed: added reverse=True\n<<<END>>>"
+    },
+    {
+      "task": "010_recursion_base",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "passed": true,
+      "seconds": 9.0,
+      "prompt_tokens": 367,
+      "completion_tokens": 64,
+      "error": null,
+      "raw_preview": "<<<FILE fact.py>>>\ndef factorial(n: int) -> int:\n    \"\"\"Compute n! for n >= 0.\"\"\"\n    if n == 0:\n        return 1  # Fixed to return 1 instead of 0\n    return n * factorial(n - 1)\n\n<<<END>>>"
+    },
+    {
+      "task": "011_path_join",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "passed": false,
+      "seconds": 7.5,
+      "prompt_tokens": 380,
+      "completion_tokens": 51,
+      "error": null,
+      "raw_preview": "<<<FILE paths.py>>>\nfrom pathlib import Path\n\ndef join_path(base: str, name: str) -> str:\n    \"\"\"Join directory base with file name.\"\"\"\n    return base + name  # BUG: missing separator\n<<<END>>>"
+    },
+    {
+      "task": "012_unique_preserve",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "passed": true,
+      "seconds": 10.46,
+      "prompt_tokens": 410,
+      "completion_tokens": 72,
+      "error": null,
+      "raw_preview": "<<<FILE unique.py>>>\ndef unique_preserve(items: list[str]) -> list[str]:\n    \"\"\"Deduplicate while preserving first-seen order.\"\"\"\n    seen = set()\n    result = []\n    for item in items:\n        if item not in seen:\n            seen.add(item)\n            result.append(item)\n    return result\n<<<END>>>"
+    }
+  ]
+}

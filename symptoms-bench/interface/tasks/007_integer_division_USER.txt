@@ -1,0 +1,31 @@
+Task: 007_integer_division
+Attempt: 1/1
+
+## Failing logs (symptoms only)
+```
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________________ test_half ___________________________________
+tests/test_smoke.py:7: in test_half
+    assert abs(mean([1, 2]) - 1.5) < 1e-9
+E   assert 0.5 < 1e-09
+E    +  where 0.5 = abs((1 - 1.5))
+E    +    where 1 = mean([1, 2])
+=========================== short test summary info ============================
+FAILED tests/test_smoke.py::test_half - assert 0.5 < 1e-09
+1 failed in 0.01s
+```
+
+## Project files
+
+### stats.py
+```python
+def mean(nums: list[float]) -> float:
+    """Return arithmetic mean."""
+    return sum(nums) // len(nums)
+```
+
+## Your job
+Fix the bug so the failing tests would pass.
+Reply with <<<FILE ...>>> <<<END>>> blocks only.
+Most likely file to edit: `stats.py`

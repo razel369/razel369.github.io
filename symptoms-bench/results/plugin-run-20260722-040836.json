@@ -1,0 +1,218 @@
+{
+  "benchmark": "SymptomsBench",
+  "plugin": "SymptomsDebugger",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "backend": "hf",
+  "arms": {
+    "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k1": {
+      "name": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k1",
+      "attempts_budget": 1,
+      "resolve_at_k": 0.0,
+      "resolved": 0,
+      "total": 12,
+      "mean_attempts_when_solved": null
+    },
+    "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k3": {
+      "name": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k3",
+      "attempts_budget": 3,
+      "resolve_at_k": 0.0,
+      "resolved": 0,
+      "total": 12,
+      "mean_attempts_when_solved": null
+    }
+  },
+  "runs": [
+    {
+      "task": "001_off_by_one",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k1",
+      "passed": false,
+      "attempts_used": 1,
+      "seconds": 13.34,
+      "errors": []
+    },
+    {
+      "task": "002_wrong_operator",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k1",
+      "passed": false,
+      "attempts_used": 1,
+      "seconds": 13.29,
+      "errors": []
+    },
+    {
+      "task": "003_wrong_variable",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k1",
+      "passed": false,
+      "attempts_used": 1,
+      "seconds": 11.88,
+      "errors": []
+    },
+    {
+      "task": "004_case_sensitive",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k1",
+      "passed": false,
+      "attempts_used": 1,
+      "seconds": 9.78,
+      "errors": []
+    },
+    {
+      "task": "005_dict_key",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k1",
+      "passed": false,
+      "attempts_used": 1,
+      "seconds": 13.18,
+      "errors": []
+    },
+    {
+      "task": "006_mutable_default",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k1",
+      "passed": false,
+      "attempts_used": 1,
+      "seconds": 17.34,
+      "errors": []
+    },
+    {
+      "task": "007_integer_division",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k1",
+      "passed": false,
+      "attempts_used": 1,
+      "seconds": 12.18,
+      "errors": []
+    },
+    {
+      "task": "008_early_return",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k1",
+      "passed": false,
+      "attempts_used": 1,
+      "seconds": 12.86,
+      "errors": []
+    },
+    {
+      "task": "009_sort_key",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k1",
+      "passed": false,
+      "attempts_used": 1,
+      "seconds": 10.54,
+      "errors": []
+    },
+    {
+      "task": "010_recursion_base",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k1",
+      "passed": false,
+      "attempts_used": 1,
+      "seconds": 12.24,
+      "errors": []
+    },
+    {
+      "task": "011_path_join",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k1",
+      "passed": false,
+      "attempts_used": 1,
+      "seconds": 25.71,
+      "errors": []
+    },
+    {
+      "task": "012_unique_preserve",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k1",
+      "passed": false,
+      "attempts_used": 1,
+      "seconds": 19.13,
+      "errors": []
+    },
+    {
+      "task": "001_off_by_one",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k3",
+      "passed": false,
+      "attempts_used": 3,
+      "seconds": 38.99,
+      "errors": []
+    },
+    {
+      "task": "002_wrong_operator",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k3",
+      "passed": false,
+      "attempts_used": 3,
+      "seconds": 53.6,
+      "errors": []
+    },
+    {
+      "task": "003_wrong_variable",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k3",
+      "passed": false,
+      "attempts_used": 3,
+      "seconds": 43.06,
+      "errors": []
+    },
+    {
+      "task": "004_case_sensitive",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k3",
+      "passed": false,
+      "attempts_used": 3,
+      "seconds": 39.32,
+      "errors": []
+    },
+    {
+      "task": "005_dict_key",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k3",
+      "passed": false,
+      "attempts_used": 3,
+      "seconds": 45.28,
+      "errors": []
+    },
+    {
+      "task": "006_mutable_default",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k3",
+      "passed": false,
+      "attempts_used": 3,
+      "seconds": 73.28,
+      "errors": []
+    },
+    {
+      "task": "007_integer_division",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k3",
+      "passed": false,
+      "attempts_used": 3,
+      "seconds": 40.99,
+      "errors": []
+    },
+    {
+      "task": "008_early_return",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k3",
+      "passed": false,
+      "attempts_used": 3,
+      "seconds": 34.22,
+      "errors": []
+    },
+    {
+      "task": "009_sort_key",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k3",
+      "passed": false,
+      "attempts_used": 3,
+      "seconds": 39.66,
+      "errors": []
+    },
+    {
+      "task": "010_recursion_base",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k3",
+      "passed": false,
+      "attempts_used": 3,
+      "seconds": 50.79,
+      "errors": []
+    },
+    {
+      "task": "011_path_join",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k3",
+      "passed": false,
+      "attempts_used": 3,
+      "seconds": 105.99,
+      "errors": []
+    },
+    {
+      "task": "012_unique_preserve",
+      "arm": "plugin-hf:Qwen/Qwen2.5-1.5B-Instruct@k3",
+      "passed": false,
+      "attempts_used": 3,
+      "seconds": 48.23,
+      "errors": []
+    }
+  ]
+}

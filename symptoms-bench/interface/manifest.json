@@ -1,0 +1,74 @@
+[
+  {
+    "id": "001_off_by_one",
+    "user_prompt": "tasks/001_off_by_one_USER.txt",
+    "combined_prompt": "tasks/001_off_by_one_COMBINED.txt",
+    "hint_source": "sum_window.py"
+  },
+  {
+    "id": "002_wrong_operator",
+    "user_prompt": "tasks/002_wrong_operator_USER.txt",
+    "combined_prompt": "tasks/002_wrong_operator_COMBINED.txt",
+    "hint_source": "pricing.py"
+  },
+  {
+    "id": "003_wrong_variable",
+    "user_prompt": "tasks/003_wrong_variable_USER.txt",
+    "combined_prompt": "tasks/003_wrong_variable_COMBINED.txt",
+    "hint_source": "clamp.py"
+  },
+  {
+    "id": "004_case_sensitive",
+    "user_prompt": "tasks/004_case_sensitive_USER.txt",
+    "combined_prompt": "tasks/004_case_sensitive_COMBINED.txt",
+    "hint_source": "filter_words.py"
+  },
+  {
+    "id": "005_dict_key",
+    "user_prompt": "tasks/005_dict_key_USER.txt",
+    "combined_prompt": "tasks/005_dict_key_COMBINED.txt",
+    "hint_source": "histogram.py"
+  },
+  {
+    "id": "006_mutable_default",
+    "user_prompt": "tasks/006_mutable_default_USER.txt",
+    "combined_prompt": "tasks/006_mutable_default_COMBINED.txt",
+    "hint_source": "bags.py"
+  },
+  {
+    "id": "007_integer_division",
+    "user_prompt": "tasks/007_integer_division_USER.txt",
+    "combined_prompt": "tasks/007_integer_division_COMBINED.txt",
+    "hint_source": "stats.py"
+  },
+  {
+    "id": "008_early_return",
+    "user_prompt": "tasks/008_early_return_USER.txt",
+    "combined_prompt": "tasks/008_early_return_COMBINED.txt",
+    "hint_source": "find.py"
+  },
+  {
+    "id": "009_sort_key",
+    "user_prompt": "tasks/009_sort_key_USER.txt",
+    "combined_prompt": "tasks/009_sort_key_COMBINED.txt",
+    "hint_source": "rank.py"
+  },
+  {
+    "id": "010_recursion_base",
+    "user_prompt": "tasks/010_recursion_base_USER.txt",
+    "combined_prompt": "tasks/010_recursion_base_COMBINED.txt",
+    "hint_source": "fact.py"
+  },
+  {
+    "id": "011_path_join",
+    "user_prompt": "tasks/011_path_join_USER.txt",
+    "combined_prompt": "tasks/011_path_join_COMBINED.txt",
+    "hint_source": "paths.py"
+  },
+  {
+    "id": "012_unique_preserve",
+    "user_prompt": "tasks/012_unique_preserve_USER.txt",
+    "combined_prompt": "tasks/012_unique_preserve_COMBINED.txt",
+    "hint_source": "unique.py"
+  }
+]

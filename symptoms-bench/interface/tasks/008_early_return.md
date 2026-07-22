@@ -1,0 +1,45 @@
+# 008_early_return
+
+1. Set system from `../SYSTEM.txt` (or use COMBINED below).
+2. Copy the USER prompt.
+3. Save model reply to `../replies/008_early_return.txt`.
+4. Grade: `python3 interface/grade_reply.py --task 008_early_return --reply interface/replies/008_early_return.txt`
+
+## USER prompt
+
+```
+Task: 008_early_return
+Attempt: 1/1
+
+## Failing logs (symptoms only)
+```
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________________ test_find ___________________________________
+tests/test_smoke.py:7: in test_find
+    assert find_first([9, 8, 7], 7) == 2
+E   assert None == 2
+E    +  where None = find_first([9, 8, 7], 7)
+=========================== short test summary info ============================
+FAILED tests/test_smoke.py::test_find - assert None == 2
+1 failed in 0.01s
+```
+
+## Project files
+
+### find.py
+```python
+def find_first(preds: list[int], target: int) -> int | None:
+    """Return index of target or None."""
+    for i, value in enumerate(preds):
+        if value != target:
+            return None
+        return i
+    return None
+```
+
+## Your job
+Fix the bug so the failing tests would pass.
+Reply with <<<FILE ...>>> <<<END>>> blocks only.
+Most likely file to edit: `find.py`
+```

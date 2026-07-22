@@ -1,0 +1,8 @@
+{
+  "id": "009_sort_key",
+  "difficulty": "medium",
+  "tags": [
+    "sorting"
+  ],
+  "description": "Sort by length descending is reversed incorrectly."
+}

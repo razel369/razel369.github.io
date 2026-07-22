@@ -1,0 +1,45 @@
+# 004_case_sensitive
+
+1. Set system from `../SYSTEM.txt` (or use COMBINED below).
+2. Copy the USER prompt.
+3. Save model reply to `../replies/004_case_sensitive.txt`.
+4. Grade: `python3 interface/grade_reply.py --task 004_case_sensitive --reply interface/replies/004_case_sensitive.txt`
+
+## USER prompt
+
+```
+Task: 004_case_sensitive
+Attempt: 1/1
+
+## Failing logs (symptoms only)
+```
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________________________ test_banned_casefold _____________________________
+tests/test_smoke.py:7: in test_banned_casefold
+    assert contains_banned("Hello WORLD", ["world"]) is True
+E   AssertionError: assert False is True
+E    +  where False = contains_banned('Hello WORLD', ['world'])
+=========================== short test summary info ============================
+FAILED tests/test_smoke.py::test_banned_casefold - AssertionError: assert Fal...
+1 failed in 0.01s
+```
+
+## Project files
+
+### filter_words.py
+```python
+def contains_banned(text: str, banned: list[str]) -> bool:
+    """Return True if any banned word appears (case-insensitive)."""
+    tokens = text.split()
+    for token in tokens:
+        if token in banned:
+            return True
+    return False
+```
+
+## Your job
+Fix the bug so the failing tests would pass.
+Reply with <<<FILE ...>>> <<<END>>> blocks only.
+Most likely file to edit: `filter_words.py`
+```

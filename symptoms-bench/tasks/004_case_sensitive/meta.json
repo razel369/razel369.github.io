@@ -1,0 +1,8 @@
+{
+  "id": "004_case_sensitive",
+  "difficulty": "easy",
+  "tags": [
+    "strings"
+  ],
+  "description": "Membership check is case-sensitive."
+}

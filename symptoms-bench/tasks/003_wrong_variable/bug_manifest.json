@@ -1,0 +1,3 @@
+{
+  "bug_summary": "Returns x instead of the clamped lo/hi value."
+}
