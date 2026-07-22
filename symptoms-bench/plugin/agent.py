@@ -124,11 +124,12 @@ class SymptomsDebugger:
                 except Exception as exc:  # noqa: BLE001
                     error = f"{type(exc).__name__}: {exc}"
 
-                # Prefer smoke tests inside workspace for loop feedback; optional grade at end
-                feedback_tests = smoke_tests or (work / "tests")
-                if grade_tests is not None and attempt == self.max_attempts:
-                    # final attempt still uses smoke for consistency; grading happens outside
-                    pass
+                # Feedback must use tests inside the working copy so imports
+                # resolve to the patched sources (not the original buggy tree).
+                feedback_tests = work / "tests"
+                if smoke_tests is not None:
+                    # Rare override: caller-provided tests copied into work
+                    feedback_tests = smoke_tests
                 if feedback_tests.exists():
                     passed_smoke, new_logs = run_pytest(work, feedback_tests)
                 else:

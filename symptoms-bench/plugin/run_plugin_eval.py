@@ -134,7 +134,7 @@ def main() -> None:
                 task / "workspace",
                 logs,
                 grade_tests=task / "hidden_tests",
-                smoke_tests=task / "workspace" / "tests",
+                smoke_tests=None,  # use workspace copy's tests/ inside the loop
             )
             row = {
                 "task": task.name,
@@ -163,9 +163,10 @@ def main() -> None:
             "rows": rows,
         }
 
-    arms = [run_arm(args.attempts, f"{label}@k{args.attempts}")]
+    arms = []
     if args.compare_oneshot and args.attempts > 1:
-        arms.insert(0, run_arm(1, f"{label}@k1"))
+        arms.append(run_arm(1, f"{label}@k1"))
+    arms.append(run_arm(args.attempts, f"{label}@k{args.attempts}"))
 
     out = {
         "benchmark": "SymptomsBench",
