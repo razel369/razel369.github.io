@@ -38,6 +38,17 @@ python3 harness/run_eval.py --models qwen2.5:3b llama3.2:3b gemma2:2b
 
 See [STRONGER_MODELS.md](STRONGER_MODELS.md) for Groq / Gemini / OpenRouter setup.
 
+## Chat-interface benchmark (paste into any model UI)
+
+Ready-to-copy prompts live in [`interface/`](interface/):
+
+```bash
+python3 interface/build_pack.py          # regenerate prompts
+# then open interface/README.md
+# copy interface/SYSTEM.txt + interface/tasks/001_off_by_one_USER.txt into the chat
+python3 interface/grade_reply.py --task 001_off_by_one --reply replies/001_off_by_one.txt
+```
+
 ## Symptoms Debugger plugin
 
 The product bet: a **log-only repair loop** that makes local models competitive with Fable 5 on this niche.

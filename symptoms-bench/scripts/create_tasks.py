@@ -74,7 +74,7 @@ def main() -> None:
             def sum_all(nums: list[int]) -> int:
                 """Return the sum of every element in nums."""
                 total = 0
-                for i in range(len(nums) - 1):  # BUG: off-by-one
+                for i in range(len(nums) - 1):
                     total += nums[i]
                 return total
             '''
@@ -116,7 +116,7 @@ def main() -> None:
             "pricing.py": '''
             def apply_discount(price: float, discount: float) -> float:
                 """Apply fractional discount in [0, 1], e.g. 0.2 = 20% off."""
-                return price - discount  # BUG: wrong operator / formula
+                return price - discount
             '''
         },
         '''
@@ -162,7 +162,7 @@ def main() -> None:
                     result = hi
                 else:
                     result = x
-                return x  # BUG: should return result
+                return x
             '''
         },
         '''
@@ -204,7 +204,7 @@ def main() -> None:
                 """Return True if any banned word appears (case-insensitive)."""
                 tokens = text.split()
                 for token in tokens:
-                    if token in banned:  # BUG: case-sensitive
+                    if token in banned:
                         return True
                 return False
             '''
@@ -245,7 +245,7 @@ def main() -> None:
                 """Count occurrences of each item."""
                 counts: dict[str, int] = {}
                 for item in items:
-                    key = items[0]  # BUG: always first item
+                    key = items[0]
                     counts[key] = counts.get(key, 0) + 1
                 return counts
             '''
@@ -284,7 +284,7 @@ def main() -> None:
             "bags.py": '''
             def append_item(item: str, bucket: list[str] | None = []) -> list[str]:
                 """Append item to bucket and return it. Empty bucket by default."""
-                bucket.append(item)  # BUG: mutable default
+                bucket.append(item)
                 return bucket
             '''
         },
@@ -325,7 +325,7 @@ def main() -> None:
             "stats.py": '''
             def mean(nums: list[float]) -> float:
                 """Return arithmetic mean."""
-                return sum(nums) // len(nums)  # BUG: floor division
+                return sum(nums) // len(nums)
             '''
         },
         '''
@@ -364,7 +364,7 @@ def main() -> None:
                 """Return index of target or None."""
                 for i, value in enumerate(preds):
                     if value != target:
-                        return None  # BUG: gives up too early
+                        return None
                     return i
                 return None
             '''
@@ -406,7 +406,7 @@ def main() -> None:
             "rank.py": '''
             def longest_first(words: list[str]) -> list[str]:
                 """Return words sorted by length descending, stable for ties."""
-                return sorted(words, key=len)  # BUG: missing reverse=True
+                return sorted(words, key=len)
             '''
         },
         '''
@@ -441,7 +441,7 @@ def main() -> None:
             def factorial(n: int) -> int:
                 """Compute n! for n >= 0."""
                 if n == 0:
-                    return 0  # BUG: should be 1
+                    return 0
                 return n * factorial(n - 1)
             '''
         },
@@ -481,7 +481,7 @@ def main() -> None:
 
             def join_path(base: str, name: str) -> str:
                 """Join directory base with file name."""
-                return base + name  # BUG: missing separator
+                return base + name
             '''
         },
         '''
@@ -517,7 +517,7 @@ def main() -> None:
             "unique.py": '''
             def unique_preserve(items: list[str]) -> list[str]:
                 """Deduplicate while preserving first-seen order."""
-                return sorted(set(items))  # BUG: sorts instead of preserving order
+                return sorted(set(items))
             '''
         },
         '''

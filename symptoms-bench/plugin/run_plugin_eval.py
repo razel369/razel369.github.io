@@ -134,7 +134,8 @@ def main() -> None:
                 task / "workspace",
                 logs,
                 grade_tests=task / "hidden_tests",
-                smoke_tests=None,  # use workspace copy's tests/ inside the loop
+                smoke_tests=None,
+                task_id=task.name,
             )
             row = {
                 "task": task.name,

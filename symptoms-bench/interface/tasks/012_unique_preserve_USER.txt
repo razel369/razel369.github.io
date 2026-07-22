@@ -1,0 +1,32 @@
+Task: 012_unique_preserve
+Attempt: 1/1
+
+## Failing logs (symptoms only)
+```
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________________________ test_preserve _________________________________
+tests/test_smoke.py:7: in test_preserve
+    assert unique_preserve(["b", "a", "b", "c", "a"]) == ["b", "a", "c"]
+E   AssertionError: assert ['a', 'b', 'c'] == ['b', 'a', 'c']
+E     
+E     At index 0 diff: 'a' != 'b'
+E     Use -v to get more diff
+=========================== short test summary info ============================
+FAILED tests/test_smoke.py::test_preserve - AssertionError: assert ['a', 'b',...
+1 failed in 0.01s
+```
+
+## Project files
+
+### unique.py
+```python
+def unique_preserve(items: list[str]) -> list[str]:
+    """Deduplicate while preserving first-seen order."""
+    return sorted(set(items))
+```
+
+## Your job
+Fix the bug so the failing tests would pass.
+Reply with <<<FILE ...>>> <<<END>>> blocks only.
+Most likely file to edit: `unique.py`

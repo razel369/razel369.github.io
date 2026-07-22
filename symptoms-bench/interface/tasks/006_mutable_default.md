@@ -1,0 +1,44 @@
+# 006_mutable_default
+
+1. Set system from `../SYSTEM.txt` (or use COMBINED below).
+2. Copy the USER prompt.
+3. Save model reply to `../replies/006_mutable_default.txt`.
+4. Grade: `python3 interface/grade_reply.py --task 006_mutable_default --reply interface/replies/006_mutable_default.txt`
+
+## USER prompt
+
+```
+Task: 006_mutable_default
+Attempt: 1/1
+
+## Failing logs (symptoms only)
+```
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________________________________ test_no_leak _________________________________
+tests/test_smoke.py:9: in test_no_leak
+    assert a == ["x"]
+E   AssertionError: assert ['x', 'y'] == ['x']
+E     
+E     Left contains one more item: 'y'
+E     Use -v to get more diff
+=========================== short test summary info ============================
+FAILED tests/test_smoke.py::test_no_leak - AssertionError: assert ['x', 'y'] ...
+1 failed in 0.01s
+```
+
+## Project files
+
+### bags.py
+```python
+def append_item(item: str, bucket: list[str] | None = []) -> list[str]:
+    """Append item to bucket and return it. Empty bucket by default."""
+    bucket.append(item)
+    return bucket
+```
+
+## Your job
+Fix the bug so the failing tests would pass.
+Reply with <<<FILE ...>>> <<<END>>> blocks only.
+Most likely file to edit: `bags.py`
+```

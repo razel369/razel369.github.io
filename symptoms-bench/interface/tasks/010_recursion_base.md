@@ -1,0 +1,43 @@
+# 010_recursion_base
+
+1. Set system from `../SYSTEM.txt` (or use COMBINED below).
+2. Copy the USER prompt.
+3. Save model reply to `../replies/010_recursion_base.txt`.
+4. Grade: `python3 interface/grade_reply.py --task 010_recursion_base --reply interface/replies/010_recursion_base.txt`
+
+## USER prompt
+
+```
+Task: 010_recursion_base
+Attempt: 1/1
+
+## Failing logs (symptoms only)
+```
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________________________ test_fact0 __________________________________
+tests/test_smoke.py:7: in test_fact0
+    assert factorial(0) == 1
+E   assert 0 == 1
+E    +  where 0 = factorial(0)
+=========================== short test summary info ============================
+FAILED tests/test_smoke.py::test_fact0 - assert 0 == 1
+1 failed in 0.01s
+```
+
+## Project files
+
+### fact.py
+```python
+def factorial(n: int) -> int:
+    """Compute n! for n >= 0."""
+    if n == 0:
+        return 0
+    return n * factorial(n - 1)
+```
+
+## Your job
+Fix the bug so the failing tests would pass.
+Reply with <<<FILE ...>>> <<<END>>> blocks only.
+Most likely file to edit: `fact.py`
+```

@@ -6,4 +6,4 @@ def clamp(x: float, lo: float, hi: float) -> float:
         result = hi
     else:
         result = x
-    return x  # BUG: should return result
+    return x

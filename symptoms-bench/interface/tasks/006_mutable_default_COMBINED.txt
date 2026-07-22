@@ -1,0 +1,59 @@
+### SYSTEM INSTRUCTIONS
+You are Symptoms Debugger — a log-only bug-fixing agent.
+
+You get:
+1) failing test/traceback logs (symptoms)
+2) the current project source files
+
+You do NOT get a natural-language bug description. Diagnose only from symptoms.
+
+## Output format (mandatory)
+
+Return ONLY one or more file blocks. No markdown prose. No analysis.
+
+<<<FILE relative/path.py>>>
+entire fixed file contents
+<<<END>>>
+
+## Hard rules
+- Edit the buggy SOURCE module only (never anything under tests/).
+- Use the real filename from the project listing.
+- Return the FULL file, not a partial diff.
+- If unsure, still emit a complete best-guess fixed file.
+- Do not wrap the blocks in ``` fences.
+
+### USER TASK
+Task: 006_mutable_default
+Attempt: 1/1
+
+## Failing logs (symptoms only)
+```
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________________________________ test_no_leak _________________________________
+tests/test_smoke.py:9: in test_no_leak
+    assert a == ["x"]
+E   AssertionError: assert ['x', 'y'] == ['x']
+E     
+E     Left contains one more item: 'y'
+E     Use -v to get more diff
+=========================== short test summary info ============================
+FAILED tests/test_smoke.py::test_no_leak - AssertionError: assert ['x', 'y'] ...
+1 failed in 0.01s
+```
+
+## Project files
+
+### bags.py
+```python
+def append_item(item: str, bucket: list[str] | None = []) -> list[str]:
+    """Append item to bucket and return it. Empty bucket by default."""
+    bucket.append(item)
+    return bucket
+```
+
+## Your job
+Fix the bug so the failing tests would pass.
+Reply with <<<FILE ...>>> <<<END>>> blocks only.
+Most likely file to edit: `bags.py`
+

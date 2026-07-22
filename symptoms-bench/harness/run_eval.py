@@ -20,23 +20,8 @@ TASKS = ROOT / "tasks"
 RESULTS = ROOT / "results"
 GRADE = ROOT / "harness" / "grade.py"
 
-SYSTEM = """You are a debugging agent.
-You receive a small Python project and the failing test output (logs).
-There is NO separate bug description — diagnose from symptoms only.
-
-Format (example shape only — use the REAL source filename from the project):
-
-<<<FILE module.py>>>
-def function(...):
-    ... corrected implementation ...
-<<<END>>>
-
-Hard rules:
-- Fix the buggy SOURCE module listed under Project files.
-- NEVER modify anything under tests/.
-- Emit ONLY <<<FILE>>> blocks — no prose.
-- Include the complete file contents, not a partial patch.
-"""
+sys.path.insert(0, str(ROOT / "plugin"))
+from prompts import SYSTEM, build_task_user_prompt  # noqa: E402
 
 
 def list_tasks() -> list[Path]:
@@ -51,7 +36,8 @@ def collect_workspace_files(workspace: Path) -> dict[str, str]:
         if any(part in {"__pycache__", ".pytest_cache", "tests"} for part in path.parts):
             continue
         rel = path.relative_to(workspace).as_posix()
-        if path.suffix.lower() not in {".py", ".md", ".txt", ".toml", ".cfg", ".ini"}:
+        # Interface/agent prompts: source code only (skip README noise)
+        if path.suffix.lower() != ".py":
             continue
         files[rel] = path.read_text(encoding="utf-8")
     return files
@@ -61,21 +47,16 @@ def build_prompt(task_dir: Path) -> str:
     workspace = task_dir / "workspace"
     logs = (task_dir / "logs.txt").read_text(encoding="utf-8")
     files = collect_workspace_files(workspace)
-    parts = [
-        f"Task id: {task_dir.name}",
-        "Failing logs:",
-        "```",
-        logs.strip(),
-        "```",
-        "",
-        "Project files:",
-    ]
-    for rel, content in files.items():
-        parts.append(f"\n----- FILE: {rel} -----\n{content}")
-    parts.append(
-        "\nRespond with one or more <<<FILE path>>> ... <<<END>>> blocks containing FULL fixed file contents."
+    py_files = [p.name for p in sorted(workspace.glob("*.py"))]
+    hint = py_files[0] if len(py_files) == 1 else None
+    return build_task_user_prompt(
+        task_dir.name,
+        logs,
+        files,
+        attempt=1,
+        max_attempts=1,
+        hint_source=hint,
     )
-    return "\n".join(parts)
 
 
 def ollama_chat(model: str, prompt: str, timeout: int = 180) -> tuple[str, dict]:

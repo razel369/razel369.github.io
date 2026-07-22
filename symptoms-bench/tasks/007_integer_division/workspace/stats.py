@@ -1,3 +1,3 @@
 def mean(nums: list[float]) -> float:
     """Return arithmetic mean."""
-    return sum(nums) // len(nums)  # BUG: floor division
+    return sum(nums) // len(nums)
