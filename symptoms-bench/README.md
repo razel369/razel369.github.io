@@ -38,6 +38,22 @@ python3 harness/run_eval.py --models qwen2.5:3b llama3.2:3b gemma2:2b
 
 See [STRONGER_MODELS.md](STRONGER_MODELS.md) for Groq / Gemini / OpenRouter setup.
 
+## Symptoms Debugger plugin
+
+The product bet: a **log-only repair loop** that makes local models competitive with Fable 5 on this niche.
+
+```bash
+# Prove plugin lift (k=1 vs k=5) on the same local model
+python3 plugin/run_plugin_eval.py --backend hf \
+  --model Qwen/Qwen2.5-1.5B-Instruct --attempts 5 --compare-oneshot
+
+# Export prompts for a manual Fable 5 head-to-head
+python3 plugin/export_prompts.py
+```
+
+Details: [plugin/README.md](plugin/README.md) · [plugin/PROTOCOL_VS_FABLE.md](plugin/PROTOCOL_VS_FABLE.md)
+
+
 ## Metrics
 
 | Metric | Meaning |
