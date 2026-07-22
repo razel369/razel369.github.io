@@ -1,7 +1,12 @@
+interface/replies/*.txt
+interface/SCORECARD.md
+interface/scorecard.json
 **/__pycache__/
 **/.pytest_cache/
 *.pyc
 results/eval-*.log
+results/plugin-eval.log
 results/run-20260720-182941.json
 results/run-hf-20260720-183656.json
 results/run-hf-20260720-190405.json
+results/plugin-run-20260722-040836.json
